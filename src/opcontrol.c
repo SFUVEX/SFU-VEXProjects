@@ -73,9 +73,9 @@
 #define motor9 9 // = left front
 #define motor10 10 // = left back
 // pot height settings
-int goalHeight = 1550;
-int floorHeight = 300;
-int wallHeight = 1000;
+const int GOAL_HEIGHT = 1550;
+const int FLOOR_HEIGHT = 300;
+const int WALL_HEIGHT = 1000;
 
 //dummy variables
 int dummyTrim = 1;
@@ -225,7 +225,7 @@ void operatorControl()
 		{
 			pot = analogRead(8);
 
-			if (pot < goalHeight)
+			if (pot < GOAL_HEIGHT)
 			{
 				motorSet(motor3, -127); // arm up
 				motorSet(motor4, 127);
@@ -233,7 +233,7 @@ void operatorControl()
 				motorSet(motor8, 127);
 			}
 
-			if (pot > goalHeight)
+			if (pot > GOAL_HEIGHT)
 			{
 				motorSet(motor3, -10); // trim
 				motorSet(motor4, 10);
@@ -256,7 +256,7 @@ void operatorControl()
 		{
 			pot = analogRead(8);
 
-			if (pot > floorHeight)
+			if (pot > FLOOR_HEIGHT)
 			{
 				motorSet(motor3, 127); // arm down
 				motorSet(motor4, -127);
@@ -264,7 +264,7 @@ void operatorControl()
 				motorSet(motor8, -127);
 			}
 
-			if (pot < floorHeight)
+			if (pot < FLOOR_HEIGHT)
 			{
 				motorSet(motor3, 7); // trim down
 				motorSet(motor4, -7);
@@ -286,7 +286,7 @@ void operatorControl()
 		{
 			pot = analogRead(8);
 
-			if (pot < wallHeight)
+			if (pot < WALL_HEIGHT)
 			{
 				motorSet(motor3, -127); // arm up
 				motorSet(motor4, 127);
@@ -294,7 +294,7 @@ void operatorControl()
 				motorSet(motor8, 127);
 			}
 
-			if (pot > wallHeight)
+			if (pot > WALL_HEIGHT)
 			{
 				motorSet(motor3, -10); // trim
 				motorSet(motor4, 10);
@@ -418,7 +418,7 @@ void twoDrivers()
 			{
 				pot = analogRead(8);
 
-				if (pot < goalHeight)
+				if (pot < GOAL_HEIGHT)
 				{
 					motorSet(motor3, -127); // arm up
 					motorSet(motor4, 127);
@@ -426,7 +426,7 @@ void twoDrivers()
 					motorSet(motor8, 127);
 				}
 
-				if (pot > goalHeight)
+				if (pot > GOAL_HEIGHT)
 				{
 					motorSet(motor3, -10); // trim
 					motorSet(motor4, 10);
@@ -463,7 +463,7 @@ void twoDrivers()
 			{
 				pot = analogRead(8);
 
-				if (pot > floorHeight)
+				if (pot > FLOOR_HEIGHT)
 				{
 					motorSet(motor3, 127); // arm down
 					motorSet(motor4, -127);
@@ -471,7 +471,7 @@ void twoDrivers()
 					motorSet(motor8, -127);
 				}
 
-				if (pot < floorHeight)
+				if (pot < FLOOR_HEIGHT)
 				{
 					motorSet(motor3, 7); // trim down
 					motorSet(motor4, -7);
@@ -508,7 +508,7 @@ void twoDrivers()
 			{
 				pot = analogRead(8);
 
-				if (pot < wallHeight)
+				if (pot < WALL_HEIGHT)
 				{
 					motorSet(motor3, -127); // arm up
 					motorSet(motor4, 127);
@@ -516,7 +516,7 @@ void twoDrivers()
 					motorSet(motor8, 127);
 				}
 
-				if (pot > wallHeight)
+				if (pot > WALL_HEIGHT)
 				{
 					motorSet(motor3, -10); // trim
 					motorSet(motor4, 10);
@@ -702,7 +702,7 @@ void cubicDrive()
 		{
 			pot = analogRead(8);
 
-			if (pot < goalHeight)
+			if (pot < GOAL_HEIGHT)
 			{
 				motorSet(motor3, -127); // arm up
 				motorSet(motor4, 127);
@@ -710,7 +710,7 @@ void cubicDrive()
 				motorSet(motor8, 127);
 			}
 
-			if (pot > goalHeight)
+			if (pot > GOAL_HEIGHT)
 			{
 				motorSet(motor3, -10); // trim
 				motorSet(motor4, 10);
@@ -733,7 +733,7 @@ void cubicDrive()
 		{
 			pot = analogRead(8);
 
-			if (pot > floorHeight)
+			if (pot > FLOOR_HEIGHT)
 			{
 				motorSet(motor3, 127); // arm down
 				motorSet(motor4, -127);
@@ -741,7 +741,7 @@ void cubicDrive()
 				motorSet(motor8, -127);
 			}
 
-			if (pot < floorHeight)
+			if (pot < FLOOR_HEIGHT)
 			{
 				motorSet(motor3, 7); // trim down
 				motorSet(motor4, -7);
@@ -763,7 +763,7 @@ void cubicDrive()
 		{
 			pot = analogRead(8);
 
-			if (pot < wallHeight)
+			if (pot < WALL_HEIGHT)
 			{
 				motorSet(motor3, -127); // arm up
 				motorSet(motor4, 127);
@@ -771,7 +771,7 @@ void cubicDrive()
 				motorSet(motor8, 127);
 			}
 
-			if (pot > wallHeight)
+			if (pot > WALL_HEIGHT)
 			{
 				motorSet(motor3, -10); // trim
 				motorSet(motor4, 10);

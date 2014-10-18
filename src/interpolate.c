@@ -60,7 +60,7 @@ CubicSpline cubicInterpolate(
 }
 
 /**
- * Evaluate an existing spline at a given point
+ * Evaluate an existing cubic spline at a given point
  */
 double evalCubicSpline(CubicSpline s,double x)
 {
