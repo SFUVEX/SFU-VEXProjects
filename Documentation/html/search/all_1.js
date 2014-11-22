@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['a0',['a0',['../struct_cubic_spline.html#ad95dcba445836b4ba94129111a4b888c',1,'CubicSpline']]],
+  ['a1',['a1',['../struct_cubic_spline.html#a5d015a3751aec61f2442b957cb6f517a',1,'CubicSpline']]],
+  ['a2',['a2',['../struct_cubic_spline.html#ac55c2d269ed76bd9bdb7fb25f3533a4e',1,'CubicSpline']]],
+  ['a3',['a3',['../struct_cubic_spline.html#aac922a785af4fb14fc828152cd94c34e',1,'CubicSpline']]],
+  ['accel_5fx',['ACCEL_X',['../_a_p_i_8h.html#af4cc2866af9a3674feedf15a2bb2b540',1,'API.h']]],
+  ['accel_5fy',['ACCEL_Y',['../_a_p_i_8h.html#a73df2dcbe32c4a51551b34034093c37f',1,'API.h']]],
+  ['analogcalibrate',['analogCalibrate',['../_a_p_i_8h.html#aab54c390b2ff91b5b7861db877136392',1,'API.h']]],
+  ['analogread',['analogRead',['../_a_p_i_8h.html#a5da86064604c539c2b6a5e2993289108',1,'API.h']]],
+  ['analogreadcalibrated',['analogReadCalibrated',['../_a_p_i_8h.html#adefc4d860dbaed441901d47d8c3598ee',1,'API.h']]],
+  ['analogreadcalibratedhr',['analogReadCalibratedHR',['../_a_p_i_8h.html#a68b2c3e0863b8f4cb022fcdd77d2f5fd',1,'API.h']]],
+  ['api_2eh',['API.h',['../_a_p_i_8h.html',1,'']]],
+  ['armcenter',['armCenter',['../opcontrol_8c.html#a19635eb06a67c68f3f697c0e3f1d6c77',1,'opcontrol.c']]],
+  ['armdown',['armDown',['../motor_subroutines_8h.html#ad648e357062feff5d42292d885bf8fbb',1,'armDown(int x):&#160;motorSubroutines.c'],['../motor_subroutines_8c.html#ad648e357062feff5d42292d885bf8fbb',1,'armDown(int x):&#160;motorSubroutines.c']]],
+  ['armdowndead',['armDownDead',['../motor_subroutines_8h.html#a414968e07a5c9795e157082f5fcdecff',1,'armDownDead():&#160;motorSubroutines.c'],['../motor_subroutines_8c.html#a414968e07a5c9795e157082f5fcdecff',1,'armDownDead():&#160;motorSubroutines.c']]],
+  ['armdowntrim',['armDownTrim',['../motor_subroutines_8h.html#ad63ddcc7f316111a2b934caedf03b2a3',1,'armDownTrim():&#160;motorSubroutines.c'],['../motor_subroutines_8c.html#ad63ddcc7f316111a2b934caedf03b2a3',1,'armDownTrim():&#160;motorSubroutines.c']]],
+  ['armmax',['armMax',['../opcontrol_8c.html#a96d104178dd23555cc558566c29d0c13',1,'opcontrol.c']]],
+  ['armmin',['armMin',['../opcontrol_8c.html#a12f3ac4167e0cb7479b54fdc2f990e58',1,'opcontrol.c']]],
+  ['armup',['armUp',['../motor_subroutines_8h.html#abd693d9e6f00c104c44c047a7aca6738',1,'armUp(int x):&#160;motorSubroutines.c'],['../motor_subroutines_8c.html#abd693d9e6f00c104c44c047a7aca6738',1,'armUp(int x):&#160;motorSubroutines.c']]],
+  ['armupdead',['armUpDead',['../motor_subroutines_8h.html#a83ea9927b66be6a4c1bce71ba989a24a',1,'armUpDead():&#160;motorSubroutines.c'],['../motor_subroutines_8c.html#a83ea9927b66be6a4c1bce71ba989a24a',1,'armUpDead():&#160;motorSubroutines.c']]],
+  ['armuptrim',['armUpTrim',['../motor_subroutines_8h.html#a1123f1885c46737ddf7db5b4537c8b33',1,'armUpTrim():&#160;motorSubroutines.c'],['../motor_subroutines_8c.html#a1123f1885c46737ddf7db5b4537c8b33',1,'armUpTrim():&#160;motorSubroutines.c']]],
+  ['auto_2ec',['auto.c',['../auto_8c.html',1,'']]],
+  ['auto_2eh',['auto.h',['../auto_8h.html',1,'']]],
+  ['autonomous',['autonomous',['../main_8h.html#a3c7ca506bbc071fa740de13805b7f376',1,'autonomous():&#160;auto.c'],['../auto_8c.html#a3c7ca506bbc071fa740de13805b7f376',1,'autonomous():&#160;auto.c']]],
+  ['autonomous_5fmode',['AUTONOMOUS_MODE',['../auto_8h.html#a9b2fec8bbeaa42c467a35f3b66e0c646',1,'AUTONOMOUS_MODE():&#160;auto.h'],['../auto_8h.html#a9e70b918f6d982ce908ce393528ff9e8',1,'AUTONOMOUS_MODE():&#160;auto.h']]]
+];

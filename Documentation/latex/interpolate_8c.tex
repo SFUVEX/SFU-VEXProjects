@@ -1,0 +1,64 @@
+\hypertarget{interpolate_8c}{\section{C\+:/\+Users/tristan.may95/\+Documents/\+Git\+Hub/\+Worlds\+\_\+2.0/src/interpolate.c File Reference}
+\label{interpolate_8c}\index{C\+:/\+Users/tristan.\+may95/\+Documents/\+Git\+Hub/\+Worlds\+\_\+2.\+0/src/interpolate.\+c@{C\+:/\+Users/tristan.\+may95/\+Documents/\+Git\+Hub/\+Worlds\+\_\+2.\+0/src/interpolate.\+c}}
+}
+{\ttfamily \#include $<$math.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_cubic_spline}{Cubic\+Spline}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{interpolate_8c_a5875252d672c04d0099f838a16c8e58c}{cosine\+Interpolate} (double y1, double y2, double x)
+\item 
+double \hyperlink{interpolate_8c_a17f62981903b28c63d85874216137ba4}{linear\+Interpolate} (double y1, double y2, double x)
+\item 
+\hyperlink{struct_cubic_spline}{Cubic\+Spline} \hyperlink{interpolate_8c_afd0337f44dfbda3c0b3a0c40c6d6ca73}{cubic\+Interpolate} (double y0, double y1, double y2, double y3)
+\item 
+double \hyperlink{interpolate_8c_acd5a0b59e90ecf60b8c0b018a3e2f0ae}{eval\+Cubic\+Spline} (\hyperlink{struct_cubic_spline}{Cubic\+Spline} s, double x)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{interpolate_8c_a5875252d672c04d0099f838a16c8e58c}{\index{interpolate.\+c@{interpolate.\+c}!cosine\+Interpolate@{cosine\+Interpolate}}
+\index{cosine\+Interpolate@{cosine\+Interpolate}!interpolate.\+c@{interpolate.\+c}}
+\subsubsection[{cosine\+Interpolate}]{\setlength{\rightskip}{0pt plus 5cm}double cosine\+Interpolate (
+\begin{DoxyParamCaption}
+\item[{double}]{y1, }
+\item[{double}]{y2, }
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)}}\label{interpolate_8c_a5875252d672c04d0099f838a16c8e58c}
+\hypertarget{interpolate_8c_afd0337f44dfbda3c0b3a0c40c6d6ca73}{\index{interpolate.\+c@{interpolate.\+c}!cubic\+Interpolate@{cubic\+Interpolate}}
+\index{cubic\+Interpolate@{cubic\+Interpolate}!interpolate.\+c@{interpolate.\+c}}
+\subsubsection[{cubic\+Interpolate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cubic\+Spline} cubic\+Interpolate (
+\begin{DoxyParamCaption}
+\item[{double}]{y0, }
+\item[{double}]{y1, }
+\item[{double}]{y2, }
+\item[{double}]{y3}
+\end{DoxyParamCaption}
+)}}\label{interpolate_8c_afd0337f44dfbda3c0b3a0c40c6d6ca73}
+Generate a cubic spline through the given points \hypertarget{interpolate_8c_acd5a0b59e90ecf60b8c0b018a3e2f0ae}{\index{interpolate.\+c@{interpolate.\+c}!eval\+Cubic\+Spline@{eval\+Cubic\+Spline}}
+\index{eval\+Cubic\+Spline@{eval\+Cubic\+Spline}!interpolate.\+c@{interpolate.\+c}}
+\subsubsection[{eval\+Cubic\+Spline}]{\setlength{\rightskip}{0pt plus 5cm}double eval\+Cubic\+Spline (
+\begin{DoxyParamCaption}
+\item[{{\bf Cubic\+Spline}}]{s, }
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)}}\label{interpolate_8c_acd5a0b59e90ecf60b8c0b018a3e2f0ae}
+Evaluate an existing cubic spline at a given point \hypertarget{interpolate_8c_a17f62981903b28c63d85874216137ba4}{\index{interpolate.\+c@{interpolate.\+c}!linear\+Interpolate@{linear\+Interpolate}}
+\index{linear\+Interpolate@{linear\+Interpolate}!interpolate.\+c@{interpolate.\+c}}
+\subsubsection[{linear\+Interpolate}]{\setlength{\rightskip}{0pt plus 5cm}double linear\+Interpolate (
+\begin{DoxyParamCaption}
+\item[{double}]{y1, }
+\item[{double}]{y2, }
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)}}\label{interpolate_8c_a17f62981903b28c63d85874216137ba4}
+Do a straight linear interpolation between y1 and y2. 
+\begin{DoxyParams}{Parameters}
+{\em x} & value from 0.\+0 to 1.\+0 where y1=L(0.\+0) and y2=L(1.\+0) \\
+\hline
+\end{DoxyParams}

@@ -115,51 +115,51 @@ void operatorControl()
 		int channel3 = joystickGetAnalog(1, 3); // (joystick 1, channel 3)
 
 // drive functions////////////////////////////////////////////////////////////////////////////////////////
-		motorSet(MOTOR1, channel2); // right drive back
-		motorSet(MOTOR2, channel2); // right drive front
-		motorSet(MOTOR10, channel3); // left drive abck
-		motorSet(MOTOR9, channel3); // left drive front
+		motorSet(MOTOR_DRIVE_RIGHT_BACK, channel2); // right drive back
+		motorSet(MOTOR_DRIVE_RIGHT_FRONT, channel2); // right drive front
+		motorSet(MOTOR_ARM_LEFT_BACK, channel3); // left drive abck
+		motorSet(MOTOR_ARM_LEFT_FRONT, channel3); // left drive front
 
 // arm function/////////////////////////////////////////////////////////////////////////////////////////////
 		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP)) // arm up
 		{
-			motorSet(MOTOR4, 127); // arm right up
-			motorSet(MOTOR7, -127); // arm left
-			motorSet(MOTOR3, -127); // arm down up
-			motorSet(MOTOR8, 127); // arm left down
+			motorSet(MOTOR_ARM_RIGHT_TOP, 127); // arm right up
+			motorSet(MOTOR_ARM_LEFT_TOP, -127); // arm left
+			motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm down up
+			motorSet(MOTOR_ARM_LEFT_BOTTOM, 127); // arm left down
 		}
 
 		else if (joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // arm down
 		{
-			motorSet(MOTOR4, -127); // arm right up
-			motorSet(MOTOR7, 127); // arm left up
-			motorSet(MOTOR3, 127); // arm right down
-			motorSet(MOTOR8, -127); // arm left down
+			motorSet(MOTOR_ARM_RIGHT_TOP, -127); // arm right up
+			motorSet(MOTOR_ARM_LEFT_TOP, 127); // arm left up
+			motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127); // arm right down
+			motorSet(MOTOR_ARM_LEFT_BOTTOM, -127); // arm left down
 		}
 		else // trim arm up
 		{
 			if (pot > 1600) // high trim
 			{
-				motorSet(MOTOR4, 10);
-				motorSet(MOTOR7, -10);
-				motorSet(MOTOR3, -10);
-				motorSet(MOTOR8, 10);
+				motorSet(MOTOR_ARM_RIGHT_TOP, 10);
+				motorSet(MOTOR_ARM_LEFT_TOP, -10);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
 			}
 
 			else if (pot < 300) //  trim down when arm is low
 			{
-				motorSet(MOTOR4, -7);
-				motorSet(MOTOR7, 7);
-				motorSet(MOTOR3, 7);
-				motorSet(MOTOR8, -7);
+				motorSet(MOTOR_ARM_RIGHT_TOP, -7);
+				motorSet(MOTOR_ARM_LEFT_TOP, 7);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, 7);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, -7);
 			}
 
 			else //trim normal
 			{
-				motorSet(MOTOR4, 7);
-				motorSet(MOTOR7, -7);
-				motorSet(MOTOR3, -7);
-				motorSet(MOTOR8, 7);
+				motorSet(MOTOR_ARM_RIGHT_TOP, 7);
+				motorSet(MOTOR_ARM_LEFT_TOP, -7);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -7);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, 7);
 			}
 
 		}
@@ -167,19 +167,19 @@ void operatorControl()
 // intake functions/////////////////////////////////////////////////////////////////////////////////////
 		if (joystickGetDigital(joystick1, joystickchannel5, JOY_UP)) //intake
 		{
-			motorSet(MOTOR5, 127); // arm right
-			motorSet(MOTOR6, -127); // arm left
+			motorSet(MOTOR_INTAKE_RIGHT, 127); // arm right
+			motorSet(MOTOR_INTAKE_LEFT, -127); // arm left
 		}
 
 		else if (joystickGetDigital(joystick1, joystickchannel5, JOY_DOWN)) // outtake
 		{
-			motorSet(MOTOR5, -127); // arm right
-			motorSet(MOTOR6, 127); // arm left
+			motorSet(MOTOR_INTAKE_RIGHT, -127); // arm right
+			motorSet(MOTOR_INTAKE_LEFT, 127); // arm left
 		}
 		else
 		{
-			motorStop(MOTOR5); // arm right
-			motorStop(MOTOR6); // arm left
+			motorStop(MOTOR_INTAKE_RIGHT); // arm right
+			motorStop(MOTOR_INTAKE_LEFT); // arm left
 		}
 
 // shortcut manual overrides and cancel ////////////////////////////////////////////////////////////////////////
@@ -218,18 +218,18 @@ void operatorControl()
 
 			if (pot < GOAL_HEIGHT)
 			{
-				motorSet(MOTOR3, -127); // arm up
-				motorSet(MOTOR4, 127);
-				motorSet(MOTOR7, -127);
-				motorSet(MOTOR8, 127);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm up
+				motorSet(MOTOR_ARM_RIGHT_TOP, 127);
+				motorSet(MOTOR_ARM_LEFT_TOP, -127);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
 			}
 
 			if (pot > GOAL_HEIGHT)
 			{
-				motorSet(MOTOR3, -10); // trim
-				motorSet(MOTOR4, 10);
-				motorSet(MOTOR7, -10);
-				motorSet(MOTOR8, 10);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10); // trim
+				motorSet(MOTOR_ARM_RIGHT_TOP, 10);
+				motorSet(MOTOR_ARM_LEFT_TOP, -10);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
 
 				armMax = 0; // reset the variable so it jumps out of this if loop
 			}
@@ -249,18 +249,18 @@ void operatorControl()
 
 			if (pot > FLOOR_HEIGHT)
 			{
-				motorSet(MOTOR3, 127); // arm down
-				motorSet(MOTOR4, -127);
-				motorSet(MOTOR7, 127);
-				motorSet(MOTOR8, -127);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127); // arm down
+				motorSet(MOTOR_ARM_RIGHT_TOP, -127);
+				motorSet(MOTOR_ARM_LEFT_TOP, 127);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, -127);
 			}
 
 			if (pot < FLOOR_HEIGHT)
 			{
-				motorSet(MOTOR3, 7); // trim down
-				motorSet(MOTOR4, -7);
-				motorSet(MOTOR7, 7);
-				motorSet(MOTOR8, -7);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, 7); // trim down
+				motorSet(MOTOR_ARM_RIGHT_TOP, -7);
+				motorSet(MOTOR_ARM_LEFT_TOP, 7);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, -7);
 				armMin = 0; // reset the variable so it jumps out of this if loop
 			}
 		}
@@ -279,18 +279,18 @@ void operatorControl()
 
 			if (pot < WALL_HEIGHT)
 			{
-				motorSet(MOTOR3, -127); // arm up
-				motorSet(MOTOR4, 127);
-				motorSet(MOTOR7, -127);
-				motorSet(MOTOR8, 127);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm up
+				motorSet(MOTOR_ARM_RIGHT_TOP, 127);
+				motorSet(MOTOR_ARM_LEFT_TOP, -127);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
 			}
 
 			if (pot > WALL_HEIGHT)
 			{
-				motorSet(MOTOR3, -10); // trim
-				motorSet(MOTOR4, 10);
-				motorSet(MOTOR7, -10);
-				motorSet(MOTOR8, 10);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10); // trim
+				motorSet(MOTOR_ARM_RIGHT_TOP, 10);
+				motorSet(MOTOR_ARM_LEFT_TOP, -10);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
 				armCenter = 0; // reset the variable so it jumps out of this if loop
 			}
 		}
@@ -347,19 +347,19 @@ void twoDrivers()
 		}
 
 		// drive functions////////////////////////////////////////////////////////////////////////////////////////
-		motorSet(MOTOR1, mapped2); // right drive back
-		motorSet(MOTOR2, mapped2); // right drive front
-		motorSet(MOTOR10, mapped3); // left drive abck
-		motorSet(MOTOR9, mapped3); // left drive front
+		motorSet(MOTOR_DRIVE_RIGHT_BACK, mapped2); // right drive back
+		motorSet(MOTOR_DRIVE_RIGHT_FRONT, mapped2); // right drive front
+		motorSet(MOTOR_ARM_LEFT_BACK, mapped3); // left drive abck
+		motorSet(MOTOR_ARM_LEFT_FRONT, mapped3); // left drive front
 
 		// arm function/////////////////////////////////////////////////////////////////////////////////////////////
 		if (dummyTrim == 1)
 		{
-			motorSet(MOTOR3, -channel22); // right arm down
-			motorSet(MOTOR4, channel22); // right arm up
-			motorSet(MOTOR7, -channel22); // left arm up
+			motorSet(MOTOR_ARM_RIGHT_BOTTOM, -channel22); // right arm down
+			motorSet(MOTOR_ARM_RIGHT_TOP, channel22); // right arm up
+			motorSet(MOTOR_ARM_LEFT_TOP, -channel22); // left arm up
 		}
-		motorSet(MOTOR8, channel22); // left arm down
+		motorSet(MOTOR_ARM_LEFT_BOTTOM, channel22); // left arm down
 
 		// arm trim////////////////////
 		if (dummyTrim == 1) //trim!
@@ -368,26 +368,26 @@ void twoDrivers()
 			{
 				if (pot > 1600) // high trim
 				{
-					motorSet(MOTOR4, 10);
-					motorSet(MOTOR7, -10);
-					motorSet(MOTOR3, -10);
-					motorSet(MOTOR8, 10);
+					motorSet(MOTOR_ARM_RIGHT_TOP, 10);
+					motorSet(MOTOR_ARM_LEFT_TOP, -10);
+					motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10);
+					motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
 				}
 
 				else if (pot < 300) //  trim down when arm is low
 				{
-					motorSet(MOTOR4, -7);
-					motorSet(MOTOR7, 7);
-					motorSet(MOTOR3, 7);
-					motorSet(MOTOR8, -7);
+					motorSet(MOTOR_ARM_RIGHT_TOP, -7);
+					motorSet(MOTOR_ARM_LEFT_TOP, 7);
+					motorSet(MOTOR_ARM_RIGHT_BOTTOM, 7);
+					motorSet(MOTOR_ARM_LEFT_BOTTOM, -7);
 				}
 
 				else //trim normal
 				{
-					motorSet(MOTOR4, 7);
-					motorSet(MOTOR7, -7);
-					motorSet(MOTOR3, -7);
-					motorSet(MOTOR8, 7);
+					motorSet(MOTOR_ARM_RIGHT_TOP, 7);
+					motorSet(MOTOR_ARM_LEFT_TOP, -7);
+					motorSet(MOTOR_ARM_RIGHT_BOTTOM, -7);
+					motorSet(MOTOR_ARM_LEFT_BOTTOM, 7);
 				}
 
 			}
@@ -411,18 +411,18 @@ void twoDrivers()
 
 				if (pot < GOAL_HEIGHT)
 				{
-					motorSet(MOTOR3, -127); // arm up
-					motorSet(MOTOR4, 127);
-					motorSet(MOTOR7, -127);
-					motorSet(MOTOR8, 127);
+					motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm up
+					motorSet(MOTOR_ARM_RIGHT_TOP, 127);
+					motorSet(MOTOR_ARM_LEFT_TOP, -127);
+					motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
 				}
 
 				if (pot > GOAL_HEIGHT)
 				{
-					motorSet(MOTOR3, -10); // trim
-					motorSet(MOTOR4, 10);
-					motorSet(MOTOR7, -10);
-					motorSet(MOTOR8, 10);
+					motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10); // trim
+					motorSet(MOTOR_ARM_RIGHT_TOP, 10);
+					motorSet(MOTOR_ARM_LEFT_TOP, -10);
+					motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
 
 					armMax = 0; // reset the variable so it jumps out of this if loop
 					armMin = 0;
@@ -456,18 +456,18 @@ void twoDrivers()
 
 				if (pot > FLOOR_HEIGHT)
 				{
-					motorSet(MOTOR3, 127); // arm down
-					motorSet(MOTOR4, -127);
-					motorSet(MOTOR7, 127);
-					motorSet(MOTOR8, -127);
+					motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127); // arm down
+					motorSet(MOTOR_ARM_RIGHT_TOP, -127);
+					motorSet(MOTOR_ARM_LEFT_TOP, 127);
+					motorSet(MOTOR_ARM_LEFT_BOTTOM, -127);
 				}
 
 				if (pot < FLOOR_HEIGHT)
 				{
-					motorSet(MOTOR3, 7); // trim down
-					motorSet(MOTOR4, -7);
-					motorSet(MOTOR7, 7);
-					motorSet(MOTOR8, -7);
+					motorSet(MOTOR_ARM_RIGHT_BOTTOM, 7); // trim down
+					motorSet(MOTOR_ARM_RIGHT_TOP, -7);
+					motorSet(MOTOR_ARM_LEFT_TOP, 7);
+					motorSet(MOTOR_ARM_LEFT_BOTTOM, -7);
 
 					armMin = 0; // reset the variable so it jumps out of this if loop
 					armMax = 0;
@@ -501,18 +501,18 @@ void twoDrivers()
 
 				if (pot < WALL_HEIGHT)
 				{
-					motorSet(MOTOR3, -127); // arm up
-					motorSet(MOTOR4, 127);
-					motorSet(MOTOR7, -127);
-					motorSet(MOTOR8, 127);
+					motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm up
+					motorSet(MOTOR_ARM_RIGHT_TOP, 127);
+					motorSet(MOTOR_ARM_LEFT_TOP, -127);
+					motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
 				}
 
 				if (pot > WALL_HEIGHT)
 				{
-					motorSet(MOTOR3, -10); // trim
-					motorSet(MOTOR4, 10);
-					motorSet(MOTOR7, -10);
-					motorSet(MOTOR8, 10);
+					motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10); // trim
+					motorSet(MOTOR_ARM_RIGHT_TOP, 10);
+					motorSet(MOTOR_ARM_LEFT_TOP, -10);
+					motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
 					armCenter = 0; // reset the variable so it jumps out of this if loop
 					dummyTrim = 1;
 				}
@@ -533,19 +533,19 @@ void twoDrivers()
 		// intake functions/////////////////////////////////////////////////////////////////////////////////////
 		if (joystickGetDigital(joystick2, joystickchannel6, JOY_UP)) //intake
 		{
-			motorSet(MOTOR5, 127); // arm right
-			motorSet(MOTOR6, -127); // arm left
+			motorSet(MOTOR_INTAKE_RIGHT, 127); // arm right
+			motorSet(MOTOR_INTAKE_LEFT, -127); // arm left
 		}
 
 		else if (joystickGetDigital(joystick2, joystickchannel5, JOY_UP)) // outtake
 		{
-			motorSet(MOTOR5, -127); // arm right
-			motorSet(MOTOR6, 127); // arm left
+			motorSet(MOTOR_INTAKE_RIGHT, -127); // arm right
+			motorSet(MOTOR_INTAKE_LEFT, 127); // arm left
 		}
 		else
 		{
-			motorStop(MOTOR5); // arm right
-			motorStop(MOTOR6); // arm left
+			motorStop(MOTOR_INTAKE_RIGHT); // arm right
+			motorStop(MOTOR_INTAKE_LEFT); // arm left
 		}
 
 /////////////TOP OF CUBIC///////////////////////////////////////
@@ -592,51 +592,51 @@ void cubicDrive()
 		}
 
 		// drive functions////////////////////////////////////////////////////////////////////////////////////////
-		motorSet(MOTOR1, mapped2); // right drive back
-		motorSet(MOTOR2, mapped2); // right drive front
-		motorSet(MOTOR10, mapped3); // left drive abck
-		motorSet(MOTOR9, mapped3); // left drive front
+		motorSet(MOTOR_DRIVE_RIGHT_BACK, mapped2); // right drive back
+		motorSet(MOTOR_DRIVE_RIGHT_FRONT, mapped2); // right drive front
+		motorSet(MOTOR_ARM_LEFT_BACK, mapped3); // left drive abck
+		motorSet(MOTOR_ARM_LEFT_FRONT, mapped3); // left drive front
 
 		// arm function/////////////////////////////////////////////////////////////////////////////////////////////
 		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP)) // arm up
 		{
-			motorSet(MOTOR4, 127); // arm right up
-			motorSet(MOTOR7, -127); // arm left
-			motorSet(MOTOR3, -127); // arm down up
-			motorSet(MOTOR8, 127); // arm left down
+			motorSet(MOTOR_ARM_RIGHT_TOP, 127); // arm right up
+			motorSet(MOTOR_ARM_LEFT_TOP, -127); // arm left
+			motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm down up
+			motorSet(MOTOR_ARM_LEFT_BOTTOM, 127); // arm left down
 		}
 
 		else if (joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // arm down
 		{
-			motorSet(MOTOR4, -127); // arm right up
-			motorSet(MOTOR7, 127); // arm left up
-			motorSet(MOTOR3, 127); // arm right down
-			motorSet(MOTOR8, -127); // arm left down
+			motorSet(MOTOR_ARM_RIGHT_TOP, -127); // arm right up
+			motorSet(MOTOR_ARM_LEFT_TOP, 127); // arm left up
+			motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127); // arm right down
+			motorSet(MOTOR_ARM_LEFT_BOTTOM, -127); // arm left down
 		}
 		else // trim arm up
 		{
 			if (pot > 1600) // high trim
 			{
-				motorSet(MOTOR4, 10);
-				motorSet(MOTOR7, -10);
-				motorSet(MOTOR3, -10);
-				motorSet(MOTOR8, 10);
+				motorSet(MOTOR_ARM_RIGHT_TOP, 10);
+				motorSet(MOTOR_ARM_LEFT_TOP, -10);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
 			}
 
 			else if (pot < 300) //  trim down when arm is low
 			{
-				motorSet(MOTOR4, -7);
-				motorSet(MOTOR7, 7);
-				motorSet(MOTOR3, 7);
-				motorSet(MOTOR8, -7);
+				motorSet(MOTOR_ARM_RIGHT_TOP, -7);
+				motorSet(MOTOR_ARM_LEFT_TOP, 7);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, 7);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, -7);
 			}
 
 			else //trim normal
 			{
-				motorSet(MOTOR4, 7);
-				motorSet(MOTOR7, -7);
-				motorSet(MOTOR3, -7);
-				motorSet(MOTOR8, 7);
+				motorSet(MOTOR_ARM_RIGHT_TOP, 7);
+				motorSet(MOTOR_ARM_LEFT_TOP, -7);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -7);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, 7);
 			}
 
 		}
@@ -644,19 +644,19 @@ void cubicDrive()
 		// intake functions/////////////////////////////////////////////////////////////////////////////////////
 		if (joystickGetDigital(joystick1, joystickchannel5, JOY_UP)) //intake
 		{
-			motorSet(MOTOR5, 127); // arm right
-			motorSet(MOTOR6, -127); // arm left
+			motorSet(MOTOR_INTAKE_RIGHT, 127); // arm right
+			motorSet(MOTOR_INTAKE_LEFT, -127); // arm left
 		}
 
 		else if (joystickGetDigital(joystick1, joystickchannel5, JOY_DOWN)) // outtake
 		{
-			motorSet(MOTOR5, -127); // arm right
-			motorSet(MOTOR6, 127); // arm left
+			motorSet(MOTOR_INTAKE_RIGHT, -127); // arm right
+			motorSet(MOTOR_INTAKE_LEFT, 127); // arm left
 		}
 		else
 		{
-			motorStop(MOTOR5); // arm right
-			motorStop(MOTOR6); // arm left
+			motorStop(MOTOR_INTAKE_RIGHT); // arm right
+			motorStop(MOTOR_INTAKE_LEFT); // arm left
 		}
 
 		// shortcut manual overrides and cancel ////////////////////////////////////////////////////////////////////////
@@ -695,18 +695,18 @@ void cubicDrive()
 
 			if (pot < GOAL_HEIGHT)
 			{
-				motorSet(MOTOR3, -127); // arm up
-				motorSet(MOTOR4, 127);
-				motorSet(MOTOR7, -127);
-				motorSet(MOTOR8, 127);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm up
+				motorSet(MOTOR_ARM_RIGHT_TOP, 127);
+				motorSet(MOTOR_ARM_LEFT_TOP, -127);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
 			}
 
 			if (pot > GOAL_HEIGHT)
 			{
-				motorSet(MOTOR3, -10); // trim
-				motorSet(MOTOR4, 10);
-				motorSet(MOTOR7, -10);
-				motorSet(MOTOR8, 10);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10); // trim
+				motorSet(MOTOR_ARM_RIGHT_TOP, 10);
+				motorSet(MOTOR_ARM_LEFT_TOP, -10);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
 
 				armMax = 0; // reset the variable so it jumps out of this if loop
 			}
@@ -726,18 +726,18 @@ void cubicDrive()
 
 			if (pot > FLOOR_HEIGHT)
 			{
-				motorSet(MOTOR3, 127); // arm down
-				motorSet(MOTOR4, -127);
-				motorSet(MOTOR7, 127);
-				motorSet(MOTOR8, -127);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127); // arm down
+				motorSet(MOTOR_ARM_RIGHT_TOP, -127);
+				motorSet(MOTOR_ARM_LEFT_TOP, 127);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, -127);
 			}
 
 			if (pot < FLOOR_HEIGHT)
 			{
-				motorSet(MOTOR3, 7); // trim down
-				motorSet(MOTOR4, -7);
-				motorSet(MOTOR7, 7);
-				motorSet(MOTOR8, -7);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, 7); // trim down
+				motorSet(MOTOR_ARM_RIGHT_TOP, -7);
+				motorSet(MOTOR_ARM_LEFT_TOP, 7);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, -7);
 				armMin = 0; // reset the variable so it jumps out of this if loop
 			}
 		}
@@ -756,18 +756,18 @@ void cubicDrive()
 
 			if (pot < WALL_HEIGHT)
 			{
-				motorSet(MOTOR3, -127); // arm up
-				motorSet(MOTOR4, 127);
-				motorSet(MOTOR7, -127);
-				motorSet(MOTOR8, 127);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm up
+				motorSet(MOTOR_ARM_RIGHT_TOP, 127);
+				motorSet(MOTOR_ARM_LEFT_TOP, -127);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
 			}
 
 			if (pot > WALL_HEIGHT)
 			{
-				motorSet(MOTOR3, -10); // trim
-				motorSet(MOTOR4, 10);
-				motorSet(MOTOR7, -10);
-				motorSet(MOTOR8, 10);
+				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10); // trim
+				motorSet(MOTOR_ARM_RIGHT_TOP, 10);
+				motorSet(MOTOR_ARM_LEFT_TOP, -10);
+				motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
 				armCenter = 0; // reset the variable so it jumps out of this if loop
 			}
 		}

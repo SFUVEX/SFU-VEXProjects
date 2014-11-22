@@ -112,6 +112,17 @@ void initialize();
  */
 void operatorControl();
 
+/*externs because PROS is kinda dumb
+ *URL: http://purdueros.sourceforge.net/doc/index.htm
+*/
+
+//Initialize ALL OF THE SENSORS
+extern Encoder encoder1; //Digital 1, 2
+extern Encoder encoder2; //Digital 3, 4
+extern Encoder encoder3; //Digital 5, 6
+
+extern Ultrasonic sonar; //Digital 7, 8
+
 // End C++ export structure
 #ifdef __cplusplus
 }

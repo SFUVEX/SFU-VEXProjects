@@ -1,0 +1,355 @@
+\hypertarget{motor_subroutines_8c}{\section{C\+:/\+Users/tristan.may95/\+Documents/\+Git\+Hub/\+Worlds\+\_\+2.0/src/motor\+Subroutines.c File Reference}
+\label{motor_subroutines_8c}\index{C\+:/\+Users/tristan.\+may95/\+Documents/\+Git\+Hub/\+Worlds\+\_\+2.\+0/src/motor\+Subroutines.\+c@{C\+:/\+Users/tristan.\+may95/\+Documents/\+Git\+Hub/\+Worlds\+\_\+2.\+0/src/motor\+Subroutines.\+c}}
+}
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}motor\+Subroutines.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{motor_subroutines_8c_a043701b810b7d0c753d7f6f230a9a78b}{drive\+Forward} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_ac72f78d7e8ae7b9ad26331bc9d8ef155}{drive\+Back} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_a718e269b96adf95faffc8a2ecc10308f}{turn\+Right} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_a58f9de026d777edc5f5e10e1186f8b5f}{turn\+Left} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_ab32c1773c2eb2b1dd0dade26e9af351f}{turn\+Right\+Slow\+Dead} ()
+\item 
+void \hyperlink{motor_subroutines_8c_afbd9b756427c87b89eaa5287ddf8f48a}{turn\+Left\+Slow\+Dead} ()
+\item 
+void \hyperlink{motor_subroutines_8c_a94fe02f52673eff1f71c2ae76fd15471}{turn\+Left\+Arc} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_a93084346357d147f6f84c99c9216e38c}{turn\+Right\+Arc} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_a1c7e162c7c183e756baa5527f614e955}{stop\+Drive} ()
+\item 
+void \hyperlink{motor_subroutines_8c_a4823aa91e33925c0da5969f5011c07da}{stop\+All} ()
+\item 
+void \hyperlink{motor_subroutines_8c_aa2af11fd62f53881faf5104392b58929}{stop\+Intake} ()
+\item 
+void \hyperlink{motor_subroutines_8c_aa9bf2f23fe077d4088583e71075ec40e}{drive\+Forward\+Dead} ()
+\item 
+void \hyperlink{motor_subroutines_8c_aff891c85600a8104410a7f780e7823d5}{drive\+Back\+Dead} ()
+\item 
+void \hyperlink{motor_subroutines_8c_a97c80742ae23fb24ca3f9c16b9595a18}{drive\+Forward\+Slow} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_ae72f88a3b58043c56240517d516ae534}{drive\+Back\+Slow} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_a0c29712c3d53409cd5629380033420a0}{drive\+Forward\+Slow\+Dead} ()
+\item 
+void \hyperlink{motor_subroutines_8c_ad08c5c09b6a3e392f7d52964f260ceef}{drive\+Back\+Slow\+Dead} ()
+\item 
+void \hyperlink{motor_subroutines_8c_a685bcdc7bef2c7f6f29956528b0abacd}{scrape\+Right} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_a2f23eaa1881c9ebb9da6aafcddb2e9d2}{scrape\+Left} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_a030df3d1977825f8c0438767aae5a9f1}{scrape\+Left\+Back} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_a8ed3263b52efdb2b59d51240d1267b5c}{scrape\+Right\+Back} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_a6b280e0de1920112549b0c9982206a7e}{forward\+Detect} ()
+\item 
+void \hyperlink{motor_subroutines_8c_a9b82b85b19d30593c1322bd6ef868e55}{back\+Detect} ()
+\item 
+void \hyperlink{motor_subroutines_8c_abd693d9e6f00c104c44c047a7aca6738}{arm\+Up} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_ad648e357062feff5d42292d885bf8fbb}{arm\+Down} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_a83ea9927b66be6a4c1bce71ba989a24a}{arm\+Up\+Dead} ()
+\item 
+void \hyperlink{motor_subroutines_8c_a414968e07a5c9795e157082f5fcdecff}{arm\+Down\+Dead} ()
+\item 
+void \hyperlink{motor_subroutines_8c_a1123f1885c46737ddf7db5b4537c8b33}{arm\+Up\+Trim} ()
+\item 
+void \hyperlink{motor_subroutines_8c_ad63ddcc7f316111a2b934caedf03b2a3}{arm\+Down\+Trim} ()
+\item 
+void \hyperlink{motor_subroutines_8c_a83af6c52b37ed394b8dde0ef68148861}{stop\+Arm} ()
+\item 
+void \hyperlink{motor_subroutines_8c_aba2ca6788bef2b344ac83a77a542490b}{intake} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_afb9434c87f89a06143da02592fcd677e}{outtake} (int x)
+\item 
+void \hyperlink{motor_subroutines_8c_ac5041a09c53e3db6ea0686719cf8a863}{intake\+Dead} ()
+\item 
+void \hyperlink{motor_subroutines_8c_a9bd3936dc7024775e4a422f10bcd6c81}{outtake\+Dead} ()
+\item 
+void \hyperlink{motor_subroutines_8c_ac1595fc44f8b8509f143ca302f7d7301}{find\+Line\+Right} ()
+\item 
+void \hyperlink{motor_subroutines_8c_ad92e625f242c52b84250e6bc3e23421a}{find\+Line\+Left} ()
+\item 
+void \hyperlink{motor_subroutines_8c_a2e691d29936420d194363956149c3543}{follow\+Line} (int dylan\+Sexxydistance)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{motor_subroutines_8c_ad648e357062feff5d42292d885bf8fbb}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!arm\+Down@{arm\+Down}}
+\index{arm\+Down@{arm\+Down}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{arm\+Down}]{\setlength{\rightskip}{0pt plus 5cm}void arm\+Down (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_ad648e357062feff5d42292d885bf8fbb}
+\hypertarget{motor_subroutines_8c_a414968e07a5c9795e157082f5fcdecff}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!arm\+Down\+Dead@{arm\+Down\+Dead}}
+\index{arm\+Down\+Dead@{arm\+Down\+Dead}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{arm\+Down\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}void arm\+Down\+Dead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a414968e07a5c9795e157082f5fcdecff}
+\hypertarget{motor_subroutines_8c_ad63ddcc7f316111a2b934caedf03b2a3}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!arm\+Down\+Trim@{arm\+Down\+Trim}}
+\index{arm\+Down\+Trim@{arm\+Down\+Trim}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{arm\+Down\+Trim}]{\setlength{\rightskip}{0pt plus 5cm}void arm\+Down\+Trim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_ad63ddcc7f316111a2b934caedf03b2a3}
+\hypertarget{motor_subroutines_8c_abd693d9e6f00c104c44c047a7aca6738}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!arm\+Up@{arm\+Up}}
+\index{arm\+Up@{arm\+Up}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{arm\+Up}]{\setlength{\rightskip}{0pt plus 5cm}void arm\+Up (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_abd693d9e6f00c104c44c047a7aca6738}
+\hypertarget{motor_subroutines_8c_a83ea9927b66be6a4c1bce71ba989a24a}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!arm\+Up\+Dead@{arm\+Up\+Dead}}
+\index{arm\+Up\+Dead@{arm\+Up\+Dead}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{arm\+Up\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}void arm\+Up\+Dead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a83ea9927b66be6a4c1bce71ba989a24a}
+\hypertarget{motor_subroutines_8c_a1123f1885c46737ddf7db5b4537c8b33}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!arm\+Up\+Trim@{arm\+Up\+Trim}}
+\index{arm\+Up\+Trim@{arm\+Up\+Trim}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{arm\+Up\+Trim}]{\setlength{\rightskip}{0pt plus 5cm}void arm\+Up\+Trim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a1123f1885c46737ddf7db5b4537c8b33}
+\hypertarget{motor_subroutines_8c_a9b82b85b19d30593c1322bd6ef868e55}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!back\+Detect@{back\+Detect}}
+\index{back\+Detect@{back\+Detect}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{back\+Detect}]{\setlength{\rightskip}{0pt plus 5cm}void back\+Detect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a9b82b85b19d30593c1322bd6ef868e55}
+\hypertarget{motor_subroutines_8c_ac72f78d7e8ae7b9ad26331bc9d8ef155}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!drive\+Back@{drive\+Back}}
+\index{drive\+Back@{drive\+Back}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{drive\+Back}]{\setlength{\rightskip}{0pt plus 5cm}void drive\+Back (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_ac72f78d7e8ae7b9ad26331bc9d8ef155}
+Set drive motors to negative max speed until encoder value met 
+\begin{DoxyParams}{Parameters}
+{\em x} & Encoder count. \\
+\hline
+\end{DoxyParams}
+\hypertarget{motor_subroutines_8c_aff891c85600a8104410a7f780e7823d5}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!drive\+Back\+Dead@{drive\+Back\+Dead}}
+\index{drive\+Back\+Dead@{drive\+Back\+Dead}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{drive\+Back\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}void drive\+Back\+Dead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_aff891c85600a8104410a7f780e7823d5}
+Drive backwards until told to stop \hypertarget{motor_subroutines_8c_ae72f88a3b58043c56240517d516ae534}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!drive\+Back\+Slow@{drive\+Back\+Slow}}
+\index{drive\+Back\+Slow@{drive\+Back\+Slow}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{drive\+Back\+Slow}]{\setlength{\rightskip}{0pt plus 5cm}void drive\+Back\+Slow (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_ae72f88a3b58043c56240517d516ae534}
+\hypertarget{motor_subroutines_8c_ad08c5c09b6a3e392f7d52964f260ceef}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!drive\+Back\+Slow\+Dead@{drive\+Back\+Slow\+Dead}}
+\index{drive\+Back\+Slow\+Dead@{drive\+Back\+Slow\+Dead}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{drive\+Back\+Slow\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}void drive\+Back\+Slow\+Dead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_ad08c5c09b6a3e392f7d52964f260ceef}
+\hypertarget{motor_subroutines_8c_a043701b810b7d0c753d7f6f230a9a78b}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!drive\+Forward@{drive\+Forward}}
+\index{drive\+Forward@{drive\+Forward}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{drive\+Forward}]{\setlength{\rightskip}{0pt plus 5cm}void drive\+Forward (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a043701b810b7d0c753d7f6f230a9a78b}
+Set drive motors to max speed until encoder value met 
+\begin{DoxyParams}{Parameters}
+{\em x} & Encoder count. \\
+\hline
+\end{DoxyParams}
+\hypertarget{motor_subroutines_8c_aa9bf2f23fe077d4088583e71075ec40e}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!drive\+Forward\+Dead@{drive\+Forward\+Dead}}
+\index{drive\+Forward\+Dead@{drive\+Forward\+Dead}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{drive\+Forward\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}void drive\+Forward\+Dead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_aa9bf2f23fe077d4088583e71075ec40e}
+Drive foward until told to stop. \hypertarget{motor_subroutines_8c_a97c80742ae23fb24ca3f9c16b9595a18}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!drive\+Forward\+Slow@{drive\+Forward\+Slow}}
+\index{drive\+Forward\+Slow@{drive\+Forward\+Slow}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{drive\+Forward\+Slow}]{\setlength{\rightskip}{0pt plus 5cm}void drive\+Forward\+Slow (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a97c80742ae23fb24ca3f9c16b9595a18}
+Drive forward ast half normal speed until the encoder value is met \hypertarget{motor_subroutines_8c_a0c29712c3d53409cd5629380033420a0}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!drive\+Forward\+Slow\+Dead@{drive\+Forward\+Slow\+Dead}}
+\index{drive\+Forward\+Slow\+Dead@{drive\+Forward\+Slow\+Dead}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{drive\+Forward\+Slow\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}void drive\+Forward\+Slow\+Dead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a0c29712c3d53409cd5629380033420a0}
+\hypertarget{motor_subroutines_8c_ad92e625f242c52b84250e6bc3e23421a}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!find\+Line\+Left@{find\+Line\+Left}}
+\index{find\+Line\+Left@{find\+Line\+Left}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{find\+Line\+Left}]{\setlength{\rightskip}{0pt plus 5cm}void find\+Line\+Left (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_ad92e625f242c52b84250e6bc3e23421a}
+\hypertarget{motor_subroutines_8c_ac1595fc44f8b8509f143ca302f7d7301}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!find\+Line\+Right@{find\+Line\+Right}}
+\index{find\+Line\+Right@{find\+Line\+Right}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{find\+Line\+Right}]{\setlength{\rightskip}{0pt plus 5cm}void find\+Line\+Right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_ac1595fc44f8b8509f143ca302f7d7301}
+\hypertarget{motor_subroutines_8c_a2e691d29936420d194363956149c3543}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!follow\+Line@{follow\+Line}}
+\index{follow\+Line@{follow\+Line}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{follow\+Line}]{\setlength{\rightskip}{0pt plus 5cm}void follow\+Line (
+\begin{DoxyParamCaption}
+\item[{int}]{dylan\+Sexxydistance}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a2e691d29936420d194363956149c3543}
+\hypertarget{motor_subroutines_8c_a6b280e0de1920112549b0c9982206a7e}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!forward\+Detect@{forward\+Detect}}
+\index{forward\+Detect@{forward\+Detect}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{forward\+Detect}]{\setlength{\rightskip}{0pt plus 5cm}void forward\+Detect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a6b280e0de1920112549b0c9982206a7e}
+\hypertarget{motor_subroutines_8c_aba2ca6788bef2b344ac83a77a542490b}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!intake@{intake}}
+\index{intake@{intake}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{intake}]{\setlength{\rightskip}{0pt plus 5cm}void intake (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_aba2ca6788bef2b344ac83a77a542490b}
+\hypertarget{motor_subroutines_8c_ac5041a09c53e3db6ea0686719cf8a863}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!intake\+Dead@{intake\+Dead}}
+\index{intake\+Dead@{intake\+Dead}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{intake\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}void intake\+Dead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_ac5041a09c53e3db6ea0686719cf8a863}
+\hypertarget{motor_subroutines_8c_afb9434c87f89a06143da02592fcd677e}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!outtake@{outtake}}
+\index{outtake@{outtake}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{outtake}]{\setlength{\rightskip}{0pt plus 5cm}void outtake (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_afb9434c87f89a06143da02592fcd677e}
+\hypertarget{motor_subroutines_8c_a9bd3936dc7024775e4a422f10bcd6c81}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!outtake\+Dead@{outtake\+Dead}}
+\index{outtake\+Dead@{outtake\+Dead}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{outtake\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}void outtake\+Dead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a9bd3936dc7024775e4a422f10bcd6c81}
+\hypertarget{motor_subroutines_8c_a2f23eaa1881c9ebb9da6aafcddb2e9d2}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!scrape\+Left@{scrape\+Left}}
+\index{scrape\+Left@{scrape\+Left}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{scrape\+Left}]{\setlength{\rightskip}{0pt plus 5cm}void scrape\+Left (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a2f23eaa1881c9ebb9da6aafcddb2e9d2}
+\hypertarget{motor_subroutines_8c_a030df3d1977825f8c0438767aae5a9f1}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!scrape\+Left\+Back@{scrape\+Left\+Back}}
+\index{scrape\+Left\+Back@{scrape\+Left\+Back}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{scrape\+Left\+Back}]{\setlength{\rightskip}{0pt plus 5cm}void scrape\+Left\+Back (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a030df3d1977825f8c0438767aae5a9f1}
+\hypertarget{motor_subroutines_8c_a685bcdc7bef2c7f6f29956528b0abacd}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!scrape\+Right@{scrape\+Right}}
+\index{scrape\+Right@{scrape\+Right}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{scrape\+Right}]{\setlength{\rightskip}{0pt plus 5cm}void scrape\+Right (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a685bcdc7bef2c7f6f29956528b0abacd}
+\hypertarget{motor_subroutines_8c_a8ed3263b52efdb2b59d51240d1267b5c}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!scrape\+Right\+Back@{scrape\+Right\+Back}}
+\index{scrape\+Right\+Back@{scrape\+Right\+Back}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{scrape\+Right\+Back}]{\setlength{\rightskip}{0pt plus 5cm}void scrape\+Right\+Back (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a8ed3263b52efdb2b59d51240d1267b5c}
+\hypertarget{motor_subroutines_8c_a4823aa91e33925c0da5969f5011c07da}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!stop\+All@{stop\+All}}
+\index{stop\+All@{stop\+All}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{stop\+All}]{\setlength{\rightskip}{0pt plus 5cm}void stop\+All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a4823aa91e33925c0da5969f5011c07da}
+\hypertarget{motor_subroutines_8c_a83af6c52b37ed394b8dde0ef68148861}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!stop\+Arm@{stop\+Arm}}
+\index{stop\+Arm@{stop\+Arm}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{stop\+Arm}]{\setlength{\rightskip}{0pt plus 5cm}void stop\+Arm (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a83af6c52b37ed394b8dde0ef68148861}
+\hypertarget{motor_subroutines_8c_a1c7e162c7c183e756baa5527f614e955}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!stop\+Drive@{stop\+Drive}}
+\index{stop\+Drive@{stop\+Drive}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{stop\+Drive}]{\setlength{\rightskip}{0pt plus 5cm}void stop\+Drive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a1c7e162c7c183e756baa5527f614e955}
+\hypertarget{motor_subroutines_8c_aa2af11fd62f53881faf5104392b58929}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!stop\+Intake@{stop\+Intake}}
+\index{stop\+Intake@{stop\+Intake}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{stop\+Intake}]{\setlength{\rightskip}{0pt plus 5cm}void stop\+Intake (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_aa2af11fd62f53881faf5104392b58929}
+\hypertarget{motor_subroutines_8c_a58f9de026d777edc5f5e10e1186f8b5f}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!turn\+Left@{turn\+Left}}
+\index{turn\+Left@{turn\+Left}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{turn\+Left}]{\setlength{\rightskip}{0pt plus 5cm}void turn\+Left (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a58f9de026d777edc5f5e10e1186f8b5f}
+\hypertarget{motor_subroutines_8c_a94fe02f52673eff1f71c2ae76fd15471}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!turn\+Left\+Arc@{turn\+Left\+Arc}}
+\index{turn\+Left\+Arc@{turn\+Left\+Arc}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{turn\+Left\+Arc}]{\setlength{\rightskip}{0pt plus 5cm}void turn\+Left\+Arc (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a94fe02f52673eff1f71c2ae76fd15471}
+\hypertarget{motor_subroutines_8c_afbd9b756427c87b89eaa5287ddf8f48a}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!turn\+Left\+Slow\+Dead@{turn\+Left\+Slow\+Dead}}
+\index{turn\+Left\+Slow\+Dead@{turn\+Left\+Slow\+Dead}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{turn\+Left\+Slow\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}void turn\+Left\+Slow\+Dead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_afbd9b756427c87b89eaa5287ddf8f48a}
+\hypertarget{motor_subroutines_8c_a718e269b96adf95faffc8a2ecc10308f}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!turn\+Right@{turn\+Right}}
+\index{turn\+Right@{turn\+Right}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{turn\+Right}]{\setlength{\rightskip}{0pt plus 5cm}void turn\+Right (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a718e269b96adf95faffc8a2ecc10308f}
+\hypertarget{motor_subroutines_8c_a93084346357d147f6f84c99c9216e38c}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!turn\+Right\+Arc@{turn\+Right\+Arc}}
+\index{turn\+Right\+Arc@{turn\+Right\+Arc}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{turn\+Right\+Arc}]{\setlength{\rightskip}{0pt plus 5cm}void turn\+Right\+Arc (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_a93084346357d147f6f84c99c9216e38c}
+\hypertarget{motor_subroutines_8c_ab32c1773c2eb2b1dd0dade26e9af351f}{\index{motor\+Subroutines.\+c@{motor\+Subroutines.\+c}!turn\+Right\+Slow\+Dead@{turn\+Right\+Slow\+Dead}}
+\index{turn\+Right\+Slow\+Dead@{turn\+Right\+Slow\+Dead}!motor\+Subroutines.\+c@{motor\+Subroutines.\+c}}
+\subsubsection[{turn\+Right\+Slow\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}void turn\+Right\+Slow\+Dead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{motor_subroutines_8c_ab32c1773c2eb2b1dd0dade26e9af351f}

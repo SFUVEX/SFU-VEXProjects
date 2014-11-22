@@ -174,10 +174,10 @@ void rushRed()
 		midLine = analogRead(2);
 	}
 
-	motorSet(MOTOR1, 10); // no inertia
-	motorSet(MOTOR2, 10);
-	motorSet(MOTOR10, 10);
-	motorSet(MOTOR9, 10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, 10); // no inertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 10);
+	motorSet(MOTOR_ARM_LEFT_BACK, 10);
+	motorSet(MOTOR_ARM_LEFT_FRONT, 10);
 	delay(85);
 
 	//driveBackDead(); // push them
@@ -233,10 +233,10 @@ void rushBlue()
 		midLine = analogRead(2);
 	}
 
-	motorSet(MOTOR1, 10); // no inertia
-	motorSet(MOTOR2, 10);
-	motorSet(MOTOR10, 10);
-	motorSet(MOTOR9, 10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, 10); // no inertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 10);
+	motorSet(MOTOR_ARM_LEFT_BACK, 10);
+	motorSet(MOTOR_ARM_LEFT_FRONT, 10);
 	delay(85);
 
 	//driveBackDead(); // push them
@@ -303,18 +303,18 @@ void classic15Red()
 
 	while (abs(counts) < encoder1)
 	{
-		motorSet(MOTOR1, 110); // slight curve cuz friction
-		motorSet(MOTOR2, 110);
-		motorSet(MOTOR10, 127);
-		motorSet(MOTOR9, 127);
+		motorSet(MOTOR_DRIVE_RIGHT_BACK, 110); // slight curve cuz friction
+		motorSet(MOTOR_DRIVE_RIGHT_FRONT, 110);
+		motorSet(MOTOR_ARM_LEFT_BACK, 127);
+		motorSet(MOTOR_ARM_LEFT_FRONT, 127);
 
 		imeGet(0, &counts); // keep getting the value
 	}
 
-	motorSet(MOTOR1, 0);
-	motorSet(MOTOR2, 0);
-	motorSet(MOTOR10, 0);
-	motorSet(MOTOR9, 0);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, 0);
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 0);
+	motorSet(MOTOR_ARM_LEFT_BACK, 0);
+	motorSet(MOTOR_ARM_LEFT_FRONT, 0);
 	delay(200);
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -395,18 +395,18 @@ void classic15Blue()
 
 	while (abs(counts) < encoder1)
 	{
-		motorSet(MOTOR1, 110); // slight curve cuz friction
-		motorSet(MOTOR2, 110);
-		motorSet(MOTOR10, 127);
-		motorSet(MOTOR9, 127);
+		motorSet(MOTOR_DRIVE_RIGHT_BACK, 110); // slight curve cuz friction
+		motorSet(MOTOR_DRIVE_RIGHT_FRONT, 110);
+		motorSet(MOTOR_ARM_LEFT_BACK, 127);
+		motorSet(MOTOR_ARM_LEFT_FRONT, 127);
 
 		imeGet(0, &counts); // keep getting the value
 	}
 
-	motorSet(MOTOR1, 0);
-	motorSet(MOTOR2, 0);
-	motorSet(MOTOR10, 0);
-	motorSet(MOTOR9, 0);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, 0);
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 0);
+	motorSet(MOTOR_ARM_LEFT_BACK, 0);
+	motorSet(MOTOR_ARM_LEFT_FRONT, 0);
 	delay(200);
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -483,10 +483,10 @@ void rejectionRed()
 		midLine = analogRead(2);
 	}
 
-	motorSet(MOTOR1, 10); // no inertia
-	motorSet(MOTOR2, 10);
-	motorSet(MOTOR10, 10);
-	motorSet(MOTOR9, 10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, 10); // no inertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 10);
+	motorSet(MOTOR_ARM_LEFT_BACK, 10);
+	motorSet(MOTOR_ARM_LEFT_FRONT, 10);
 	delay(85);
 
 	armUp(wallHeight); // arm up
@@ -556,10 +556,10 @@ void rejectionBlue()
 		midLine = analogRead(2);
 	}
 
-	motorSet(MOTOR1, 10); // no inertia
-	motorSet(MOTOR2, 10);
-	motorSet(MOTOR10, 10);
-	motorSet(MOTOR9, 10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, 10); // no inertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 10);
+	motorSet(MOTOR_ARM_LEFT_BACK, 10);
+	motorSet(MOTOR_ARM_LEFT_FRONT, 10);
 	delay(85);
 
 	armUp(wallHeight); // arm up
@@ -744,10 +744,10 @@ void rejectionBlueSkills()
 		midLine = analogRead(2);
 	}
 
-	motorSet(MOTOR1, 10); // no inertia
-	motorSet(MOTOR2, 10);
-	motorSet(MOTOR10, 10);
-	motorSet(MOTOR9, 10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, 10); // no inertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 10);
+	motorSet(MOTOR_ARM_LEFT_BACK, 10);
+	motorSet(MOTOR_ARM_LEFT_FRONT, 10);
 	delay(85);
 
 	armUp(wallHeight); // arm up

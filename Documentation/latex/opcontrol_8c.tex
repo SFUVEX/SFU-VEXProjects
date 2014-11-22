@@ -1,0 +1,150 @@
+\hypertarget{opcontrol_8c}{\section{C\+:/\+Users/tristan.may95/\+Documents/\+Git\+Hub/\+Worlds\+\_\+2.0/src/opcontrol.c File Reference}
+\label{opcontrol_8c}\index{C\+:/\+Users/tristan.\+may95/\+Documents/\+Git\+Hub/\+Worlds\+\_\+2.\+0/src/opcontrol.\+c@{C\+:/\+Users/tristan.\+may95/\+Documents/\+Git\+Hub/\+Worlds\+\_\+2.\+0/src/opcontrol.\+c}}
+}
+
+
+File for operator control code.  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bot\+Constants.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{opcontrol_8c_aab62a1094f47d81ec2d021e9a14125a5}{joystick1}~1
+\item 
+\#define \hyperlink{opcontrol_8c_a58e68c3a0c30f2fbea47d27f2d12b748}{joystick2}~2
+\item 
+\#define \hyperlink{opcontrol_8c_a31b0c5e207b17f18a155af1649902fd0}{joystickchannel2}~2
+\item 
+\#define \hyperlink{opcontrol_8c_ac57f48f02fe5fade4368d51a41a05bb1}{joystickchannel3}~3
+\item 
+\#define \hyperlink{opcontrol_8c_ad611ddf9b5a68b4ec93ae5bb0f3b2ac8}{joystickchannel5}~5
+\item 
+\#define \hyperlink{opcontrol_8c_a3a3ba1f2d0e5f141936f7241870ca3f9}{joystickchannel6}~6
+\item 
+\#define \hyperlink{opcontrol_8c_a834c23c91fd46151d7efd10e7a2b022d}{joystickchannel8}~8
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{opcontrol_8c_a791d4943443b7074cb3db5425cefb1af}{two\+Drivers} ()
+\item 
+void \hyperlink{opcontrol_8c_a653ba367a7d41972eb9ce4ee81eaf01b}{cubic\+Drive} ()
+\item 
+void \hyperlink{opcontrol_8c_ac71a94af413917f27d108e95c4d6f6a7}{operator\+Control} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{opcontrol_8c_a3747983caa5cf837f34628a7df66e525}{G\+O\+A\+L\+\_\+\+H\+E\+I\+G\+H\+T} = 1550
+\item 
+const int \hyperlink{opcontrol_8c_a6c19f5bdca747d7ed83977bb0bea6a8b}{F\+L\+O\+O\+R\+\_\+\+H\+E\+I\+G\+H\+T} = 300
+\item 
+const int \hyperlink{opcontrol_8c_a2c179e1471a7811b980f69083e55e53f}{W\+A\+L\+L\+\_\+\+H\+E\+I\+G\+H\+T} = 1000
+\item 
+int \hyperlink{opcontrol_8c_a0b59d0194908f5c12dd5e47f3b854728}{dummy\+Trim} = 1
+\item 
+int \hyperlink{opcontrol_8c_a96d104178dd23555cc558566c29d0c13}{arm\+Max} = 0
+\item 
+int \hyperlink{opcontrol_8c_a12f3ac4167e0cb7479b54fdc2f990e58}{arm\+Min} = 0
+\item 
+int \hyperlink{opcontrol_8c_a19635eb06a67c68f3f697c0e3f1d6c77}{arm\+Center} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File for operator control code. 
+
+This file should contain the user \hyperlink{opcontrol_8c_ac71a94af413917f27d108e95c4d6f6a7}{operator\+Control()} function and any functions related to it.
+
+Copyright (c) 2011-\/2013, Purdue University A\+C\+M S\+I\+G B\+O\+T\+S. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of Purdue University A\+C\+M S\+I\+G B\+O\+T\+S nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyItemize}
+
+T\+H\+I\+S S\+O\+F\+T\+W\+A\+R\+E I\+S P\+R\+O\+V\+I\+D\+E\+D B\+Y T\+H\+E C\+O\+P\+Y\+R\+I\+G\+H\+T H\+O\+L\+D\+E\+R\+S A\+N\+D C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+R\+S \char`\"{}\+A\+S I\+S\char`\"{} A\+N\+D A\+N\+Y E\+X\+P\+R\+E\+S\+S O\+R I\+M\+P\+L\+I\+E\+D W\+A\+R\+R\+A\+N\+T\+I\+E\+S, I\+N\+C\+L\+U\+D\+I\+N\+G, B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O, T\+H\+E I\+M\+P\+L\+I\+E\+D W\+A\+R\+R\+A\+N\+T\+I\+E\+S O\+F M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+T\+Y A\+N\+D F\+I\+T\+N\+E\+S\+S F\+O\+R A P\+A\+R\+T\+I\+C\+U\+L\+A\+R P\+U\+R\+P\+O\+S\+E A\+R\+E D\+I\+S\+C\+L\+A\+I\+M\+E\+D. I\+N N\+O E\+V\+E\+N\+T S\+H\+A\+L\+L P\+U\+R\+D\+U\+E U\+N\+I\+V\+E\+R\+S\+I\+T\+Y A\+C\+M S\+I\+G B\+O\+T\+S B\+E L\+I\+A\+B\+L\+E F\+O\+R A\+N\+Y D\+I\+R\+E\+C\+T, I\+N\+D\+I\+R\+E\+C\+T, I\+N\+C\+I\+D\+E\+N\+T\+A\+L, S\+P\+E\+C\+I\+A\+L, E\+X\+E\+M\+P\+L\+A\+R\+Y, O\+R C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+A\+L D\+A\+M\+A\+G\+E\+S (I\+N\+C\+L\+U\+D\+I\+N\+G, B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O, P\+R\+O\+C\+U\+R\+E\+M\+E\+N\+T O\+F S\+U\+B\+S\+T\+I\+T\+U\+T\+E G\+O\+O\+D\+S O\+R S\+E\+R\+V\+I\+C\+E\+S; L\+O\+S\+S O\+F U\+S\+E, D\+A\+T\+A, O\+R P\+R\+O\+F\+I\+T\+S; O\+R B\+U\+S\+I\+N\+E\+S\+S I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+O\+N) H\+O\+W\+E\+V\+E\+R C\+A\+U\+S\+E\+D A\+N\+D O\+N A\+N\+Y T\+H\+E\+O\+R\+Y O\+F L\+I\+A\+B\+I\+L\+I\+T\+Y, W\+H\+E\+T\+H\+E\+R I\+N C\+O\+N\+T\+R\+A\+C\+T, S\+T\+R\+I\+C\+T L\+I\+A\+B\+I\+L\+I\+T\+Y, O\+R T\+O\+R\+T (I\+N\+C\+L\+U\+D\+I\+N\+G N\+E\+G\+L\+I\+G\+E\+N\+C\+E O\+R O\+T\+H\+E\+R\+W\+I\+S\+E) A\+R\+I\+S\+I\+N\+G I\+N A\+N\+Y W\+A\+Y O\+U\+T O\+F T\+H\+E U\+S\+E O\+F T\+H\+I\+S S\+O\+F\+T\+W\+A\+R\+E, E\+V\+E\+N I\+F A\+D\+V\+I\+S\+E\+D O\+F T\+H\+E P\+O\+S\+S\+I\+B\+I\+L\+I\+T\+Y O\+F S\+U\+C\+H D\+A\+M\+A\+G\+E.
+
+Purdue Robotics O\+S contains Free\+R\+T\+O\+S (\href{http://www.freertos.org}{\tt http\+://www.\+freertos.\+org}) whose source code may be obtained from \href{http://sourceforge.net/projects/freertos/files/}{\tt http\+://sourceforge.\+net/projects/freertos/files/} or on request. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{opcontrol_8c_aab62a1094f47d81ec2d021e9a14125a5}{\index{opcontrol.\+c@{opcontrol.\+c}!joystick1@{joystick1}}
+\index{joystick1@{joystick1}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{joystick1}]{\setlength{\rightskip}{0pt plus 5cm}\#define joystick1~1}}\label{opcontrol_8c_aab62a1094f47d81ec2d021e9a14125a5}
+\hypertarget{opcontrol_8c_a58e68c3a0c30f2fbea47d27f2d12b748}{\index{opcontrol.\+c@{opcontrol.\+c}!joystick2@{joystick2}}
+\index{joystick2@{joystick2}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{joystick2}]{\setlength{\rightskip}{0pt plus 5cm}\#define joystick2~2}}\label{opcontrol_8c_a58e68c3a0c30f2fbea47d27f2d12b748}
+\hypertarget{opcontrol_8c_a31b0c5e207b17f18a155af1649902fd0}{\index{opcontrol.\+c@{opcontrol.\+c}!joystickchannel2@{joystickchannel2}}
+\index{joystickchannel2@{joystickchannel2}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{joystickchannel2}]{\setlength{\rightskip}{0pt plus 5cm}\#define joystickchannel2~2}}\label{opcontrol_8c_a31b0c5e207b17f18a155af1649902fd0}
+\hypertarget{opcontrol_8c_ac57f48f02fe5fade4368d51a41a05bb1}{\index{opcontrol.\+c@{opcontrol.\+c}!joystickchannel3@{joystickchannel3}}
+\index{joystickchannel3@{joystickchannel3}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{joystickchannel3}]{\setlength{\rightskip}{0pt plus 5cm}\#define joystickchannel3~3}}\label{opcontrol_8c_ac57f48f02fe5fade4368d51a41a05bb1}
+\hypertarget{opcontrol_8c_ad611ddf9b5a68b4ec93ae5bb0f3b2ac8}{\index{opcontrol.\+c@{opcontrol.\+c}!joystickchannel5@{joystickchannel5}}
+\index{joystickchannel5@{joystickchannel5}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{joystickchannel5}]{\setlength{\rightskip}{0pt plus 5cm}\#define joystickchannel5~5}}\label{opcontrol_8c_ad611ddf9b5a68b4ec93ae5bb0f3b2ac8}
+\hypertarget{opcontrol_8c_a3a3ba1f2d0e5f141936f7241870ca3f9}{\index{opcontrol.\+c@{opcontrol.\+c}!joystickchannel6@{joystickchannel6}}
+\index{joystickchannel6@{joystickchannel6}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{joystickchannel6}]{\setlength{\rightskip}{0pt plus 5cm}\#define joystickchannel6~6}}\label{opcontrol_8c_a3a3ba1f2d0e5f141936f7241870ca3f9}
+\hypertarget{opcontrol_8c_a834c23c91fd46151d7efd10e7a2b022d}{\index{opcontrol.\+c@{opcontrol.\+c}!joystickchannel8@{joystickchannel8}}
+\index{joystickchannel8@{joystickchannel8}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{joystickchannel8}]{\setlength{\rightskip}{0pt plus 5cm}\#define joystickchannel8~8}}\label{opcontrol_8c_a834c23c91fd46151d7efd10e7a2b022d}
+
+
+\subsection{Function Documentation}
+\hypertarget{opcontrol_8c_a653ba367a7d41972eb9ce4ee81eaf01b}{\index{opcontrol.\+c@{opcontrol.\+c}!cubic\+Drive@{cubic\+Drive}}
+\index{cubic\+Drive@{cubic\+Drive}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{cubic\+Drive}]{\setlength{\rightskip}{0pt plus 5cm}void cubic\+Drive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{opcontrol_8c_a653ba367a7d41972eb9ce4ee81eaf01b}
+\hypertarget{opcontrol_8c_ac71a94af413917f27d108e95c4d6f6a7}{\index{opcontrol.\+c@{opcontrol.\+c}!operator\+Control@{operator\+Control}}
+\index{operator\+Control@{operator\+Control}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{operator\+Control}]{\setlength{\rightskip}{0pt plus 5cm}void operator\+Control (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{opcontrol_8c_ac71a94af413917f27d108e95c4d6f6a7}
+Runs the user operator control code. This function will be started in its own task with the default priority and stack size whenever the robot is enabled via the Field Management System or the V\+E\+X Competition Switch in the operator control mode. If the robot is disabled or communications is lost, the operator control task will be stopped by the kernel. Re-\/enabling the robot will restart the task, not resume it from where it left off.
+
+If no V\+E\+X Competition Switch or Field Management system is plugged in, the V\+E\+X Cortex will run the operator control task. Be warned that this will also occur if the V\+E\+X Cortex is tethered directly to a computer via the U\+S\+B A to A cable without any V\+E\+X Joystick attached.
+
+Code running in this task can take almost any action, as the V\+E\+X Joystick is available and the schedular is operational. However, proper use of \hyperlink{_a_p_i_8h_a1c59207742a1acf45a8957d7f04f9dfe}{delay()} or \hyperlink{_a_p_i_8h_ae93bc867b1aa4a12d6536a497f1b6869}{task\+Delay\+Until()} is highly recommended to give other tasks (including system tasks such as updating L\+C\+Ds) time to run.
+
+This task should never exit; it should end with some kind of infinite loop, even if empty. \hypertarget{opcontrol_8c_a791d4943443b7074cb3db5425cefb1af}{\index{opcontrol.\+c@{opcontrol.\+c}!two\+Drivers@{two\+Drivers}}
+\index{two\+Drivers@{two\+Drivers}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{two\+Drivers}]{\setlength{\rightskip}{0pt plus 5cm}void two\+Drivers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{opcontrol_8c_a791d4943443b7074cb3db5425cefb1af}
+
+
+\subsection{Variable Documentation}
+\hypertarget{opcontrol_8c_a19635eb06a67c68f3f697c0e3f1d6c77}{\index{opcontrol.\+c@{opcontrol.\+c}!arm\+Center@{arm\+Center}}
+\index{arm\+Center@{arm\+Center}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{arm\+Center}]{\setlength{\rightskip}{0pt plus 5cm}int arm\+Center = 0}}\label{opcontrol_8c_a19635eb06a67c68f3f697c0e3f1d6c77}
+\hypertarget{opcontrol_8c_a96d104178dd23555cc558566c29d0c13}{\index{opcontrol.\+c@{opcontrol.\+c}!arm\+Max@{arm\+Max}}
+\index{arm\+Max@{arm\+Max}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{arm\+Max}]{\setlength{\rightskip}{0pt plus 5cm}int arm\+Max = 0}}\label{opcontrol_8c_a96d104178dd23555cc558566c29d0c13}
+\hypertarget{opcontrol_8c_a12f3ac4167e0cb7479b54fdc2f990e58}{\index{opcontrol.\+c@{opcontrol.\+c}!arm\+Min@{arm\+Min}}
+\index{arm\+Min@{arm\+Min}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{arm\+Min}]{\setlength{\rightskip}{0pt plus 5cm}int arm\+Min = 0}}\label{opcontrol_8c_a12f3ac4167e0cb7479b54fdc2f990e58}
+\hypertarget{opcontrol_8c_a0b59d0194908f5c12dd5e47f3b854728}{\index{opcontrol.\+c@{opcontrol.\+c}!dummy\+Trim@{dummy\+Trim}}
+\index{dummy\+Trim@{dummy\+Trim}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{dummy\+Trim}]{\setlength{\rightskip}{0pt plus 5cm}int dummy\+Trim = 1}}\label{opcontrol_8c_a0b59d0194908f5c12dd5e47f3b854728}
+\hypertarget{opcontrol_8c_a6c19f5bdca747d7ed83977bb0bea6a8b}{\index{opcontrol.\+c@{opcontrol.\+c}!F\+L\+O\+O\+R\+\_\+\+H\+E\+I\+G\+H\+T@{F\+L\+O\+O\+R\+\_\+\+H\+E\+I\+G\+H\+T}}
+\index{F\+L\+O\+O\+R\+\_\+\+H\+E\+I\+G\+H\+T@{F\+L\+O\+O\+R\+\_\+\+H\+E\+I\+G\+H\+T}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{F\+L\+O\+O\+R\+\_\+\+H\+E\+I\+G\+H\+T}]{\setlength{\rightskip}{0pt plus 5cm}const int F\+L\+O\+O\+R\+\_\+\+H\+E\+I\+G\+H\+T = 300}}\label{opcontrol_8c_a6c19f5bdca747d7ed83977bb0bea6a8b}
+\hypertarget{opcontrol_8c_a3747983caa5cf837f34628a7df66e525}{\index{opcontrol.\+c@{opcontrol.\+c}!G\+O\+A\+L\+\_\+\+H\+E\+I\+G\+H\+T@{G\+O\+A\+L\+\_\+\+H\+E\+I\+G\+H\+T}}
+\index{G\+O\+A\+L\+\_\+\+H\+E\+I\+G\+H\+T@{G\+O\+A\+L\+\_\+\+H\+E\+I\+G\+H\+T}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{G\+O\+A\+L\+\_\+\+H\+E\+I\+G\+H\+T}]{\setlength{\rightskip}{0pt plus 5cm}const int G\+O\+A\+L\+\_\+\+H\+E\+I\+G\+H\+T = 1550}}\label{opcontrol_8c_a3747983caa5cf837f34628a7df66e525}
+\hypertarget{opcontrol_8c_a2c179e1471a7811b980f69083e55e53f}{\index{opcontrol.\+c@{opcontrol.\+c}!W\+A\+L\+L\+\_\+\+H\+E\+I\+G\+H\+T@{W\+A\+L\+L\+\_\+\+H\+E\+I\+G\+H\+T}}
+\index{W\+A\+L\+L\+\_\+\+H\+E\+I\+G\+H\+T@{W\+A\+L\+L\+\_\+\+H\+E\+I\+G\+H\+T}!opcontrol.\+c@{opcontrol.\+c}}
+\subsubsection[{W\+A\+L\+L\+\_\+\+H\+E\+I\+G\+H\+T}]{\setlength{\rightskip}{0pt plus 5cm}const int W\+A\+L\+L\+\_\+\+H\+E\+I\+G\+H\+T = 1000}}\label{opcontrol_8c_a2c179e1471a7811b980f69083e55e53f}

@@ -42,8 +42,23 @@
  * states (digitalWrite()) of limit switches, push buttons, and solenoids. It can also safely
  * configure a UART port (usartOpen()) but cannot set up an LCD (lcdInit()).
  */
-void initializeIO() {
+void initializeIO()
+{
+	//set pin modesfor digital sensors e.g. bumper
+	pinMode(9, INPUT); //Bumper 1
+	pinMode(10, INPUT); //Switch 1
 }
+
+
+//Initialize ALL OF THE SENSORS
+Encoder encoder1; //Digital 1, 2
+Encoder encoder2; //Digital 3, 4
+Encoder encoder3; //Digital 5, 6
+
+Ultrasonic sonar; //Digital 7, 8
+
+
+
 
 /*
  * Runs user initialization code. This function will be started in its own task with the default
@@ -60,6 +75,15 @@ void initializeIO() {
  */
 void initialize()
 {
+	//Encoder Initializations
+	encoder1 = encoderInit(1, 2, false);
+	encoder2 = encoderInit(3, 4, false);
+	encoder3 = encoderInit(5, 6, false);
+
+	//Ultrasonic Initializations
+	sonar = ultrasonicInit(7, 8);
+
+	//IME Initialization
 	int counts = imeInitializeAll(); //initialise ime
 
 	//int encoder = encoderInit (1, 2, 0) ;
