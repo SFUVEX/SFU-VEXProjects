@@ -1,0 +1,152 @@
+14:57:01 **** Build of configuration Default for project Template ****
+make all 
+CC -I../include -I../src auto.c
+auto.c: In function 'rushRed':
+auto.c:153:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:151:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c:150:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'rushBlue':
+auto.c:212:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:210:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c:209:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'classic15Red':
+auto.c:291:6: warning: unused variable 'encoder15' [-Wunused-variable]
+auto.c:290:6: warning: unused variable 'encoder14' [-Wunused-variable]
+auto.c:279:6: warning: unused variable 'encoder3' [-Wunused-variable]
+auto.c:274:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:273:6: warning: unused variable 'dead3' [-Wunused-variable]
+auto.c:272:6: warning: unused variable 'dead2' [-Wunused-variable]
+auto.c:271:6: warning: unused variable 'dead1' [-Wunused-variable]
+auto.c: In function 'classic15Blue':
+auto.c:383:6: warning: unused variable 'encoder15' [-Wunused-variable]
+auto.c:382:6: warning: unused variable 'encoder14' [-Wunused-variable]
+auto.c:371:6: warning: unused variable 'encoder3' [-Wunused-variable]
+auto.c:366:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:365:6: warning: unused variable 'dead3' [-Wunused-variable]
+auto.c:364:6: warning: unused variable 'dead2' [-Wunused-variable]
+auto.c:363:6: warning: unused variable 'dead1' [-Wunused-variable]
+auto.c: In function 'rejectionRed':
+auto.c:456:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:453:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'rejectionBlue':
+auto.c:529:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:526:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'kakitRed':
+auto.c:629:6: warning: unused variable 'encoder9' [-Wunused-variable]
+auto.c:628:6: warning: unused variable 'encoder8' [-Wunused-variable]
+auto.c:622:6: warning: unused variable 'encoder2' [-Wunused-variable]
+auto.c:617:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:614:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c: In function 'rejectionBlueSkills':
+auto.c:718:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:715:6: warning: unused variable 'armMin' [-Wunused-variable]
+CC -I../include -I../src init.c
+init.c: In function 'initialize':
+init.c:87:6: warning: unused variable 'counts' [-Wunused-variable]
+CC -I../include -I../src interpolate.c
+interpolate.c: In function 'cubicInterpolate':
+interpolate.c:51:20: warning: unused variable 'a3' [-Wunused-variable]
+interpolate.c:51:17: warning: unused variable 'a2' [-Wunused-variable]
+interpolate.c:51:14: warning: unused variable 'a1' [-Wunused-variable]
+interpolate.c:55:19: warning: 'a0' is used uninitialized in this function [-Wuninitialized]
+CC -I../include -I../src motorSubroutines.c
+motorSubroutines.c: In function 'forwardDetect':
+motorSubroutines.c:417:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c:415:6: warning: unused variable 'leftLine' [-Wunused-variable]
+motorSubroutines.c: In function 'backDetect':
+motorSubroutines.c:446:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c:444:6: warning: unused variable 'leftLine' [-Wunused-variable]
+motorSubroutines.c: In function 'findLineRight':
+motorSubroutines.c:582:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c: In function 'findLineLeft':
+motorSubroutines.c:625:6: warning: variable 'leftLine' set but not used [-Wunused-but-set-variable]
+motorSubroutines.c: In function 'followLine':
+motorSubroutines.c:682:6: warning: unused variable 'aliSpeed2' [-Wunused-variable]
+motorSubroutines.c:680:6: warning: unused variable 'lightDegree' [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+LN ./bin/auto.o ./bin/init.o ./bin/interpolate.o ./bin/motorSubroutines.o ./bin/opcontrol.o ./firmware/*.a -lgcc -lm to bin/output.elf
+arm-none-eabi-gcc.exe: error: ./firmware/*.a: Invalid argument
+make: *** [bin/output.elf] Error 1
+14:57:05 **** Build of configuration Default for project Worlds_2.0 ****
+make all 
+CC -I../include -I../src auto.c
+auto.c: In function 'rushRed':
+auto.c:153:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:151:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c:150:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'rushBlue':
+auto.c:212:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:210:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c:209:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'classic15Red':
+auto.c:291:6: warning: unused variable 'encoder15' [-Wunused-variable]
+auto.c:290:6: warning: unused variable 'encoder14' [-Wunused-variable]
+auto.c:279:6: warning: unused variable 'encoder3' [-Wunused-variable]
+auto.c:274:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:273:6: warning: unused variable 'dead3' [-Wunused-variable]
+auto.c:272:6: warning: unused variable 'dead2' [-Wunused-variable]
+auto.c:271:6: warning: unused variable 'dead1' [-Wunused-variable]
+auto.c: In function 'classic15Blue':
+auto.c:383:6: warning: unused variable 'encoder15' [-Wunused-variable]
+auto.c:382:6: warning: unused variable 'encoder14' [-Wunused-variable]
+auto.c:371:6: warning: unused variable 'encoder3' [-Wunused-variable]
+auto.c:366:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:365:6: warning: unused variable 'dead3' [-Wunused-variable]
+auto.c:364:6: warning: unused variable 'dead2' [-Wunused-variable]
+auto.c:363:6: warning: unused variable 'dead1' [-Wunused-variable]
+auto.c: In function 'rejectionRed':
+auto.c:456:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:453:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'rejectionBlue':
+auto.c:529:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:526:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'kakitRed':
+auto.c:629:6: warning: unused variable 'encoder9' [-Wunused-variable]
+auto.c:628:6: warning: unused variable 'encoder8' [-Wunused-variable]
+auto.c:622:6: warning: unused variable 'encoder2' [-Wunused-variable]
+auto.c:617:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:614:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c: In function 'rejectionBlueSkills':
+auto.c:718:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:715:6: warning: unused variable 'armMin' [-Wunused-variable]
+CC -I../include -I../src init.c
+init.c: In function 'initialize':
+init.c:87:6: warning: unused variable 'counts' [-Wunused-variable]
+CC -I../include -I../src interpolate.c
+interpolate.c: In function 'cubicInterpolate':
+interpolate.c:51:20: warning: unused variable 'a3' [-Wunused-variable]
+interpolate.c:51:17: warning: unused variable 'a2' [-Wunused-variable]
+interpolate.c:51:14: warning: unused variable 'a1' [-Wunused-variable]
+interpolate.c:55:19: warning: 'a0' is used uninitialized in this function [-Wuninitialized]
+CC -I../include -I../src motorSubroutines.c
+motorSubroutines.c: In function 'forwardDetect':
+motorSubroutines.c:417:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c:415:6: warning: unused variable 'leftLine' [-Wunused-variable]
+motorSubroutines.c: In function 'backDetect':
+motorSubroutines.c:446:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c:444:6: warning: unused variable 'leftLine' [-Wunused-variable]
+motorSubroutines.c: In function 'findLineRight':
+motorSubroutines.c:582:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c: In function 'findLineLeft':
+motorSubroutines.c:625:6: warning: variable 'leftLine' set but not used [-Wunused-but-set-variable]
+motorSubroutines.c: In function 'followLine':
+motorSubroutines.c:682:6: warning: unused variable 'aliSpeed2' [-Wunused-variable]
+motorSubroutines.c:680:6: warning: unused variable 'lightDegree' [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+LN ./bin/auto.o ./bin/init.o ./bin/interpolate.o ./bin/motorSubroutines.o ./bin/opcontrol.o ./firmware/*.a -lgcc -lm to bin/output.elf
+arm-none-eabi-gcc.exe: error: ./firmware/*.a: Invalid argument
+make: *** [bin/output.elf] Error 1
+14:57:57 **** Incremental Build of configuration Default for project Template ****
+make all 
+make[1]: Nothing to be done for `all'.
+LN ./bin/auto.o ./bin/init.o ./bin/interpolate.o ./bin/motorSubroutines.o ./bin/opcontrol.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  22000	      4	   4244	  26248	   6688	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+14:57:59 **** Incremental Build of configuration Default for project Worlds_2.0 ****
+make all 
+make[1]: Nothing to be done for `all'.
+LN ./bin/auto.o ./bin/init.o ./bin/interpolate.o ./bin/motorSubroutines.o ./bin/opcontrol.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  22000	      4	   4244	  26248	   6688	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
