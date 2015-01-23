@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="263" key="DIALOG_WIDTH"/>
+		<item value="362" key="DIALOG_Y_ORIGIN"/>
+		<item value="399" key="DIALOG_HEIGHT"/>
+		<item value="850" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="true" key="wrap"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wholeword"/>
+		<item value="MOTOR_TURN_SPEED" key="selection"/>
+		<list key="findhistory">
+			<item value="64"/>
+			<item value="motor10"/>
+			<item value="motor9"/>
+			<item value="motor8"/>
+			<item value="motor7"/>
+			<item value="motor6"/>
+			<item value="motor5"/>
+			<item value="motor4"/>
+		</list>
+		<list key="replacehistory">
+			<item value="MOTOR_TURN_SPEED"/>
+			<item value="MOTOR_DRIVE_LEFT_LINE_BACK"/>
+			<item value="MOTOR_DRIVE_LEFT_LINE_FRONT"/>
+			<item value="ARM_MOTOR4"/>
+			<item value="ARM_MOTOR3"/>
+			<item value="MOTOR_LEFT_LINE_INTAKE"/>
+			<item value="MOTOR_RIGHT_LINE_INTAKE"/>
+			<item value="ARM_MOTOR2"/>
+		</list>
+	</section>
+</section>
