@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Template/src/botDrive&apos; to &apos;botDrive.h&apos;" description="Rename resource &apos;botDrive&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/botDrive" name="botDrive.h" stamp="1422053165534" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Template/src/botMath&apos; to &apos;botMath.c&apos;" description="Rename resource &apos;botMath&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/botMath" name="botMath.c" stamp="1422054838255" updateReferences="true"/>
-</session>

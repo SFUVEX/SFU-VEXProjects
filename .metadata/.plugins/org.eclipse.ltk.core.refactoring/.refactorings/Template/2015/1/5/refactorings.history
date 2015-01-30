@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Template/src/botDefs&apos; to &apos;botDefs.h&apos;" description="Rename resource &apos;botDefs&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/botDefs" name="botDefs.h" stamp="1422592457656" updateReferences="true"/>
-</session>
