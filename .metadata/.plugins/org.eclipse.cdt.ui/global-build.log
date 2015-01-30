@@ -72,3 +72,597 @@ LN ./bin/auto.o ./bin/init.o ./bin/opcontrol.o ./firmware/libccos.a -lgcc -lm to
    text	   data	    bss	    dec	    hex	filename
   19632	      0	   4224	  23856	   5d30	./bin/output.elf
 arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+20:54:56 **** Build of configuration Default for project Template ****
+make all 
+CC -I../include -I../src auto.c
+auto.c: In function 'rushRed':
+auto.c:106:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:104:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c:103:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'rushBlue':
+auto.c:165:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:163:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c:162:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'classic15Red':
+auto.c:244:6: warning: unused variable 'encoder15' [-Wunused-variable]
+auto.c:243:6: warning: unused variable 'encoder14' [-Wunused-variable]
+auto.c:232:6: warning: unused variable 'encoder3' [-Wunused-variable]
+auto.c:227:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:226:6: warning: unused variable 'dead3' [-Wunused-variable]
+auto.c:225:6: warning: unused variable 'dead2' [-Wunused-variable]
+auto.c:224:6: warning: unused variable 'dead1' [-Wunused-variable]
+auto.c: In function 'classic15Blue':
+auto.c:336:6: warning: unused variable 'encoder15' [-Wunused-variable]
+auto.c:335:6: warning: unused variable 'encoder14' [-Wunused-variable]
+auto.c:324:6: warning: unused variable 'encoder3' [-Wunused-variable]
+auto.c:319:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:318:6: warning: unused variable 'dead3' [-Wunused-variable]
+auto.c:317:6: warning: unused variable 'dead2' [-Wunused-variable]
+auto.c:316:6: warning: unused variable 'dead1' [-Wunused-variable]
+auto.c: In function 'rejectionRed':
+auto.c:409:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:406:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'rejectionBlue':
+auto.c:482:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:479:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'kakitRed':
+auto.c:582:6: warning: unused variable 'encoder9' [-Wunused-variable]
+auto.c:581:6: warning: unused variable 'encoder8' [-Wunused-variable]
+auto.c:575:6: warning: unused variable 'encoder2' [-Wunused-variable]
+auto.c:570:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:567:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c: In function 'rejectionBlueSkills':
+auto.c:671:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:668:6: warning: unused variable 'armMin' [-Wunused-variable]
+CC -I../include -I../src botMath.c
+CC -I../include -I../src init.c
+init.c: In function 'initialize':
+init.c:87:6: warning: unused variable 'counts' [-Wunused-variable]
+CC -I../include -I../src interpolate.c
+interpolate.c: In function 'cubicInterpolate':
+interpolate.c:51:20: warning: unused variable 'a3' [-Wunused-variable]
+interpolate.c:51:17: warning: unused variable 'a2' [-Wunused-variable]
+interpolate.c:51:14: warning: unused variable 'a1' [-Wunused-variable]
+interpolate.c:55:19: warning: 'a0' is used uninitialized in this function [-Wuninitialized]
+CC -I../include -I../src motorSubroutines.c
+motorSubroutines.c: In function 'forwardDetect':
+motorSubroutines.c:417:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c:415:6: warning: unused variable 'leftLine' [-Wunused-variable]
+motorSubroutines.c: In function 'backDetect':
+motorSubroutines.c:446:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c:444:6: warning: unused variable 'leftLine' [-Wunused-variable]
+motorSubroutines.c: In function 'findLineRight':
+motorSubroutines.c:582:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c: In function 'findLineLeft':
+motorSubroutines.c:625:6: warning: variable 'leftLine' set but not used [-Wunused-but-set-variable]
+motorSubroutines.c: In function 'followLine':
+motorSubroutines.c:682:6: warning: unused variable 'aliSpeed2' [-Wunused-variable]
+motorSubroutines.c:680:6: warning: unused variable 'lightDegree' [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+opcontrol.c:788:2: error: expected identifier before numeric constant
+opcontrol.c: In function 'channelLeftButtons':
+opcontrol.c:793:1: warning: empty declaration [enabled by default]
+opcontrol.c:799:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+opcontrol.c:817:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+opcontrol.c:820:1: error: expected '{' at end of input
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+20:57:18 **** Incremental Build of configuration Default for project Template ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c:788:2: error: expected identifier before numeric constant
+opcontrol.c: In function 'doButtonsP1':
+opcontrol.c:811:2: error: implicit declaration of function 'leftButtons' [-Werror=implicit-function-declaration]
+opcontrol.c:812:2: error: implicit declaration of function 'rightButtons' [-Werror=implicit-function-declaration]
+opcontrol.c:813:2: error: expected ';' before 'leftTrigger'
+opcontrol.c:814:2: error: implicit declaration of function 'rightTrigger' [-Werror=implicit-function-declaration]
+opcontrol.c:809:7: warning: unused variable 'rd' [-Wunused-variable]
+opcontrol.c:808:7: warning: unused variable 'rl' [-Wunused-variable]
+opcontrol.c:807:7: warning: unused variable 'rr' [-Wunused-variable]
+opcontrol.c:806:7: warning: unused variable 'ru' [-Wunused-variable]
+opcontrol.c:804:7: warning: unused variable 'ld' [-Wunused-variable]
+opcontrol.c:803:7: warning: unused variable 'll' [-Wunused-variable]
+opcontrol.c:802:7: warning: unused variable 'lr' [-Wunused-variable]
+opcontrol.c:801:7: warning: unused variable 'lu' [-Wunused-variable]
+opcontrol.c: In function 'doJoysticks':
+opcontrol.c:819:2: error: implicit declaration of function 'leftJoystick' [-Werror=implicit-function-declaration]
+opcontrol.c:820:2: error: implicit declaration of function 'rightJoystic' [-Werror=implicit-function-declaration]
+cc1: some warnings being treated as errors
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+20:58:30 **** Incremental Build of configuration Default for project Template ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c:788:2: error: expected identifier before numeric constant
+opcontrol.c: In function 'doButtonsP1':
+opcontrol.c:823:2: error: expected ';' before 'leftTrigger'
+opcontrol.c:819:7: warning: unused variable 'rd' [-Wunused-variable]
+opcontrol.c:818:7: warning: unused variable 'rl' [-Wunused-variable]
+opcontrol.c:817:7: warning: unused variable 'rr' [-Wunused-variable]
+opcontrol.c:816:7: warning: unused variable 'ru' [-Wunused-variable]
+opcontrol.c:814:7: warning: unused variable 'ld' [-Wunused-variable]
+opcontrol.c:813:7: warning: unused variable 'll' [-Wunused-variable]
+opcontrol.c:812:7: warning: unused variable 'lr' [-Wunused-variable]
+opcontrol.c:811:7: warning: unused variable 'lu' [-Wunused-variable]
+opcontrol.c: In function 'doJoysticks':
+opcontrol.c:829:2: error: implicit declaration of function 'leftJoystick' [-Werror=implicit-function-declaration]
+opcontrol.c:830:2: error: implicit declaration of function 'rightJoystic' [-Werror=implicit-function-declaration]
+cc1: some warnings being treated as errors
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+20:58:42 **** Incremental Build of configuration Default for project Template ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c:788:2: error: expected identifier before numeric constant
+opcontrol.c: In function 'doButtonsP1':
+opcontrol.c:819:7: warning: unused variable 'rd' [-Wunused-variable]
+opcontrol.c:818:7: warning: unused variable 'rl' [-Wunused-variable]
+opcontrol.c:817:7: warning: unused variable 'rr' [-Wunused-variable]
+opcontrol.c:816:7: warning: unused variable 'ru' [-Wunused-variable]
+opcontrol.c:814:7: warning: unused variable 'ld' [-Wunused-variable]
+opcontrol.c:813:7: warning: unused variable 'll' [-Wunused-variable]
+opcontrol.c:812:7: warning: unused variable 'lr' [-Wunused-variable]
+opcontrol.c:811:7: warning: unused variable 'lu' [-Wunused-variable]
+opcontrol.c: In function 'doJoysticks':
+opcontrol.c:829:2: error: implicit declaration of function 'leftJoystick' [-Werror=implicit-function-declaration]
+opcontrol.c:830:2: error: implicit declaration of function 'rightJoystic' [-Werror=implicit-function-declaration]
+cc1: some warnings being treated as errors
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+21:06:46 **** Incremental Build of configuration Default for project Template ****
+make all 
+CC -I../include -I../src auto.c
+auto.c: In function 'rushRed':
+auto.c:106:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:104:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c:103:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'rushBlue':
+auto.c:165:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:163:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c:162:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'classic15Red':
+auto.c:244:6: warning: unused variable 'encoder15' [-Wunused-variable]
+auto.c:243:6: warning: unused variable 'encoder14' [-Wunused-variable]
+auto.c:232:6: warning: unused variable 'encoder3' [-Wunused-variable]
+auto.c:227:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:226:6: warning: unused variable 'dead3' [-Wunused-variable]
+auto.c:225:6: warning: unused variable 'dead2' [-Wunused-variable]
+auto.c:224:6: warning: unused variable 'dead1' [-Wunused-variable]
+auto.c: In function 'classic15Blue':
+auto.c:336:6: warning: unused variable 'encoder15' [-Wunused-variable]
+auto.c:335:6: warning: unused variable 'encoder14' [-Wunused-variable]
+auto.c:324:6: warning: unused variable 'encoder3' [-Wunused-variable]
+auto.c:319:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:318:6: warning: unused variable 'dead3' [-Wunused-variable]
+auto.c:317:6: warning: unused variable 'dead2' [-Wunused-variable]
+auto.c:316:6: warning: unused variable 'dead1' [-Wunused-variable]
+auto.c: In function 'rejectionRed':
+auto.c:409:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:406:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'rejectionBlue':
+auto.c:482:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:479:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'kakitRed':
+auto.c:582:6: warning: unused variable 'encoder9' [-Wunused-variable]
+auto.c:581:6: warning: unused variable 'encoder8' [-Wunused-variable]
+auto.c:575:6: warning: unused variable 'encoder2' [-Wunused-variable]
+auto.c:570:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:567:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c: In function 'rejectionBlueSkills':
+auto.c:671:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:668:6: warning: unused variable 'armMin' [-Wunused-variable]
+CC -I../include -I../src botMath.c
+CC -I../include -I../src init.c
+init.c: In function 'initialize':
+init.c:87:6: warning: unused variable 'counts' [-Wunused-variable]
+CC -I../include -I../src interpolate.c
+interpolate.c: In function 'cubicInterpolate':
+interpolate.c:51:20: warning: unused variable 'a3' [-Wunused-variable]
+interpolate.c:51:17: warning: unused variable 'a2' [-Wunused-variable]
+interpolate.c:51:14: warning: unused variable 'a1' [-Wunused-variable]
+interpolate.c:55:19: warning: 'a0' is used uninitialized in this function [-Wuninitialized]
+CC -I../include -I../src motorSubroutines.c
+motorSubroutines.c: In function 'forwardDetect':
+motorSubroutines.c:417:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c:415:6: warning: unused variable 'leftLine' [-Wunused-variable]
+motorSubroutines.c: In function 'backDetect':
+motorSubroutines.c:446:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c:444:6: warning: unused variable 'leftLine' [-Wunused-variable]
+motorSubroutines.c: In function 'findLineRight':
+motorSubroutines.c:582:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c: In function 'findLineLeft':
+motorSubroutines.c:625:6: warning: variable 'leftLine' set but not used [-Wunused-but-set-variable]
+motorSubroutines.c: In function 'followLine':
+motorSubroutines.c:682:6: warning: unused variable 'aliSpeed2' [-Wunused-variable]
+motorSubroutines.c:680:6: warning: unused variable 'lightDegree' [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+opcontrol.c:788:2: error: expected identifier before numeric constant
+opcontrol.c: In function 'doButtonsP1':
+opcontrol.c:819:7: warning: unused variable 'rd' [-Wunused-variable]
+opcontrol.c: In function 'doJoysticks':
+opcontrol.c:838:7: error: redefinition of 'rX'
+opcontrol.c:836:7: note: previous definition of 'rX' was here
+opcontrol.c:839:7: error: redefinition of 'rY'
+opcontrol.c:837:7: note: previous definition of 'rY' was here
+opcontrol.c:840:2: error: 'channel3' undeclared (first use in this function)
+opcontrol.c:840:2: note: each undeclared identifier is reported only once for each function it appears in
+opcontrol.c:841:2: error: implicit declaration of function 'leftJoystick' [-Werror=implicit-function-declaration]
+opcontrol.c:842:2: error: implicit declaration of function 'rightJoystick' [-Werror=implicit-function-declaration]
+opcontrol.c:839:7: warning: unused variable 'rY' [-Wunused-variable]
+opcontrol.c:838:7: warning: unused variable 'rX' [-Wunused-variable]
+cc1: some warnings being treated as errors
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+21:33:59 **** Incremental Build of configuration Default for project Template ****
+make all 
+CC -I../include -I../src auto.c
+auto.c: In function 'rushRed':
+auto.c:106:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:104:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c:103:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'rushBlue':
+auto.c:165:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:163:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c:162:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'classic15Red':
+auto.c:244:6: warning: unused variable 'encoder15' [-Wunused-variable]
+auto.c:243:6: warning: unused variable 'encoder14' [-Wunused-variable]
+auto.c:232:6: warning: unused variable 'encoder3' [-Wunused-variable]
+auto.c:227:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:226:6: warning: unused variable 'dead3' [-Wunused-variable]
+auto.c:225:6: warning: unused variable 'dead2' [-Wunused-variable]
+auto.c:224:6: warning: unused variable 'dead1' [-Wunused-variable]
+auto.c: In function 'classic15Blue':
+auto.c:336:6: warning: unused variable 'encoder15' [-Wunused-variable]
+auto.c:335:6: warning: unused variable 'encoder14' [-Wunused-variable]
+auto.c:324:6: warning: unused variable 'encoder3' [-Wunused-variable]
+auto.c:319:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:318:6: warning: unused variable 'dead3' [-Wunused-variable]
+auto.c:317:6: warning: unused variable 'dead2' [-Wunused-variable]
+auto.c:316:6: warning: unused variable 'dead1' [-Wunused-variable]
+auto.c: In function 'rejectionRed':
+auto.c:409:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:406:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'rejectionBlue':
+auto.c:482:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:479:6: warning: unused variable 'armMin' [-Wunused-variable]
+auto.c: In function 'kakitRed':
+auto.c:582:6: warning: unused variable 'encoder9' [-Wunused-variable]
+auto.c:581:6: warning: unused variable 'encoder8' [-Wunused-variable]
+auto.c:575:6: warning: unused variable 'encoder2' [-Wunused-variable]
+auto.c:570:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:567:6: warning: unused variable 'wallHeight' [-Wunused-variable]
+auto.c: In function 'rejectionBlueSkills':
+auto.c:671:6: warning: unused variable 'pot' [-Wunused-variable]
+auto.c:668:6: warning: unused variable 'armMin' [-Wunused-variable]
+CC -I../include -I../src botMath.c
+CC -I../include -I../src init.c
+init.c: In function 'initialize':
+init.c:87:6: warning: unused variable 'counts' [-Wunused-variable]
+CC -I../include -I../src interpolate.c
+interpolate.c: In function 'cubicInterpolate':
+interpolate.c:51:20: warning: unused variable 'a3' [-Wunused-variable]
+interpolate.c:51:17: warning: unused variable 'a2' [-Wunused-variable]
+interpolate.c:51:14: warning: unused variable 'a1' [-Wunused-variable]
+interpolate.c:55:19: warning: 'a0' is used uninitialized in this function [-Wuninitialized]
+CC -I../include -I../src motorSubroutines.c
+motorSubroutines.c: In function 'forwardDetect':
+motorSubroutines.c:417:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c:415:6: warning: unused variable 'leftLine' [-Wunused-variable]
+motorSubroutines.c: In function 'backDetect':
+motorSubroutines.c:446:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c:444:6: warning: unused variable 'leftLine' [-Wunused-variable]
+motorSubroutines.c: In function 'findLineRight':
+motorSubroutines.c:582:6: warning: unused variable 'rightLine' [-Wunused-variable]
+motorSubroutines.c: In function 'findLineLeft':
+motorSubroutines.c:625:6: warning: variable 'leftLine' set but not used [-Wunused-but-set-variable]
+motorSubroutines.c: In function 'followLine':
+motorSubroutines.c:682:6: warning: unused variable 'aliSpeed2' [-Wunused-variable]
+motorSubroutines.c:680:6: warning: unused variable 'lightDegree' [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:99:4: error: implicit declaration of function 'doButtonsP1' [-Werror=implicit-function-declaration]
+opcontrol.c:100:4: error: implicit declaration of function 'doJoysticksP1' [-Werror=implicit-function-declaration]
+opcontrol.c: At top level:
+opcontrol.c:809:2: error: expected identifier before numeric constant
+opcontrol.c:830:6: warning: conflicting types for 'doButtonsP1' [enabled by default]
+opcontrol.c:99:4: note: previous implicit declaration of 'doButtonsP1' was here
+opcontrol.c:857:6: warning: conflicting types for 'doJoysticksP1' [enabled by default]
+opcontrol.c:100:4: note: previous implicit declaration of 'doJoysticksP1' was here
+opcontrol.c: In function 'doJoysticksP1':
+opcontrol.c:859:12: warning: variable 'r' set but not used [-Wunused-but-set-variable]
+opcontrol.c:859:10: warning: variable 'l' set but not used [-Wunused-but-set-variable]
+cc1: some warnings being treated as errors
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+21:34:41 **** Incremental Build of configuration Default for project Template ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c:812:2: error: expected identifier before numeric constant
+opcontrol.c: In function 'doJoysticksP1':
+opcontrol.c:862:12: warning: variable 'r' set but not used [-Wunused-but-set-variable]
+opcontrol.c:862:10: warning: variable 'l' set but not used [-Wunused-but-set-variable]
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+21:36:21 **** Incremental Build of configuration Default for project Template ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControlOld':
+opcontrol.c:223:39: error: 'INPUT_RIGHT_BUTTONS' undeclared (first use in this function)
+opcontrol.c:223:39: note: each undeclared identifier is reported only once for each function it appears in
+opcontrol.c: In function 'twoDrivers':
+opcontrol.c:423:38: error: 'INPUT_RIGHT_BUTTONS' undeclared (first use in this function)
+opcontrol.c: In function 'cubicDrive':
+opcontrol.c:700:39: error: 'INPUT_RIGHT_BUTTONS' undeclared (first use in this function)
+opcontrol.c: In function 'doJoysticksP1':
+opcontrol.c:861:12: warning: variable 'r' set but not used [-Wunused-but-set-variable]
+opcontrol.c:861:10: warning: variable 'l' set but not used [-Wunused-but-set-variable]
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+21:36:39 **** Incremental Build of configuration Default for project Template ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'doJoysticksP1':
+opcontrol.c:863:12: warning: variable 'r' set but not used [-Wunused-but-set-variable]
+opcontrol.c:863:10: warning: variable 'l' set but not used [-Wunused-but-set-variable]
+CC -I../include -I../src statedMotorSubroutines.c
+statedMotorSubroutines.c: In function 'forwardDetect':
+statedMotorSubroutines.c:418:6: warning: unused variable 'rightLine' [-Wunused-variable]
+statedMotorSubroutines.c:416:6: warning: unused variable 'leftLine' [-Wunused-variable]
+statedMotorSubroutines.c: In function 'backDetect':
+statedMotorSubroutines.c:447:6: warning: unused variable 'rightLine' [-Wunused-variable]
+statedMotorSubroutines.c:445:6: warning: unused variable 'leftLine' [-Wunused-variable]
+statedMotorSubroutines.c: In function 'findLineRight':
+statedMotorSubroutines.c:583:6: warning: unused variable 'rightLine' [-Wunused-variable]
+statedMotorSubroutines.c: In function 'findLineLeft':
+statedMotorSubroutines.c:626:6: warning: variable 'leftLine' set but not used [-Wunused-but-set-variable]
+statedMotorSubroutines.c: In function 'followLine':
+statedMotorSubroutines.c:683:6: warning: unused variable 'aliSpeed2' [-Wunused-variable]
+statedMotorSubroutines.c:681:6: warning: unused variable 'lightDegree' [-Wunused-variable]
+LN ./bin/auto.o ./bin/botMath.o ./bin/init.o ./bin/interpolate.o ./bin/motorSubroutines.o ./bin/opcontrol.o ./bin/statedMotorSubroutines.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+./bin/statedMotorSubroutines.o: In function `driveForward':
+statedMotorSubroutines.c:(.text.driveForward+0x0): multiple definition of `driveForward'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveForward+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveBack':
+statedMotorSubroutines.c:(.text.driveBack+0x0): multiple definition of `driveBack'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveBack+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `turnRight':
+statedMotorSubroutines.c:(.text.turnRight+0x0): multiple definition of `turnRight'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.turnRight+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `turnLeft':
+statedMotorSubroutines.c:(.text.turnLeft+0x0): multiple definition of `turnLeft'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.turnLeft+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `turnRightSlowDead':
+statedMotorSubroutines.c:(.text.turnRightSlowDead+0x0): multiple definition of `turnRightSlowDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.turnRightSlowDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `turnLeftSlowDead':
+statedMotorSubroutines.c:(.text.turnLeftSlowDead+0x0): multiple definition of `turnLeftSlowDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.turnLeftSlowDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `turnLeftArc':
+statedMotorSubroutines.c:(.text.turnLeftArc+0x0): multiple definition of `turnLeftArc'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.turnLeftArc+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `turnRightArc':
+statedMotorSubroutines.c:(.text.turnRightArc+0x0): multiple definition of `turnRightArc'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.turnRightArc+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `stopDrive':
+statedMotorSubroutines.c:(.text.stopDrive+0x0): multiple definition of `stopDrive'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.stopDrive+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `stopAll':
+statedMotorSubroutines.c:(.text.stopAll+0x0): multiple definition of `stopAll'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.stopAll+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `stopIntake':
+statedMotorSubroutines.c:(.text.stopIntake+0x0): multiple definition of `stopIntake'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.stopIntake+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveForwardDead':
+statedMotorSubroutines.c:(.text.driveForwardDead+0x0): multiple definition of `driveForwardDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveForwardDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveBackDead':
+statedMotorSubroutines.c:(.text.driveBackDead+0x0): multiple definition of `driveBackDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveBackDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveForwardSlow':
+statedMotorSubroutines.c:(.text.driveForwardSlow+0x0): multiple definition of `driveForwardSlow'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveForwardSlow+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveBackSlow':
+statedMotorSubroutines.c:(.text.driveBackSlow+0x0): multiple definition of `driveBackSlow'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveBackSlow+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveForwardSlowDead':
+statedMotorSubroutines.c:(.text.driveForwardSlowDead+0x0): multiple definition of `driveForwardSlowDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveForwardSlowDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveBackSlowDead':
+statedMotorSubroutines.c:(.text.driveBackSlowDead+0x0): multiple definition of `driveBackSlowDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveBackSlowDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `scrapeRight':
+statedMotorSubroutines.c:(.text.scrapeRight+0x0): multiple definition of `scrapeRight'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.scrapeRight+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `scrapeLeft':
+statedMotorSubroutines.c:(.text.scrapeLeft+0x0): multiple definition of `scrapeLeft'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.scrapeLeft+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `scrapeLeftBack':
+statedMotorSubroutines.c:(.text.scrapeLeftBack+0x0): multiple definition of `scrapeLeftBack'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.scrapeLeftBack+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `scrapeRightBack':
+statedMotorSubroutines.c:(.text.scrapeRightBack+0x0): multiple definition of `scrapeRightBack'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.scrapeRightBack+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `forwardDetect':
+statedMotorSubroutines.c:(.text.forwardDetect+0x0): multiple definition of `forwardDetect'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.forwardDetect+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `backDetect':
+statedMotorSubroutines.c:(.text.backDetect+0x0): multiple definition of `backDetect'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.backDetect+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `armUpDead':
+statedMotorSubroutines.c:(.text.armUpDead+0x0): multiple definition of `armUpDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.armUpDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `armDownDead':
+statedMotorSubroutines.c:(.text.armDownDead+0x0): multiple definition of `armDownDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.armDownDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `armUpTrim':
+statedMotorSubroutines.c:(.text.armUpTrim+0x0): multiple definition of `armUpTrim'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.armUpTrim+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `armUp':
+statedMotorSubroutines.c:(.text.armUp+0x0): multiple definition of `armUp'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.armUp+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `armDownTrim':
+statedMotorSubroutines.c:(.text.armDownTrim+0x0): multiple definition of `armDownTrim'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.armDownTrim+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `armDown':
+statedMotorSubroutines.c:(.text.armDown+0x0): multiple definition of `armDown'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.armDown+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `stopArm':
+statedMotorSubroutines.c:(.text.stopArm+0x0): multiple definition of `stopArm'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.stopArm+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `intake':
+statedMotorSubroutines.c:(.text.intake+0x0): multiple definition of `intake'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.intake+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `outtake':
+statedMotorSubroutines.c:(.text.outtake+0x0): multiple definition of `outtake'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.outtake+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `intakeDead':
+statedMotorSubroutines.c:(.text.intakeDead+0x0): multiple definition of `intakeDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.intakeDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `outtakeDead':
+statedMotorSubroutines.c:(.text.outtakeDead+0x0): multiple definition of `outtakeDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.outtakeDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `findLineRight':
+statedMotorSubroutines.c:(.text.findLineRight+0x0): multiple definition of `findLineRight'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.findLineRight+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `findLineLeft':
+statedMotorSubroutines.c:(.text.findLineLeft+0x0): multiple definition of `findLineLeft'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.findLineLeft+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `followLine':
+statedMotorSubroutines.c:(.text.followLine+0x0): multiple definition of `followLine'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.followLine+0x0): first defined here
+collect2: error: ld returned 1 exit status
+make: *** [bin/output.elf] Error 1
+21:53:56 **** Build of configuration Default for project Gordon 15 bot code ****
+make all 
+Command canceled
+21:54:38 **** Incremental Build of configuration Default for project Template ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c:38:21: fatal error: botMath.h: No such file or directory
+compilation terminated.
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+21:56:18 **** Incremental Build of configuration Default for project Template ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'doJoysticksP1':
+opcontrol.c:862:12: warning: variable 'r' set but not used [-Wunused-but-set-variable]
+opcontrol.c:862:10: warning: variable 'l' set but not used [-Wunused-but-set-variable]
+LN ./bin/auto.o ./bin/botMath.o ./bin/init.o ./bin/interpolate.o ./bin/motorSubroutines.o ./bin/opcontrol.o ./bin/statedMotorSubroutines.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+./bin/opcontrol.o: In function `v2Distance':
+opcontrol.c:(.text.v2Distance+0x0): multiple definition of `v2Distance'
+./bin/botMath.o:botMath.c:(.text.v2Distance+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveForward':
+statedMotorSubroutines.c:(.text.driveForward+0x0): multiple definition of `driveForward'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveForward+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveBack':
+statedMotorSubroutines.c:(.text.driveBack+0x0): multiple definition of `driveBack'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveBack+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `turnRight':
+statedMotorSubroutines.c:(.text.turnRight+0x0): multiple definition of `turnRight'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.turnRight+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `turnLeft':
+statedMotorSubroutines.c:(.text.turnLeft+0x0): multiple definition of `turnLeft'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.turnLeft+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `turnRightSlowDead':
+statedMotorSubroutines.c:(.text.turnRightSlowDead+0x0): multiple definition of `turnRightSlowDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.turnRightSlowDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `turnLeftSlowDead':
+statedMotorSubroutines.c:(.text.turnLeftSlowDead+0x0): multiple definition of `turnLeftSlowDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.turnLeftSlowDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `turnLeftArc':
+statedMotorSubroutines.c:(.text.turnLeftArc+0x0): multiple definition of `turnLeftArc'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.turnLeftArc+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `turnRightArc':
+statedMotorSubroutines.c:(.text.turnRightArc+0x0): multiple definition of `turnRightArc'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.turnRightArc+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `stopDrive':
+statedMotorSubroutines.c:(.text.stopDrive+0x0): multiple definition of `stopDrive'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.stopDrive+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `stopAll':
+statedMotorSubroutines.c:(.text.stopAll+0x0): multiple definition of `stopAll'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.stopAll+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `stopIntake':
+statedMotorSubroutines.c:(.text.stopIntake+0x0): multiple definition of `stopIntake'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.stopIntake+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveForwardDead':
+statedMotorSubroutines.c:(.text.driveForwardDead+0x0): multiple definition of `driveForwardDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveForwardDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveBackDead':
+statedMotorSubroutines.c:(.text.driveBackDead+0x0): multiple definition of `driveBackDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveBackDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveForwardSlow':
+statedMotorSubroutines.c:(.text.driveForwardSlow+0x0): multiple definition of `driveForwardSlow'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveForwardSlow+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveBackSlow':
+statedMotorSubroutines.c:(.text.driveBackSlow+0x0): multiple definition of `driveBackSlow'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveBackSlow+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveForwardSlowDead':
+statedMotorSubroutines.c:(.text.driveForwardSlowDead+0x0): multiple definition of `driveForwardSlowDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveForwardSlowDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `driveBackSlowDead':
+statedMotorSubroutines.c:(.text.driveBackSlowDead+0x0): multiple definition of `driveBackSlowDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.driveBackSlowDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `scrapeRight':
+statedMotorSubroutines.c:(.text.scrapeRight+0x0): multiple definition of `scrapeRight'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.scrapeRight+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `scrapeLeft':
+statedMotorSubroutines.c:(.text.scrapeLeft+0x0): multiple definition of `scrapeLeft'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.scrapeLeft+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `scrapeLeftBack':
+statedMotorSubroutines.c:(.text.scrapeLeftBack+0x0): multiple definition of `scrapeLeftBack'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.scrapeLeftBack+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `scrapeRightBack':
+statedMotorSubroutines.c:(.text.scrapeRightBack+0x0): multiple definition of `scrapeRightBack'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.scrapeRightBack+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `forwardDetect':
+statedMotorSubroutines.c:(.text.forwardDetect+0x0): multiple definition of `forwardDetect'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.forwardDetect+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `backDetect':
+statedMotorSubroutines.c:(.text.backDetect+0x0): multiple definition of `backDetect'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.backDetect+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `armUpDead':
+statedMotorSubroutines.c:(.text.armUpDead+0x0): multiple definition of `armUpDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.armUpDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `armDownDead':
+statedMotorSubroutines.c:(.text.armDownDead+0x0): multiple definition of `armDownDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.armDownDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `armUpTrim':
+statedMotorSubroutines.c:(.text.armUpTrim+0x0): multiple definition of `armUpTrim'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.armUpTrim+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `armUp':
+statedMotorSubroutines.c:(.text.armUp+0x0): multiple definition of `armUp'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.armUp+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `armDownTrim':
+statedMotorSubroutines.c:(.text.armDownTrim+0x0): multiple definition of `armDownTrim'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.armDownTrim+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `armDown':
+statedMotorSubroutines.c:(.text.armDown+0x0): multiple definition of `armDown'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.armDown+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `stopArm':
+statedMotorSubroutines.c:(.text.stopArm+0x0): multiple definition of `stopArm'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.stopArm+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `intake':
+statedMotorSubroutines.c:(.text.intake+0x0): multiple definition of `intake'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.intake+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `outtake':
+statedMotorSubroutines.c:(.text.outtake+0x0): multiple definition of `outtake'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.outtake+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `intakeDead':
+statedMotorSubroutines.c:(.text.intakeDead+0x0): multiple definition of `intakeDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.intakeDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `outtakeDead':
+statedMotorSubroutines.c:(.text.outtakeDead+0x0): multiple definition of `outtakeDead'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.outtakeDead+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `findLineRight':
+statedMotorSubroutines.c:(.text.findLineRight+0x0): multiple definition of `findLineRight'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.findLineRight+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `findLineLeft':
+statedMotorSubroutines.c:(.text.findLineLeft+0x0): multiple definition of `findLineLeft'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.findLineLeft+0x0): first defined here
+./bin/statedMotorSubroutines.o: In function `followLine':
+statedMotorSubroutines.c:(.text.followLine+0x0): multiple definition of `followLine'
+./bin/motorSubroutines.o:motorSubroutines.c:(.text.followLine+0x0): first defined here
+collect2: error: ld returned 1 exit status
+make: *** [bin/output.elf] Error 1

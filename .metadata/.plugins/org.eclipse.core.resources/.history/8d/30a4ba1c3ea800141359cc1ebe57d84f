@@ -1,0 +1,16 @@
+/*
+ * easyTypes.h
+ *
+ *  Created on: Jan 29, 2015
+ *      Author: awiebe
+ */
+
+#include <stdint.h>
+
+#ifndef EASYTYPES_H_
+#define EASYTYPES_H_
+
+typedef uint8_t u8;
+typedef int8_t s8;
+
+#endif /* EASYTYPES_H_ */

@@ -35,6 +35,7 @@
 #include "main.h"
 #include "botConstants.h"
 #include <stdbool.h>
+#include "botMath.c"
 /*
  * Runs the user operator control code. This function will be started in its own task with the
  * default priority and stack size whenever the robot is enabled via the Field Management System
@@ -54,13 +55,12 @@
  */
 
 //joysticks
-#define joystick1 1
+#define controller1 1
 #define joystick2 2
 #define joystickchannel2 2
 #define joystickchannel3 3
 #define joystickchannel5 5
 #define joystickchannel6 6
-#define joystickchannel8 8
 
 
 // pot height settings
@@ -80,7 +80,46 @@ void twoDrivers();
 // cubic drive
 void cubicDrive();
 
+void doButtonsP1();
+void doJoysticksP1();
+
+typedef enum InputChannels
+{
+	INPUT_RIGHT_X=1,
+	INPUT_RIGHT_Y=2,
+	INPUT_LEFT_Y=3,
+	INPUT_LEFT_X=4,
+	INPUT_RIGHT_TRIGGER=5,
+	INPUT_LEFT_TRIGGER=6,
+	INPUT_LEFT_BUTTONS=7,
+	INPUT_RIGHT_BUTTONS = 8
+
+}InputChannels;
+
+
+
 void operatorControl()
+{
+	// go to autonomous mode testing
+		if (digitalRead(1) == LOW) // jumper 1 in = autonomous
+		{
+				autonomous ();
+		}
+
+		if (digitalRead(2) == LOW) // jumper 2 in = two drivers
+		{
+			twoDrivers();
+		}
+
+		//Standard op control mode if no jumper
+		while(true)
+		{
+			doButtonsP1();
+			doJoysticksP1();
+		}
+
+}
+void operatorControlOld()
 {
 
 	// go to autonomous mode testing
@@ -110,18 +149,18 @@ void operatorControl()
 			autonomous();
 		}
 
-// declare joystick inputs/////////////////////////////////////////////////////////////////////////////////
+		// declare joystick inputs/////////////////////////////////////////////////////////////////////////////////
 		int channel2 = joystickGetAnalog(1, 2); // (joystick 1, channel 2)
 		int channel3 = joystickGetAnalog(1, 3); // (joystick 1, channel 3)
 
-// drive functions////////////////////////////////////////////////////////////////////////////////////////
+		// drive functions////////////////////////////////////////////////////////////////////////////////////////
 		motorSet(MOTOR_DRIVE_RIGHT_BACK, channel2); // right drive back
 		motorSet(MOTOR_DRIVE_RIGHT_FRONT, channel2); // right drive front
 		motorSet(MOTOR_ARM_LEFT_BACK, channel3); // left drive abck
 		motorSet(MOTOR_ARM_LEFT_FRONT, channel3); // left drive front
 
-// arm function/////////////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP)) // arm up
+		// arm function/////////////////////////////////////////////////////////////////////////////////////////////
+		if (joystickGetDigital(controller1, joystickchannel6, JOY_UP)) // arm up
 		{
 			motorSet(MOTOR_ARM_RIGHT_TOP, 127); // arm right up
 			motorSet(MOTOR_ARM_LEFT_TOP, -127); // arm left
@@ -129,7 +168,7 @@ void operatorControl()
 			motorSet(MOTOR_ARM_LEFT_BOTTOM, 127); // arm left down
 		}
 
-		else if (joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // arm down
+		else if (joystickGetDigital(controller1, joystickchannel6, JOY_DOWN)) // arm down
 		{
 			motorSet(MOTOR_ARM_RIGHT_TOP, -127); // arm right up
 			motorSet(MOTOR_ARM_LEFT_TOP, 127); // arm left up
@@ -164,14 +203,14 @@ void operatorControl()
 
 		}
 
-// intake functions/////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel5, JOY_UP)) //intake
+		// intake functions/////////////////////////////////////////////////////////////////////////////////////
+		if (joystickGetDigital(controller1, joystickchannel5, JOY_UP)) //intake
 		{
 			motorSet(MOTOR_INTAKE_RIGHT, 127); // arm right
 			motorSet(MOTOR_INTAKE_LEFT, -127); // arm left
 		}
 
-		else if (joystickGetDigital(joystick1, joystickchannel5, JOY_DOWN)) // outtake
+		else if (joystickGetDigital(controller1, joystickchannel5, JOY_DOWN)) // outtake
 		{
 			motorSet(MOTOR_INTAKE_RIGHT, -127); // arm right
 			motorSet(MOTOR_INTAKE_LEFT, 127); // arm left
@@ -182,30 +221,30 @@ void operatorControl()
 			motorStop(MOTOR_INTAKE_LEFT); // arm left
 		}
 
-// shortcut manual overrides and cancel ////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP)) // manual button override
+		// shortcut manual overrides and cancel ////////////////////////////////////////////////////////////////////////
+		if (joystickGetDigital(controller1, joystickchannel6, JOY_UP)) // manual button override
 		{
 			armMax = 0;
 			armMin = 0;
 			armCenter = 0;
 		}
 
-		if (joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // manual button override
+		if (joystickGetDigital(controller1, joystickchannel6, JOY_DOWN)) // manual button override
 		{
 			armMax = 0;
 			armMin = 0;
 			armCenter = 0;
 		}
 
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_LEFT)) // manual button cancell
+		if (joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_LEFT)) // manual button cancell
 		{
 			armMax = 0;
 			armMin = 0;
 			armCenter = 0;
 		}
 
-// arm max shortcut button////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_UP)) //channel 8 button up pressed?
+		// arm max shortcut button////////////////////////////////////////////////////////////////////////////////////
+		if (joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_UP)) //channel 8 button up pressed?
 		{
 			armMax = 1;
 			armMin = 0;
@@ -235,8 +274,8 @@ void operatorControl()
 			}
 		}
 
-// arm mmin shortcut button//////////////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_DOWN)) //channel 8 button down pressed ?
+		// arm mmin shortcut button//////////////////////////////////////////////////////////////////////////////////////////////
+		if (joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_DOWN)) //channel 8 button down pressed ?
 		{
 			armMax = 0;
 			armMin = 1;
@@ -265,8 +304,8 @@ void operatorControl()
 			}
 		}
 
-// wall height shortcut button//////////////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_RIGHT)) //channel 8 button right pressed ?
+		// wall height shortcut button//////////////////////////////////////////////////////////////////////////////////////////////
+		if (joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_RIGHT)) //channel 8 button right pressed ?
 		{
 			armMax = 0;
 			armMin = 0;
@@ -397,7 +436,7 @@ void twoDrivers()
 		{
 
 			// arm max shortcut button////////////////////////////////////////////////////////////////////////////////////
-			if (joystickGetDigital(joystick2, joystickchannel8, JOY_UP)) //channel 8 button up pressed?
+			if (joystickGetDigital(joystick2, INPUT_RIGHT_BUTTONS, JOY_UP)) //channel 8 button up pressed?
 			{
 				dummyTrim = 0;
 				armMax = 1;
@@ -442,7 +481,7 @@ void twoDrivers()
 			}
 
 			// arm mmin shortcut button//////////////////////////////////////////////////////////////////////////////////////////////
-			if (joystickGetDigital(joystick2, joystickchannel8, JOY_DOWN)) //channel 8 button down pressed ?
+			if (joystickGetDigital(joystick2, INPUT_RIGHT_BUTTONS, JOY_DOWN)) //channel 8 button down pressed ?
 			{
 				dummyTrim = 0;
 				armMax = 0;
@@ -487,7 +526,7 @@ void twoDrivers()
 			}
 
 			// wall height shortcut button//////////////////////////////////////////////////////////////////////////////////////////////
-			if (joystickGetDigital(joystick2, joystickchannel8, JOY_RIGHT)) //channel 8 button right pressed ?
+			if (joystickGetDigital(joystick2, INPUT_RIGHT_BUTTONS, JOY_RIGHT)) //channel 8 button right pressed ?
 			{
 				dummyTrim = 0;
 				armMax = 0;
@@ -548,7 +587,7 @@ void twoDrivers()
 			motorStop(MOTOR_INTAKE_LEFT); // arm left
 		}
 
-/////////////TOP OF CUBIC///////////////////////////////////////
+		/////////////TOP OF CUBIC///////////////////////////////////////
 
 	} //while(true) of twoDrivers
 
@@ -598,7 +637,7 @@ void cubicDrive()
 		motorSet(MOTOR_ARM_LEFT_FRONT, mapped3); // left drive front
 
 		// arm function/////////////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP)) // arm up
+		if (joystickGetDigital(controller1, joystickchannel6, JOY_UP)) // arm up
 		{
 			motorSet(MOTOR_ARM_RIGHT_TOP, 127); // arm right up
 			motorSet(MOTOR_ARM_LEFT_TOP, -127); // arm left
@@ -606,7 +645,7 @@ void cubicDrive()
 			motorSet(MOTOR_ARM_LEFT_BOTTOM, 127); // arm left down
 		}
 
-		else if (joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // arm down
+		else if (joystickGetDigital(controller1, joystickchannel6, JOY_DOWN)) // arm down
 		{
 			motorSet(MOTOR_ARM_RIGHT_TOP, -127); // arm right up
 			motorSet(MOTOR_ARM_LEFT_TOP, 127); // arm left up
@@ -642,13 +681,13 @@ void cubicDrive()
 		}
 
 		// intake functions/////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel5, JOY_UP)) //intake
+		if (joystickGetDigital(controller1, joystickchannel5, JOY_UP)) //intake
 		{
 			motorSet(MOTOR_INTAKE_RIGHT, 127); // arm right
 			motorSet(MOTOR_INTAKE_LEFT, -127); // arm left
 		}
 
-		else if (joystickGetDigital(joystick1, joystickchannel5, JOY_DOWN)) // outtake
+		else if (joystickGetDigital(controller1, joystickchannel5, JOY_DOWN)) // outtake
 		{
 			motorSet(MOTOR_INTAKE_RIGHT, -127); // arm right
 			motorSet(MOTOR_INTAKE_LEFT, 127); // arm left
@@ -660,21 +699,21 @@ void cubicDrive()
 		}
 
 		// shortcut manual overrides and cancel ////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP)) // manual button override
+		if (joystickGetDigital(controller1, joystickchannel6, JOY_UP)) // manual button override
 		{
 			armMax = 0;
 			armMin = 0;
 			armCenter = 0;
 		}
 
-		if (joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // manual button override
+		if (joystickGetDigital(controller1, joystickchannel6, JOY_DOWN)) // manual button override
 		{
 			armMax = 0;
 			armMin = 0;
 			armCenter = 0;
 		}
 
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_LEFT)) // manual button cancell
+		if (joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_LEFT)) // manual button cancell
 		{
 			armMax = 0;
 			armMin = 0;
@@ -682,7 +721,7 @@ void cubicDrive()
 		}
 
 		// arm max shortcut button////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_UP)) //channel 8 button up pressed?
+		if (joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_UP)) //channel 8 button up pressed?
 		{
 			armMax = 1;
 			armMin = 0;
@@ -713,7 +752,7 @@ void cubicDrive()
 		}
 
 		// arm mmin shortcut button//////////////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_DOWN)) //channel 8 button down pressed ?
+		if (joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_DOWN)) //channel 8 button down pressed ?
 		{
 			armMax = 0;
 			armMin = 1;
@@ -743,7 +782,7 @@ void cubicDrive()
 		}
 
 		// wall height shortcut button//////////////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_RIGHT)) //channel 8 button right pressed ?
+		if (joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_RIGHT)) //channel 8 button right pressed ?
 		{
 			armMax = 0;
 			armMin = 0;
@@ -776,3 +815,55 @@ void cubicDrive()
 
 } //cubic drive close
 
+
+
+
+
+
+void leftButtonsP1(bool u, bool d, bool l, bool r)
+{}
+void rightButtonsP1(bool u, bool d, bool l, bool r)
+{}
+void leftTriggerP1()
+{}
+void rightTriggerP1()
+{}
+
+
+void doButtonsP1()
+{
+	char lu = joystickGetDigital(controller1, INPUT_LEFT_BUTTONS, JOY_UP);
+	char lr = joystickGetDigital(controller1, INPUT_LEFT_BUTTONS, JOY_RIGHT);
+	char ll = joystickGetDigital(controller1, INPUT_LEFT_BUTTONS, JOY_LEFT);
+	char ld = joystickGetDigital(controller1, INPUT_LEFT_BUTTONS, JOY_DOWN);
+
+	char ru = joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_UP);
+	char rr = joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_RIGHT);
+	char rl = joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_LEFT);
+	char rd = joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_DOWN);
+
+	bool lt = joystickGetDigital(controller1, INPUT_LEFT_TRIGGER, JOY_DOWN);
+	bool rt = joystickGetDigital(controller1, INPUT_RIGHT_TRIGGER, JOY_DOWN);
+
+	leftButtonsP1(lu,ld,ll,lr);
+	rightButtonsP1(ru,rd,rl,rr);
+
+	if(lt)
+	leftTriggerP1();
+
+	if(rt)
+	rightTriggerP1();
+}
+
+
+
+void doJoysticksP1()
+{
+	Vector2 l,r;
+	l.x= joystickGetAnalog(controller1, INPUT_LEFT_X);
+	l.y = joystickGetAnalog(controller1, INPUT_LEFT_Y);
+	r.x = joystickGetAnalog(controller1, INPUT_RIGHT_X);
+	r.y = joystickGetAnalog(controller1, INPUT_RIGHT_Y);
+
+	//controlScheme
+}
