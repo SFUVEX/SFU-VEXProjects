@@ -162,12 +162,12 @@ void operatorControl()
 //Intake Arm Movement Functions
 		if(joystickGetDigital(joystick1, joystickchannel8, JOY_RIGHT))//Arm right
 		{
-			digitalWrite(12, HIGH);
+			digitalWrite(12, HIGH)
 		}
 		
 		else if(joystickGetDigital(joystick1, joystickchannel8, JOY_LEFT))
 		{
-			digitalWrite(12, LOW);
+			digitalWrite(12, LOW)
 		}
 		
 		else
