@@ -121,7 +121,7 @@ void operatorControl()
 		motorSet(MOTOR_ARM_LEFT_FRONT, channel3); // left drive front
 
 // arm function/////////////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP)) // arm up
+		if (joystickGetDigital(joystick1, joystickchannel5, JOY_UP)) // arm up
 		{
 			motorSet(MOTOR_ARM_RIGHT_TOP, 127); // arm right up
 			motorSet(MOTOR_ARM_LEFT_TOP, -127); // arm left
@@ -129,7 +129,7 @@ void operatorControl()
 			motorSet(MOTOR_ARM_LEFT_BOTTOM, 127); // arm left down
 		}
 
-		else if (joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // arm down
+		else if (joystickGetDigital(joystick1, joystickchannel5, JOY_DOWN)) // arm down
 		{
 			motorSet(MOTOR_ARM_RIGHT_TOP, -127); // arm right up
 			motorSet(MOTOR_ARM_LEFT_TOP, 127); // arm left up
@@ -138,166 +138,42 @@ void operatorControl()
 		}
 		else // trim arm up
 		{
-			if (pot > 1600) // high trim
-			{
-				motorSet(MOTOR_ARM_RIGHT_TOP, 10);
-				motorSet(MOTOR_ARM_LEFT_TOP, -10);
-				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10);
-				motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
-			}
-
-			else if (pot < 300) //  trim down when arm is low
-			{
-				motorSet(MOTOR_ARM_RIGHT_TOP, -7);
-				motorSet(MOTOR_ARM_LEFT_TOP, 7);
-				motorSet(MOTOR_ARM_RIGHT_BOTTOM, 7);
-				motorSet(MOTOR_ARM_LEFT_BOTTOM, -7);
-			}
-
-			else //trim normal
-			{
-				motorSet(MOTOR_ARM_RIGHT_TOP, 7);
-				motorSet(MOTOR_ARM_LEFT_TOP, -7);
-				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -7);
-				motorSet(MOTOR_ARM_LEFT_BOTTOM, 7);
-			}
-
+			motorSet(MOTOR_ARM_RIGHT_TOP, 7);
+			motorSet(MOTOR_ARM_LEFT_TOP, -7);
+			motorSet(MOTOR_ARM_RIGHT_BOTTOM, -7);
+			motorSet(MOTOR_ARM_LEFT_BOTTOM, 7);
 		}
 
 // intake functions/////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel5, JOY_UP)) //intake
-		{
-			motorSet(MOTOR_INTAKE_RIGHT, 127); // arm right
-			motorSet(MOTOR_INTAKE_LEFT, -127); // arm left
-		}
-
-		else if (joystickGetDigital(joystick1, joystickchannel5, JOY_DOWN)) // outtake
-		{
-			motorSet(MOTOR_INTAKE_RIGHT, -127); // arm right
-			motorSet(MOTOR_INTAKE_LEFT, 127); // arm left
-		}
-		else
-		{
-			motorStop(MOTOR_INTAKE_RIGHT); // arm right
-			motorStop(MOTOR_INTAKE_LEFT); // arm left
-		}
-
-// shortcut manual overrides and cancel ////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP)) // manual button override
-		{
-			armMax = 0;
-			armMin = 0;
-			armCenter = 0;
-		}
-
-		if (joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // manual button override
-		{
-			armMax = 0;
-			armMin = 0;
-			armCenter = 0;
-		}
-
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_LEFT)) // manual button cancell
-		{
-			armMax = 0;
-			armMin = 0;
-			armCenter = 0;
-		}
-
-// arm max shortcut button////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_UP)) //channel 8 button up pressed?
-		{
-			armMax = 1;
-			armMin = 0;
-			armCenter = 0;
-		}
-
-		if (armMax == 1)
-		{
-			pot = analogRead(8);
-
-			if (pot < GOAL_HEIGHT)
-			{
-				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm up
-				motorSet(MOTOR_ARM_RIGHT_TOP, 127);
-				motorSet(MOTOR_ARM_LEFT_TOP, -127);
-				motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
-			}
-
-			if (pot > GOAL_HEIGHT)
-			{
-				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10); // trim
-				motorSet(MOTOR_ARM_RIGHT_TOP, 10);
-				motorSet(MOTOR_ARM_LEFT_TOP, -10);
-				motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
-
-				armMax = 0; // reset the variable so it jumps out of this if loop
-			}
-		}
-
-// arm mmin shortcut button//////////////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_DOWN)) //channel 8 button down pressed ?
-		{
-			armMax = 0;
-			armMin = 1;
-			armCenter = 0;
-		}
-
-		if (armMin == 1)
-		{
-			pot = analogRead(8);
-
-			if (pot > FLOOR_HEIGHT)
-			{
-				motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127); // arm down
-				motorSet(MOTOR_ARM_RIGHT_TOP, -127);
-				motorSet(MOTOR_ARM_LEFT_TOP, 127);
-				motorSet(MOTOR_ARM_LEFT_BOTTOM, -127);
-			}
-
-			if (pot < FLOOR_HEIGHT)
-			{
-				motorSet(MOTOR_ARM_RIGHT_BOTTOM, 7); // trim down
-				motorSet(MOTOR_ARM_RIGHT_TOP, -7);
-				motorSet(MOTOR_ARM_LEFT_TOP, 7);
-				motorSet(MOTOR_ARM_LEFT_BOTTOM, -7);
-				armMin = 0; // reset the variable so it jumps out of this if loop
-			}
-		}
-
-// wall height shortcut button//////////////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_RIGHT)) //channel 8 button right pressed ?
+		if (joystickGetDigital(joystick1, joystickchannel8, JOY_UP)) //outtake
 		{
 			digitalWrite(11, HIGH);
 		}
 
-		if(joystickGetDigital(joystick1, joystickchannel8, JOY_LEFT))
+		else if (joystickGetDigital(joystick1, joystickchannel8, JOY_DOWN)) //intake
 		{
 			digitalWrite(11, LOW);
 		}
-
-		/*if (armCenter == 1)
+		
+		else
 		{
-			pot = analogRead(8);
-
-			if (pot < WALL_HEIGHT)
-			{
-				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm up
-				motorSet(MOTOR_ARM_RIGHT_TOP, 127);
-				motorSet(MOTOR_ARM_LEFT_TOP, -127);
-				motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
-			}
-
-			if (pot > WALL_HEIGHT)
-			{
-				motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10); // trim
-				motorSet(MOTOR_ARM_RIGHT_TOP, 10);
-				motorSet(MOTOR_ARM_LEFT_TOP, -10);
-				motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
-				armCenter = 0; // reset the variable so it jumps out of this if loop
-			}*/
-
-
+			//Do Nothing
+		}
+//Intake Arm Movement Functions
+		if(joystickGetDigital(joystick1, joystickchannel8, JOY_RIGHT))//Arm right
+		{
+			digitalWrite(12, HIGH)
+		}
+		
+		else if(joystickGetDigital(joystick1, joystickchannel8, JOY_LEFT))
+		{
+			digitalWrite(12, LOW)
+		}
+		
+		else
+		{
+			//Do nothing
+		}
 	} // while(true) close bracket
 
 } // operator close bracket
