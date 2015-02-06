@@ -93,11 +93,12 @@ QuadDrive q;
 		motorSet(1, q.bottomRight);
 		*/
 		//doJoysticksP1();
-		int pwr = joystickGetAnalog(3, INPUT_LEFT_Y);
-		motorSet(2,0 ); // TR
+		int pwr = joystickGetAnalog(controller1, INPUT_LEFT_Y);
+		
 				motorSet(9, -pwr);  //TL
-				motorSet(10, 0);  //BL
+				motorSet(10, -pwr);  //BL
 				motorSet(1, pwr);  //BR
+                motorSet(2,pwr ); // TR
 		}
 	while (1) {
 		delay(20);
