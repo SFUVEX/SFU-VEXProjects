@@ -76,30 +76,30 @@ int armMin = 0;
 int armCenter = 0;
 
 //2nd joystick controls
-//void twoDrivers();
+void twoDrivers();
 
 // cubic drive
-//void cubicDrive();
+void cubicDrive();
 
 void operatorControl()
 {
 
 	// go to autonomous mode testing
-	/*if (digitalRead(1) == LOW) // jumper 1 in = autonomous
-	{
-		autonomous ();
-	}
+	//if (digitalRead(1) == LOW) // jumper 1 in = autonomous
+	//	{
+	//		autonomous ();
+	//	}
 
 	if (digitalRead(2) == LOW) // jumper 2 in = two drivers
 	{
-		//twoDrivers();
+		twoDrivers();
 
 	}
 
 	if (digitalRead(3) == LOW)// jumper 3 in = cubic drive
 	{
-		//cubicDrive ();
-	}*/
+		cubicDrive ();
+	}
 
 	while (true)
 	{

@@ -198,8 +198,8 @@ void stopAll() {
 }
 
 void stopIntake() {
-	motorStop(MOTOR_ARM_RIGHT_MID);
-	motorStop(MOTOR_ARM_LEFT_MID);
+	motorStop(MOTOR_INTAKE_RIGHT);
+	motorStop(MOTOR_INTAKE_LEFT);
 }
 
 void driveForwardDead() {

@@ -61,15 +61,14 @@ void autonomous()
 	int stack6 = 0;
 	int stack7 = 0;
 	int vexIntakeHeight = 0;
-	int vexSectionBuffer = 0;
 	int counts = 0;
 	encoderReset(encoder1); //Digital 1, 2
 
-	for(int i = 0; i < 7; i++)
+	while(counts <= stack7)
 	{
 		if(counts < stack1)
 		{
-			armUp(vexIntakeHeight);//Arm down to the next VEX Piece
+			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
 			digitalWrite(11, HIGH);	//Arm left
 			digitalWrite(12, HIGH);	//Intake open
 			delay(30);				//Wait for arm to reach desired height
@@ -78,7 +77,6 @@ void autonomous()
 			delay(30);
 			digitalWrite(11, LOW);	//Arm right
 			delay(30);
-			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
 			counts = encoderGet(encoder1);
@@ -86,7 +84,6 @@ void autonomous()
 
 		else if(counts < stack2 && counts > stack1)
 		{
-			armUp(vexSectionBuffer);
 			digitalWrite(11, HIGH);	//Arm left
 			delay(5);
 			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
@@ -97,7 +94,6 @@ void autonomous()
 			delay(30);
 			digitalWrite(11, LOW);	//Arm right
 			delay(30);
-			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
 			counts = encoderGet(encoder1);
@@ -105,7 +101,6 @@ void autonomous()
 
 		else if(counts < stack3 && counts > stack2)
 		{
-			armUp(vexSectionBuffer);
 			digitalWrite(11, HIGH);	//Arm left
 			delay(5);
 			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
@@ -116,7 +111,6 @@ void autonomous()
 			delay(30);
 			digitalWrite(11, LOW);	//Arm right
 			delay(30);
-			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
 			counts = encoderGet(encoder1);
@@ -124,7 +118,6 @@ void autonomous()
 
 		else if(counts < stack4 && counts > stack3)
 		{
-			armUp(vexSectionBuffer);
 			digitalWrite(11, HIGH);	//Arm left
 			delay(5);
 			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
@@ -135,7 +128,6 @@ void autonomous()
 			delay(30);
 			digitalWrite(11, LOW);	//Arm right
 			delay(30);
-			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
 			counts = encoderGet(encoder1);
@@ -143,7 +135,6 @@ void autonomous()
 
 		else if(counts < stack5 && counts > stack4)
 		{
-			armUp(vexSectionBuffer);
 			digitalWrite(11, HIGH);	//Arm left
 			delay(5);
 			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
@@ -154,7 +145,6 @@ void autonomous()
 			delay(30);
 			digitalWrite(11, LOW);	//Arm right
 			delay(30);
-			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
 			counts = encoderGet(encoder1);
@@ -162,7 +152,6 @@ void autonomous()
 
 		else if(counts < stack6 && counts > stack5)
 		{
-			armUp(vexSectionBuffer);
 			digitalWrite(11, HIGH);	//Arm left
 			delay(5);
 			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
@@ -173,7 +162,6 @@ void autonomous()
 			delay(30);
 			digitalWrite(11, LOW);	//Arm right
 			delay(30);
-			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
 			counts = encoderGet(encoder1);
@@ -181,7 +169,6 @@ void autonomous()
 
 		else if(counts < stack7 && counts > stack6)
 		{
-			armUp(vexSectionBuffer);
 			digitalWrite(11, HIGH);	//Arm left
 			delay(5);
 			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
@@ -192,7 +179,6 @@ void autonomous()
 			delay(30);
 			digitalWrite(11, LOW);	//Arm right
 			delay(30);
-			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
 			counts = encoderGet(encoder1);

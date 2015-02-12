@@ -85,7 +85,7 @@ void operatorControl()
 {
 
 	// go to autonomous mode testing
-	/*if (digitalRead(1) == LOW) // jumper 1 in = autonomous
+	if (digitalRead(1) == LOW) // jumper 1 in = autonomous
 	{
 		autonomous ();
 	}
@@ -99,7 +99,7 @@ void operatorControl()
 	if (digitalRead(3) == LOW)// jumper 3 in = cubic drive
 	{
 		//cubicDrive ();
-	}*/
+	}
 
 	while (true)
 	{
