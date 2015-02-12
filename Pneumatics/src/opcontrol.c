@@ -60,6 +60,7 @@
 #define joystickchannel3 3
 #define joystickchannel5 5
 #define joystickchannel6 6
+#define joystickchannel7 7
 #define joystickchannel8 8
 
 
@@ -75,30 +76,30 @@ int armMin = 0;
 int armCenter = 0;
 
 //2nd joystick controls
-void twoDrivers();
+//void twoDrivers();
 
 // cubic drive
-void cubicDrive();
+//void cubicDrive();
 
 void operatorControl()
 {
 
 	// go to autonomous mode testing
-	//if (digitalRead(1) == LOW) // jumper 1 in = autonomous
-	//	{
-	//		autonomous ();
-	//	}
+	/*if (digitalRead(1) == LOW) // jumper 1 in = autonomous
+	{
+		autonomous ();
+	}
 
 	if (digitalRead(2) == LOW) // jumper 2 in = two drivers
 	{
-		twoDrivers();
+		//twoDrivers();
 
 	}
 
-	//if (digitalRead(3) == LOW)// jumper 3 in = cubic drive
-	//	{
-	//		cubicDrive ();
-	//	}
+	if (digitalRead(3) == LOW)// jumper 3 in = cubic drive
+	{
+		//cubicDrive ();
+	}*/
 
 	while (true)
 	{
@@ -120,22 +121,73 @@ void operatorControl()
 		motorSet(MOTOR_ARM_LEFT_BACK, channel3); // left drive abck
 		motorSet(MOTOR_ARM_LEFT_FRONT, channel3); // left drive front
 
+<<<<<<< HEAD
+// Linear Lift Functions/////////////////////////////////////////////////////////////////////////////////////////////
+		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP)) // Lift Up
+=======
 // arm function/////////////////////////////////////////////////////////////////////////////////////////////
 		if (joystickGetDigital(joystick1, joystickchannel5, JOY_UP)) // arm up
+>>>>>>> master
 		{
-			motorSet(MOTOR_ARM_RIGHT_TOP, 127); // arm right up
-			motorSet(MOTOR_ARM_LEFT_TOP, -127); // arm left
-			motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm down up
-			motorSet(MOTOR_ARM_LEFT_BOTTOM, 127); // arm left down
+			motorSet(MOTOR_ARM_RIGHT_TOP, -127);
+			motorSet(MOTOR_ARM_LEFT_TOP, 127);
+			motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127);
+			motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
+			motorSet(MOTOR_ARM_RIGHT_MID, -127);
+			motorSet(MOTOR_ARM_LEFT_MID, 127);
 		}
 
+<<<<<<< HEAD
+		else if(joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // Lift Down
+=======
 		else if (joystickGetDigital(joystick1, joystickchannel5, JOY_DOWN)) // arm down
+>>>>>>> master
 		{
-			motorSet(MOTOR_ARM_RIGHT_TOP, -127); // arm right up
-			motorSet(MOTOR_ARM_LEFT_TOP, 127); // arm left up
-			motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127); // arm right down
-			motorSet(MOTOR_ARM_LEFT_BOTTOM, -127); // arm left down
+			motorSet(MOTOR_ARM_RIGHT_TOP, 127);
+			motorSet(MOTOR_ARM_LEFT_TOP, -127);
+			motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127);
+			motorSet(MOTOR_ARM_LEFT_BOTTOM, -127);
+			motorSet(MOTOR_ARM_RIGHT_MID, 127);
+			motorSet(MOTOR_ARM_LEFT_MID, -127);
 		}
+<<<<<<< HEAD
+
+		else //Lift Idle
+		{
+			motorSet(MOTOR_ARM_RIGHT_TOP, 10);
+			motorSet(MOTOR_ARM_LEFT_TOP, -10);
+			motorSet(MOTOR_ARM_RIGHT_BOTTOM, 10);
+			motorSet(MOTOR_ARM_LEFT_BOTTOM, -10);
+			motorSet(MOTOR_ARM_RIGHT_MID, 10);
+			motorSet(MOTOR_ARM_LEFT_MID, -10);
+		}
+
+		if(joystickGetDigital(joystick1, joystickchannel7, JOY_LEFT)) // arm left
+		{
+			digitalWrite(11, HIGH);
+		}
+
+		else if(joystickGetDigital(joystick1, joystickchannel7, JOY_RIGHT)) // arm right
+		{
+			digitalWrite(11, LOW);
+		}
+
+		else
+		{
+			//Do nothing
+		}
+
+		if(joystickGetDigital(joystick1, joystickchannel7, JOY_UP)) // intake forward
+		{
+			digitalWrite(12, HIGH);
+		}
+
+		else if(joystickGetDigital(joystick1, joystickchannel7, JOY_DOWN)) // intake backward
+		{
+			digitalWrite(12, LOW);
+		}
+
+=======
 		else // trim arm up
 		{
 			motorSet(MOTOR_ARM_RIGHT_TOP, 7);
@@ -170,6 +222,7 @@ void operatorControl()
 			digitalWrite(12, LOW);
 		}
 		
+>>>>>>> master
 		else
 		{
 			//Do nothing
@@ -177,7 +230,7 @@ void operatorControl()
 	} // while(true) close bracket
 
 } // operator close bracket
-
+/*
 void twoDrivers()
 {
 	// go to autonomous mode testing
@@ -432,9 +485,9 @@ void twoDrivers()
 	} //while(true) of twoDrivers
 
 } // end of twoDrivers
-
+*/
 // cubic drive///////////////////////////////////////////////////////////////////////////////////////////////
-
+/*
 void cubicDrive()
 {
 
@@ -654,4 +707,4 @@ void cubicDrive()
 	} // while(true) close bracket
 
 } //cubic drive close
-
+*/
