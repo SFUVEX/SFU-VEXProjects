@@ -94,21 +94,32 @@ QuadDrive q;
 		motorSet(1, q.bottomRight);
 		*/
 		//doJoysticksP1();
-		//int pwr = joystickGetAnalog(controller1, INPUT_LEFT_Y);
-		int pwr = 50;
+		int pwr = joystickGetAnalog(controller1, INPUT_LEFT_Y);
+		int armpwr = joystickGetAnalog(controller1, INPUT_RIGHT_Y);//
+		//int pwr = 50;
+
+		motorSet(3,armpwr);
+		motorSet(7,armpwr);
+		motorSet(4,armpwr);
+
+		//clawbot test
+		/*
+		motorSet(3,armpwr);
+		motorSet(7,-armpwr);
+		*/
 		
-				motorSet(9, -pwr);  //TL
-				delay(2000);
-				motorSet(9, 0);
-				motorSet(10, pwr);  //BL
-				delay(2000);
-				motorSet(10, 0);
+				motorSet(9, -pwr/2);  //TL
+				//delay(2000);
+				//motorSet(9, 0);
+				motorSet(10, pwr/2);  //BL
+				//delay(2000);
+				//motorSet(10, 0);
 				motorSet(1, pwr);  //BR
-				delay(2000);
-				motorSet(1, 0);
-                motorSet(2,pwr ); // TR
-                delay(2000);
-                motorSet(2, 0);
+				//delay(2000);
+				//motorSet(1, 0);
+                motorSet(2,-pwr ); // TR
+                //delay(2000);
+                //motorSet(2, 0);
 		}
 	while (1) {
 		delay(20);
