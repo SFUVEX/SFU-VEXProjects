@@ -13,10 +13,10 @@ void holonomic() {
         int C1RX = joystickGetAnalog(1, 1);
         
         // Y component, X component, Rotation
-        motorSet(1, -C1LX - C1RX); // Front
-        motorSet(2, -C1LY - C1RX); // Left
-        motorSet(3,  C1LY - C1RX); // Right
-        motorSet(4,  C1LX - C1RX); // Back
+        motorSet(1, -C1LX - C1RX); // Front // top right
+        motorSet(2, -C1LY - C1RX); // Left  //top left
+        motorSet(3,  C1LY - C1RX); // Right //bottom right
+        motorSet(4,  C1LX - C1RX); // Back  //bottom left
         
         // Motor values can only be updated every 20ms
         delay(20);
