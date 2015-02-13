@@ -1,0 +1,675 @@
+// test gladstone
+
+/** @file auto.c
+ * @brief File for autonomous code
+ *
+ * This file should contain the user autonomous() function and any functions related to it.
+ *
+ * Copyright (c) 2011-2013, Purdue University ACM SIG BOTS.
+ * All rights reserved.
+ * 
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of Purdue University ACM SIG BOTS nor the
+ *       names of its contributors may be used to endorse or promote products
+ *       derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL PURDUE UNIVERSITY ACM SIG BOTS BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Purdue Robotics OS contains FreeRTOS (http://www.freertos.org) whose source code may be
+ * obtained from http://sourceforge.net/projects/freertos/files/ or on request.
+ */
+
+#include "main.h"
+#include <stdbool.h>
+#include "auto.h"
+
+
+//motors
+typedef enum {
+	MOTOR_DRIVE_RIGHT_LINE_BACK =1, // = rightLine back
+	MOTOR_DRIVE_RIGHT_LINE_FRONT= 2, // = rightLine front
+	ARM_MOTOR1 =3, // = rightLine arm down
+	ARM_MOTOR2 =4, // = rightLine arm up
+	MOTOR_RIGHT_LINE_INTAKE =5, // = rightLine intake
+	MOTOR_LEFT_LINE_INTAKE =6, // = leftLine intake
+	ARM_MOTOR3 =7, // = leftLine arm up
+	ARM_MOTOR4 =8, // = leftLine arm down
+	MOTOR_DRIVE_LEFT_LINE_FRONT =9, // = leftLine front
+	MOTOR_DRIVE_LEFT_LINE_BACK =10 // = leftLine back
+} Motor;
+
+typedef enum{
+	BLUE_RESERVED0 =0,
+	BLUE_RESERVED1 =1,
+	BLUE_RESERVED2 =2,
+	BLUE_RESERVED3 =3,
+	RED_RESERVED4 =4,
+	RED_RESERVED5 =5,
+	RED_RESERVED6 =6,
+	RED_RESERVED7 =7
+} AutonomousMode;
+
+const int REVERSE_DRIVE_SPEED = -100;
+
+
+static const int MOTOR_MAX = 127;
+const int SPIKE_OFFSET =442; //There are ~ 442 =avg(458,442,423,446) ticks per spike
+
+const Motor SWING_MOTOR = MOTOR_RIGHT_LINE_INTAKE;//TODO set
+const Motor GRIP_MOTOR = MOTOR_LEFT_LINE_INTAKE;//TODO set
+
+const int MOTOR_TURN_SPEED =64;
+const int SWING_MOTOR_SPEED = 64;
+const int GRIP_MOTOR_SPEED = 64;
+
+const int SWING_POT_PIN = 8; //TODO set
+const int SWING_ANGLE = 200;  //TODO set
+
+const int TOWER_ENCODER_TOP_CHANNEL =2;
+const int TOWER_ENCODER_BOTTOM_CHANNEL =3;
+
+
+/*
+ * Runs the user autonomous code. This function will be started in its own task with the default
+ * priority and stack size whenever the robot is enabled via the Field Management System or the
+ * VEX Competition Switch in the autonomous mode. If the robot is disabled or communications is
+ * lost, the autonomous task will be stopped by the kernel. Re-enabling the robot will restart
+ * the task, not re-start it from where it leftLine off.
+ *
+ * Code running in the autonomous task cannot access information from the VEX Joystick. However,
+ * the autonomous function can be invoked from another task if a VEX Competition Switch is not
+ * available, and it can access joystick information if called in this way.
+ *
+ * The autonomous task may exit, unlike operatorControl() which should never exit. If it does
+ * so, the robot will await a switch to another mode or disable/enable cycle.
+ */
+void autonomous()
+{
+
+	int jumper1 = digitalRead (1);
+	int jumper2 = digitalRead (2);
+	int jumper3 = digitalRead (3);
+
+	AutonomousMode mode = (jumper1) | (jumper2 << 1) | (jumper3 <<2);
+	switch(mode)
+	{
+	case BLUE_RESERVED0:  // 0 0 0
+		stackEm();
+		break;
+
+	case BLUE_RESERVED1:  // 0 0 1
+		//mode1
+		break;
+
+	case BLUE_RESERVED2:  // 0 1 0
+		//mode2()
+		break;
+
+	case BLUE_RESERVED3:  // 0 1 0
+		//mode3()
+		break;
+	case RED_RESERVED4:  // 1 0 0
+			//mode3()
+			break;
+
+	default:
+		printf("Jumpers are set to unkown configuration\n");
+		break;
+	}
+
+
+	// all jumper comands here:
+	//1 = out
+	// 0 = in
+
+
+	if ((jumper1 == 1) ) // jumper in 1 = red autonomous
+	{
+		armbotRed();
+	}
+
+	if (jumper2 == 0) // jumper 2 in = blue auto
+	{
+		//rejectionBlue();
+	}
+
+
+
+
+
+}
+
+///Centenial spike stack routine
+void stackEm()
+{
+	const int SPIKE_COUNT =5;
+	for(int i=0; i<SPIKE_COUNT;i++)
+	{
+		armHelixDown();
+		grip();
+		armHelixUp(i);
+		releaseGrip();
+	}
+}
+
+void grip()
+{
+	printf("Grip() NOT IMPLEMENTED\n");
+	motorSet (GRIP_MOTOR, -GRIP_MOTOR_SPEED);
+}
+
+void releaseGrip()
+{
+	printf("releaseGript() NOT IMPLEMENTED\n");
+	motorSet (GRIP_MOTOR, GRIP_MOTOR_SPEED);
+}
+
+///Move to loading height
+void armHelixDown()
+{
+	motorSet (SWING_MOTOR, -SWING_MOTOR_SPEED);
+	armDownDead(); // power all lift motors to max
+	bool done =false, swingDone =false, heightDone =false;
+	int towerCount=0, swingCount=0;
+	const Encoder TOWER_ENCODER = encoderInit (TOWER_ENCODER_TOP_CHANNEL,TOWER_ENCODER_BOTTOM_CHANNEL,false);
+
+	while(!done)
+	{
+		swingCount = analogRead (SWING_POT_PIN); //4095 is 5 volts
+		towerCount = encoderGet(TOWER_ENCODER);//documentation claims 360 ticks in 1 revolution
+
+		if (towerCount < SPIKE_OFFSET*1.25) //1.25 is an estimate for the load height
+		{
+			stopArm();
+			printf("Tower lowered to load position\n");
+			heightDone = true;
+		}
+
+		if (swingCount < 100) //TODo no measurements for pot yet
+		{
+			motorSet (SWING_POT_PIN, 0);
+			printf("Arm swung, may be wrong angle\n");
+			swingDone=true;
+		}
+		done = swingDone && heightDone;
+	}
+}
+void armHelixUp (double spikeNumber)
+{
+	const Encoder TOWER_ENCODER = encoderInit (2,3,false);
+
+	armUpDead(); // power all lift motors to max
+	motorSet (SWING_MOTOR, SWING_MOTOR_SPEED);
+
+	bool done =false, swingDone =false, heightDone =false;
+
+	int towerCount=0, swingCount=0;
+
+	while(!done)
+	{
+		swingCount = analogRead (SWING_POT_PIN); //4095 is 5 volts
+		towerCount = encoderGet(TOWER_ENCODER);//documentation claims 360 ticks in 1 revolution
+
+		if (towerCount > SPIKE_OFFSET * spikeNumber)
+		{
+			stopArm();
+			printf("Tower raised, might fall, motor stopped\n");
+			heightDone = true;
+		}
+
+		if (swingCount > SWING_ANGLE)
+		{
+			motorSet (SWING_MOTOR, 0);
+			printf("Arm swung, may be wrong angle\n");
+			swingDone=true;
+		}
+		done = swingDone && heightDone;
+	}
+}
+
+
+
+void driveForward(int x)
+{
+	int counts = 0;
+	imeReset(0); // rest rightLine ime
+	imeGet(0, &counts);
+
+	while (abs(counts) < x)
+	{
+		motorSet(MOTOR_DRIVE_RIGHT_LINE_BACK, MOTOR_MAX);
+		motorSet(MOTOR_DRIVE_RIGHT_LINE_FRONT, MOTOR_MAX);
+		motorSet(MOTOR_DRIVE_LEFT_LINE_BACK, MOTOR_MAX);
+		motorSet(MOTOR_DRIVE_LEFT_LINE_FRONT, MOTOR_MAX);
+
+		imeGet(0, &counts); // keep getting the value
+	}
+
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_BACK, -7)	; // no inertia
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_FRONT, -7)	;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_BACK, -7)	;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_FRONT, -7)	;
+	delay (65);
+
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_BACK, 0)	;
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_FRONT, 0)	;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_BACK, 0)	;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_FRONT, 0)	;
+	delay(200);
+
+}
+
+void driveBack(int x)
+{
+	int counts = 0;
+	imeReset(0); // rest rightLine ime
+	imeGet(0, &counts);
+
+	while (abs(counts) < x)
+	{
+		motorSet (MOTOR_DRIVE_RIGHT_LINE_BACK, REVERSE_DRIVE_SPEED) ;
+		motorSet (MOTOR_DRIVE_RIGHT_LINE_FRONT, REVERSE_DRIVE_SPEED) ;
+		motorSet (MOTOR_DRIVE_LEFT_LINE_BACK, REVERSE_DRIVE_SPEED) ;
+		motorSet (MOTOR_DRIVE_LEFT_LINE_FRONT, REVERSE_DRIVE_SPEED) ;
+
+		imeGet(0, &counts); // keep getting the value
+	}
+
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_BACK, 7)	; // no inertia
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_FRONT, 7)	;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_BACK, 7)	;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_FRONT, 7)	;
+	delay (65);
+
+
+	motorStop (MOTOR_DRIVE_RIGHT_LINE_BACK);
+	motorStop (MOTOR_DRIVE_RIGHT_LINE_FRONT);
+	motorStop (MOTOR_DRIVE_LEFT_LINE_BACK);
+	motorStop (MOTOR_DRIVE_LEFT_LINE_FRONT);
+	delay (200);
+}
+
+void turnRight(int x)
+{
+	int counts = 0;
+	imeReset(0); // rest rightLine ime
+	imeGet(0, &counts);
+
+	while (abs(counts) < x)
+	{
+		motorSet (MOTOR_DRIVE_RIGHT_LINE_BACK, -MOTOR_TURN_SPEED) ;
+		motorSet (MOTOR_DRIVE_RIGHT_LINE_FRONT, -MOTOR_TURN_SPEED) ;
+		motorSet (MOTOR_DRIVE_LEFT_LINE_BACK, MOTOR_TURN_SPEED) ;
+		motorSet (MOTOR_DRIVE_LEFT_LINE_FRONT, MOTOR_TURN_SPEED) ;
+
+		imeGet(0, &counts); // keep getting the value
+	}
+
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_BACK, 10)	; // no inertia
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_FRONT, 10)	;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_BACK, -10)	;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_FRONT, -10)	;
+	delay (45);
+
+	motorStop (MOTOR_DRIVE_RIGHT_LINE_BACK);
+	motorStop (MOTOR_DRIVE_RIGHT_LINE_FRONT);
+	motorStop (MOTOR_DRIVE_LEFT_LINE_BACK);
+	motorStop (MOTOR_DRIVE_LEFT_LINE_FRONT);
+	delay (200);
+}
+
+void turnLeft(int x)
+{
+	int counts = 0;
+	imeReset(0); // rest rightLine ime
+	imeGet(0, &counts);
+
+	while (abs(counts) < x)
+	{
+		motorSet (MOTOR_DRIVE_RIGHT_LINE_BACK, MOTOR_TURN_SPEED) ;
+		motorSet (MOTOR_DRIVE_RIGHT_LINE_FRONT, MOTOR_TURN_SPEED) ;
+		motorSet (MOTOR_DRIVE_LEFT_LINE_BACK, -MOTOR_TURN_SPEED) ;
+		motorSet (MOTOR_DRIVE_LEFT_LINE_FRONT, -MOTOR_TURN_SPEED) ;
+
+		imeGet(0, &counts); // keep getting the value
+	}
+
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_BACK, -10)	; // no inertia
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_FRONT, -10)	;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_BACK, 10)	;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_FRONT, 10)	;
+	delay (45);
+
+	motorStop (MOTOR_DRIVE_RIGHT_LINE_BACK);
+	motorStop (MOTOR_DRIVE_RIGHT_LINE_FRONT);
+	motorStop (MOTOR_DRIVE_LEFT_LINE_BACK);
+	motorStop (MOTOR_DRIVE_LEFT_LINE_FRONT);
+	delay (200);
+}
+
+
+//TODO make constants... but why are they different?
+void turnRightSlowDead ()
+{
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_BACK, -50) ;
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_FRONT, -50) ;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_BACK, 50) ;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_FRONT, 50) ;
+}
+
+void turnLeftSlowDead ()
+{
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_BACK, 40) ;
+	motorSet (MOTOR_DRIVE_RIGHT_LINE_FRONT, 40) ;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_BACK, -40) ;
+	motorSet (MOTOR_DRIVE_LEFT_LINE_FRONT, -40) ;
+}
+
+
+void stopDrive()
+{
+	motorStop (MOTOR_DRIVE_RIGHT_LINE_BACK);
+	motorStop (MOTOR_DRIVE_RIGHT_LINE_FRONT);
+	motorStop (MOTOR_DRIVE_LEFT_LINE_BACK);
+	motorStop (MOTOR_DRIVE_LEFT_LINE_FRONT);
+	delay (200);
+}
+
+void stopAll()
+{
+	/*
+	motorStop (MOTOR_DRIVE_RIGHT_LINE_BACK);
+	motorStop (MOTOR_DRIVE_RIGHT_LINE_FRONT);
+	motorStop (ARM_MOTOR1);
+	motorStop (ARM_MOTOR2);
+	motorStop (MOTOR_RIGHT_LINE_INTAKE);
+	motorStop (MOTOR_LEFT_LINE_INTAKE);
+	motorStop (ARM_MOTOR3);
+	motorStop (ARM_MOTOR4);
+	motorStop (MOTOR_DRIVE_LEFT_LINE_FRONT);
+	motorStop (MOTOR_DRIVE_LEFT_LINE_BACK);
+	*/
+	const int MOTOR_COUNT =10;
+	for(int i=1; i<MOTOR_COUNT+1;i++)
+	{
+		motorStop(i);
+	}
+}
+
+void stopIntake()
+{
+	motorStop (MOTOR_RIGHT_LINE_INTAKE);
+	motorStop (MOTOR_LEFT_LINE_INTAKE);
+}
+
+
+typedef struct {int topLeft;int topRight;int bottomRight;int bottomLeft;} QuadDrive;
+
+void zigZagHolo(QuadDrive* q,int translateJoyX,int translateJoyY, int pivotAxis,bool upIsCW)
+{
+	const int JOY_MAX=127;
+	int yLeft  = translateJoyY;
+	int yRight = -translateJoyY;
+
+	int xTop = translateJoyX;
+	int xBottom = translateJoyX;
+
+	//the diagonal vectors counteraxt eachother for trnslation,
+	//so pick the translation direction the operator wants most
+	//any bias will result in an arc(turning)
+
+	int m[4];
+
+	if(translateJoyY>translateJoyX)
+	{
+		m[0]=yRight -pivotAxis;
+		m[1]=yLeft + pivotAxis;
+		m[2]=yRight - pivotAxis;
+		m[3]=yLeft + pivotAxis;
+
+		//check if values must be recentered into range[0,127]
+		int max = m[0];
+		for(int i=1;i<4;i++)
+		{
+			if(m[i] > max)
+			{
+				max=m[i];
+			}
+		}
+
+		if(max > JOY_MAX)
+		{
+		int offset = max-JOY_MAX;
+		//recentering required
+		for(int i=0;i<4;i++)
+		{
+			m[i]-=offset;
+		}
+	}
+
+		q->topRight   =m[0];
+		q->topLeft    =m[1];
+		q->bottomLeft =m[2];
+		q->bottomRight=m[3];
+
+
+	}else
+	{
+		q->topLeft=translateJoyX;
+		q->bottomLeft=translateJoyX;
+		q->topRight = translateJoyX;
+		q->bottomRight = translateJoyX;
+	}
+
+	//TODO hack truncating(floor) use fround()
+	//Apply spin
+	q->topLeft -= xTop;
+	q->topRight -= xTop;
+	q->bottomLeft += pivotAxis;
+	q->bottomRight += pivotAxis;
+
+	//Normalize vectors so they fall in the [0,127] range
+	float magnitude = ()
+
+}
+
+void armUpDead()
+{
+
+	motorSet(ARM_MOTOR1, -MOTOR_MAX); // arm up
+	motorSet(ARM_MOTOR2, MOTOR_MAX);
+	motorSet(ARM_MOTOR3, -MOTOR_MAX);
+	motorSet(ARM_MOTOR4, MOTOR_MAX);
+}
+
+void armDownDead()
+{
+
+	motorSet(ARM_MOTOR1, MOTOR_MAX); // arm Down
+	motorSet(ARM_MOTOR2, -MOTOR_MAX);
+	motorSet(ARM_MOTOR3, MOTOR_MAX);
+	motorSet(ARM_MOTOR4, -MOTOR_MAX);
+}
+
+void armUpTime(int millis)
+{
+
+
+	motorSet(ARM_MOTOR1, -MOTOR_MAX); // arm up
+	motorSet(ARM_MOTOR2, MOTOR_MAX);
+	motorSet(ARM_MOTOR3, -MOTOR_MAX);
+	motorSet(ARM_MOTOR4, MOTOR_MAX);
+
+	delay (millis);
+
+	armUpTrim();
+}
+
+void armDownTime(int millis)
+{
+
+
+	motorSet(ARM_MOTOR1, MOTOR_MAX); // arm Down
+	motorSet(ARM_MOTOR2, -MOTOR_MAX);
+	motorSet(ARM_MOTOR3, MOTOR_MAX);
+	motorSet(ARM_MOTOR4, -MOTOR_MAX);
+
+	delay (millis);
+
+	armDownTrim();
+}
+
+void armUpEnc(int x)
+{
+	//int encoder = 1;
+	//int counts = encoderGet(encoder);
+
+	//while (abs(counts) < x)
+	{
+		motorSet(ARM_MOTOR1, -MOTOR_MAX); // arm up
+		motorSet(ARM_MOTOR2, MOTOR_MAX);
+		motorSet(ARM_MOTOR3, -MOTOR_MAX);
+		motorSet(ARM_MOTOR4, MOTOR_MAX);
+		//	counts = encoderGet(encoder); //keep getting the value
+	}
+
+	armUpTrim();
+	delay (300);
+}
+
+void armDownEnc(int x)
+{
+	int counts = encoderGet(encoder);
+
+	while (abs(counts) < x)
+	{
+		motorSet(ARM_MOTOR1, MOTOR_MAX); // arm down
+		motorSet(ARM_MOTOR2, -MOTOR_MAX);
+		motorSet(ARM_MOTOR3, MOTOR_MAX);
+		motorSet(ARM_MOTOR4, -MOTOR_MAX);
+		counts = encoderGet(encoder);//keep getting the value
+	}
+
+	armDownTrim();
+	delay (300);
+}
+
+void armUpTrim()
+{
+	motorSet (ARM_MOTOR1, -10) ; // arm up
+	motorSet (ARM_MOTOR2, 10) ;
+	motorSet (ARM_MOTOR3, -10) ;
+	motorSet (ARM_MOTOR4, 10) ;
+}
+
+void armDownTrim ()
+
+{
+	motorSet (ARM_MOTOR1, 20) ; // arm up
+	motorSet (ARM_MOTOR2, -20) ;
+	motorSet (ARM_MOTOR3, 20) ;
+	motorSet (ARM_MOTOR4, -20) ;
+}
+
+
+
+void stopArm () // trim
+{
+	motorSet (ARM_MOTOR1, -10) ; // arm up
+	motorSet (ARM_MOTOR2, 10) ;
+	motorSet (ARM_MOTOR3, -10) ;
+	motorSet (ARM_MOTOR4, 10) ;
+}
+
+
+void armbotRed()
+{
+	int wallHeightU = 300; // idk
+	int wallHeight = 1000; // idk
+	int floorHeightU = 1700; // idk
+	int floorHeight = 1600;
+
+	int pot = analogRead (8);
+	int halfDist = 900; // encoder value
+
+
+
+
+	armUpEnc(wallHeightU);
+	turnRight(halfDist);
+	armDownTime (300);
+	armUpEnc(wallHeightU); // pick it up
+	turnLeft(halfDist);
+	//armDown(floorHeightU);
+	turnLeft(halfDist);
+	armDownTime (300); // score the spike!
+	armUpEnc(floorHeightU);
+	turnRight(halfDist);
+	//////////////////////////////////// and loop/////////////////////////////
+
+
+
+	//end of routine
+	stopAll () ;
+	delay(60000);///////////////////////////////////////////////////////////////////////////////////
+
+
+}
+
+void armbotBlue()
+{
+
+
+	stopAll () ;
+	delay(60000);///////////////////////////////////////////////////////////////////////////////////
+
+
+}
+
+
+
+
+
+
+
+
+/*
+  // encoder values get code (manual push)
+
+	int counts = 0;
+	imeReset(0); // rest right ime
+	imeGet(0, &counts);
+	int button = digitalRead (2);
+
+	while (1 == 1)
+		{
+			printf("%d\r\n", counts);
+			imeGet(0, &counts);
+			delay (200);
+			button = digitalRead(2);
+
+			if (button == 0)
+			{
+				imeReset(0); // rest right ime
+			}
+		}
+
+
+ */
+

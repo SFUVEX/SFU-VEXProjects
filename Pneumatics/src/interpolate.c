@@ -48,11 +48,14 @@ CubicSpline cubicInterpolate(
    )
 {
 	CubicSpline s;
-   double a0,a1,a2,a3;
+   double a0 = 0;
+   double a1 = 0;
+   double a2 = 0;
+   double a3 = 0;
 
 
    s.a0 = y3 - y2 - y0 + y1;
-   s.a1 = y0 - y1 - a0;
+   s.a1 = y0 - y1 - s.a0;
    s.a2 = y2 - y0;
    s.a3 = y1;
 

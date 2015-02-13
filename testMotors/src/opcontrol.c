@@ -34,7 +34,8 @@
 
 #include "main.h"
 #include "motorsubroutines.h"
-#include <stdbool.h>
+//#include <stdbool.h>
+
 /*
  * Runs the user operator control code. This function will be started in its own task with the
  * default priority and stack size whenever the robot is enabled via the Field Management System
@@ -94,11 +95,31 @@ QuadDrive q;
 		*/
 		//doJoysticksP1();
 		int pwr = joystickGetAnalog(controller1, INPUT_LEFT_Y);
+		int armpwr = joystickGetAnalog(controller1, INPUT_RIGHT_Y);//
+		//int pwr = 50;
+
+		motorSet(3,armpwr);
+		motorSet(7,armpwr);
+		motorSet(4,armpwr);
+
+		//clawbot test
+		/*
+		motorSet(3,armpwr);
+		motorSet(7,-armpwr);
+		*/
 		
-				motorSet(9, -pwr);  //TL
-				motorSet(10, -pwr);  //BL
+				motorSet(9, -pwr/2);  //TL
+				//delay(2000);
+				//motorSet(9, 0);
+				motorSet(10, pwr/2);  //BL
+				//delay(2000);
+				//motorSet(10, 0);
 				motorSet(1, pwr);  //BR
-                motorSet(2,pwr ); // TR
+				//delay(2000);
+				//motorSet(1, 0);
+                motorSet(2,-pwr ); // TR
+                //delay(2000);
+                //motorSet(2, 0);
 		}
 	while (1) {
 		delay(20);
@@ -117,8 +138,8 @@ void doButtonsP1()
 	char rl = joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_LEFT);
 	char rd = joystickGetDigital(controller1, INPUT_RIGHT_BUTTONS, JOY_DOWN);
 
-	bool lt = joystickGetDigital(controller1, INPUT_LEFT_TRIGGER, JOY_DOWN);
-	bool rt = joystickGetDigital(controller1, INPUT_RIGHT_TRIGGER, JOY_DOWN);
+	int lt = joystickGetDigital(controller1, INPUT_LEFT_TRIGGER, JOY_DOWN);
+	int rt = joystickGetDigital(controller1, INPUT_RIGHT_TRIGGER, JOY_DOWN);
 
 	//leftButtonsP1(lu,ld,ll,lr);
 	//rightButtonsP1(ru,rd,rl,rr);
@@ -144,13 +165,13 @@ void doJoysticksP1()
 
 	QuadDrive q;
 	zigZagHolo(&q, r.x, r.y,
-			l.y, true );
+			l.y, 1 );
 	motorSet(2, q.topRight);
 	motorSet(9, q.topLeft);
 	motorSet(10, q.bottomLeft);
 	motorSet(1, q.bottomRight);
 		printf("NW=%d SW=%d NE=%d SE=%d\n\r",q.topLeft,q.bottomLeft,q.topLeft,q.topRight);
-			bool lt = joystickGetDigital(controller1, INPUT_LEFT_TRIGGER, JOY_DOWN);
+			int lt = joystickGetDigital(controller1, INPUT_LEFT_TRIGGER, JOY_DOWN);
 			if(lt)
 			{
 
