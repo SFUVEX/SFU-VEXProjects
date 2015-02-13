@@ -24,8 +24,8 @@ typedef enum MOTORS {
 	MOTOR_DRIVE_RIGHT_FRONT = 2, // = rightLine front
 	MOTOR_ARM_RIGHT_BOTTOM = 3, // = rightLine arm down
 	MOTOR_ARM_RIGHT_TOP = 4, // = rightLine arm up
-	MOTOR_INTAKE_RIGHT = 5, // = rightLine intake
-	MOTOR_INTAKE_LEFT = 6, // = leftLine intake
+	MOTOR_ARM_RIGHT_MID = 5, // = rightLine intake
+	MOTOR_ARM_LEFT_MID = 6, // = leftLine intake
 	MOTOR_ARM_LEFT_TOP = 7, // = leftLine arm up
 	MOTOR_ARM_LEFT_BOTTOM = 8, // = leftLine arm down
 	MOTOR_ARM_LEFT_FRONT = 9, // = leftLine front

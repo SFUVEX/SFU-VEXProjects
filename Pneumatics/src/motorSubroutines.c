@@ -189,8 +189,8 @@ void stopAll() {
 	motorStop(MOTOR_DRIVE_RIGHT_FRONT);
 	motorStop(MOTOR_ARM_RIGHT_BOTTOM);
 	motorStop(MOTOR_ARM_RIGHT_TOP);
-	motorStop(MOTOR_INTAKE_RIGHT);
-	motorStop(MOTOR_INTAKE_LEFT);
+	motorStop(MOTOR_ARM_RIGHT_MID);
+	motorStop(MOTOR_ARM_LEFT_MID);
 	motorStop(MOTOR_ARM_LEFT_TOP);
 	motorStop(MOTOR_ARM_LEFT_BOTTOM);
 	motorStop(MOTOR_ARM_LEFT_FRONT);
@@ -198,8 +198,8 @@ void stopAll() {
 }
 
 void stopIntake() {
-	motorStop(MOTOR_INTAKE_RIGHT);
-	motorStop(MOTOR_INTAKE_LEFT);
+	motorStop(MOTOR_ARM_RIGHT_MID);
+	motorStop(MOTOR_ARM_LEFT_MID);
 }
 
 void driveForwardDead() {
@@ -540,39 +540,39 @@ void stopArm() // trim
 
 void intake(int x) {
 
-	motorSet(MOTOR_INTAKE_RIGHT, 127); // arm rightLine
-	motorSet(MOTOR_INTAKE_LEFT, -127); // arm leftLine
+	motorSet(MOTOR_ARM_RIGHT_MID, 127); // arm rightLine
+	motorSet(MOTOR_ARM_LEFT_MID, -127); // arm leftLine
 
 	delay(x);
 
-	motorSet(MOTOR_INTAKE_RIGHT, 0); // stop
-	motorSet(MOTOR_INTAKE_LEFT, 0); //
+	motorSet(MOTOR_ARM_RIGHT_MID, 0); // stop
+	motorSet(MOTOR_ARM_LEFT_MID, 0); //
 
 }
 
 void outtake(int x) {
 
-	motorSet(MOTOR_INTAKE_RIGHT, -127); // arm rightLine
-	motorSet(MOTOR_INTAKE_LEFT, 127); // arm leftLine
+	motorSet(MOTOR_ARM_RIGHT_MID, -127); // arm rightLine
+	motorSet(MOTOR_ARM_LEFT_MID, 127); // arm leftLine
 
 	delay(x);
 
-	motorSet(MOTOR_INTAKE_RIGHT, 0); // stop
-	motorSet(MOTOR_INTAKE_LEFT, 0); //
+	motorSet(MOTOR_ARM_RIGHT_MID, 0); // stop
+	motorSet(MOTOR_ARM_LEFT_MID, 0); //
 
 }
 
 void intakeDead() {
 
-	motorSet(MOTOR_INTAKE_RIGHT, 127); // arm right
-	motorSet(MOTOR_INTAKE_LEFT, -127); // arm left
+	motorSet(MOTOR_ARM_RIGHT_MID, 127); // arm right
+	motorSet(MOTOR_ARM_LEFT_MID, -127); // arm left
 
 }
 
 void outtakeDead() {
 
-	motorSet(MOTOR_INTAKE_RIGHT, -127); // arm right
-	motorSet(MOTOR_INTAKE_LEFT, +127); // arm left
+	motorSet(MOTOR_ARM_RIGHT_MID, -127); // arm right
+	motorSet(MOTOR_ARM_LEFT_MID, +127); // arm left
 
 }
 

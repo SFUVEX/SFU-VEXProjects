@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;worlds 2.0/src/autoConstants&apos; to &apos;autoConstants.h&apos;" description="Rename resource &apos;autoConstants&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/autoConstants" name="autoConstants.h" stamp="1413617428785" updateReferences="true"/>
+</session>

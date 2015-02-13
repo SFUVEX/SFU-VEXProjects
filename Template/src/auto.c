@@ -92,7 +92,54 @@ void autonomous()
 		rejectionBlue();
 		break;
 	}
+	//TODO Delete, replaced by above switch statement
+	/*
+	 //1 = out
+	 // 0 = in
+	 if ((jumper1 == 0) && (jumper2 == 0))
+	 {
+	 rushBlue();
+	 }
 
+	 if ((jumper1 == 0) && (jumper3 == 0))
+	 {
+	 classic15Blue();
+	 }
+
+	 if ((jumper1 == 1) && (jumper2 == 0))
+	 {
+	 rushRed();
+	 }
+
+	 if ((jumper1 == 1) && (jumper3 == 0))
+	 {
+	 classic15Red();
+	 }
+
+	 if (jumper1 == 0)
+	 {
+	 rejectionBlue();
+	 }
+
+	 if (jumper1 == 1)
+	 {
+	 rejectionRed();
+	 }
+	 */
+
+	//TODO What is the below, it appears to be dead code
+//forwardDetect (1000);
+//armUpTrim();
+//findLineRight();
+//followLine(1200);
+//rejectionRed();
+//rejectionBlue();
+//classic15Red();
+//classic15Blue();
+//rushRed();
+//rushBlue();
+//kakitRed ();
+// all jumper comands here:
 }
 
 void rushRed()

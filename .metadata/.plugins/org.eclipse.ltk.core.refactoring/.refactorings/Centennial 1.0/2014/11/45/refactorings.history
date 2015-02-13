@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Create constant for 127" description="Extract Constant Refactoring" fileName="file:/Users/awiebe/Documents/vex-workspace/Centennial%201.0/src/auto.c" flags="4" id="org.eclipse.cdt.ui.refactoring.extractconstant.ExtractConstantRefactoring" name="MOTOR_MAX" selection="11989,3" stamp="1415487631988" visibility="private"/>
+</session>
