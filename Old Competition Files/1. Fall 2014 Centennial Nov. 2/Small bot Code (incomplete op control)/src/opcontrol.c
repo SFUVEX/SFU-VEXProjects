@@ -121,8 +121,8 @@ void operatorControl()
 
 const int INPUT_RIGHT_TRIGGER = 6;
 const int INPUT_LEFT_TRIGGER = 5;
-const int  ARM_POWER = 64;
-const int  INTAKE_POWER = 64;
+const int  ARM_POWER = 127;
+const int  INTAKE_POWER = 127;
 			int rightTriggerUp = joystickGetDigital(1,INPUT_RIGHT_TRIGGER,JOY_UP);
 			int rightTriggerDown = joystickGetDigital(1,INPUT_RIGHT_TRIGGER,JOY_DOWN);
 
