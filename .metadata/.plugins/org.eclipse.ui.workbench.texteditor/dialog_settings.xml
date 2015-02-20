@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="263" key="DIALOG_WIDTH"/>
-		<item value="362" key="DIALOG_Y_ORIGIN"/>
-		<item value="399" key="DIALOG_HEIGHT"/>
+		<item value="305" key="DIALOG_WIDTH"/>
+		<item value="287" key="DIALOG_Y_ORIGIN"/>
+		<item value="442" key="DIALOG_HEIGHT"/>
 		<item value="850" key="DIALOG_X_ORIGIN"/>
-		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wholeword"/>
-		<item value="MOTOR_TURN_SPEED" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="getDigital"/>
+			<item value="rus"/>
+			<item value="rush"/>
 			<item value="64"/>
 			<item value="motor10"/>
 			<item value="motor9"/>
 			<item value="motor8"/>
 			<item value="motor7"/>
-			<item value="motor6"/>
-			<item value="motor5"/>
-			<item value="motor4"/>
 		</list>
 		<list key="replacehistory">
 			<item value="MOTOR_TURN_SPEED"/>

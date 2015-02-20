@@ -117,11 +117,56 @@ void operatorControl()
 
 	// arm function/////////////////////////////////////////////////////////////////////////////////////////////
 
-			motorSet (motor4, channel2) ;// arm right up
-			motorSet (motor7, channel2) ;// arm left
-			motorSet (motor3,channel2) ;// arm down up
-			motorSet (motor8, channel2) ;// arm left down
 
+
+const int INPUT_RIGHT_TRIGGER = 6;
+const int INPUT_LEFT_TRIGGER = 5;
+const int  ARM_POWER = 64;
+const int  INTAKE_POWER = 64;
+			int rightTriggerUp = joystickGetDigital(1,INPUT_RIGHT_TRIGGER,JOY_UP);
+			int rightTriggerDown = joystickGetDigital(1,INPUT_RIGHT_TRIGGER,JOY_DOWN);
+
+			int leftTriggerUp = joystickGetDigital(1,INPUT_LEFT_TRIGGER,JOY_UP);
+			int leftTriggerDown = joystickGetDigital(1,INPUT_LEFT_TRIGGER,JOY_DOWN);
+			if(rightTriggerUp)
+			{
+				motorSet (motor4, ARM_POWER) ;// arm right up
+				motorSet (motor3, ARM_POWER) ;// arm right down
+				motorSet (motor8, ARM_POWER) ;// arm left down
+				motorSet (motor7, ARM_POWER) ;// arm left up
+			}else
+			{
+								motorSet (motor4, 1) ;// arm right up
+								motorSet (motor3, 1) ;// arm right down
+								motorSet (motor8, 1) ;// arm left down
+								motorSet (motor7, 1) ;// arm left up
+			}
+			if(rightTriggerDown)
+			{
+							motorSet (motor4, -ARM_POWER) ;// arm right up
+							motorSet (motor3,-ARM_POWER) ;// arm right down
+							motorSet (motor8, -ARM_POWER) ;// arm left down
+							motorSet (motor7, -ARM_POWER) ;// arm left up
+			}
+
+			if(leftTriggerDown)
+			{
+										motorSet (motor6, - INTAKE_POWER) ;// arm right up
+										motorSet (motor5,-INTAKE_POWER) ;// arm right down
+			}
+			else if(leftTriggerUp)
+			{
+				motorSet (motor6,  INTAKE_POWER) ;// arm right up
+				motorSet (motor5, INTAKE_POWER) ;// arm right down
+			}else
+			{
+				motorSet (motor6,  0) ;// arm right up
+				motorSet (motor5, 0) ;// arm right down
+			}
+
+
+#define motor5 5 // = right intake
+#define motor6 6 // = left intake
 
 
 	}// operator close bracket
