@@ -470,32 +470,37 @@ void backDetect() {
 }
 
 void armUp(int x) {
-	int pot = analogRead(8);
+	int pot = encoderGet(encoder2);
 
 	while (pot < x) {
-		motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm up
-		motorSet(MOTOR_ARM_RIGHT_TOP, 127);
-		motorSet(MOTOR_ARM_LEFT_TOP, -127);
+		motorSet(MOTOR_ARM_RIGHT_TOP, -127);
+		motorSet(MOTOR_ARM_LEFT_TOP, 127);
+		motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127);
 		motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
-		pot = analogRead(8);
+		motorSet(MOTOR_ARM_RIGHT_MID, -127);
+		motorSet(MOTOR_ARM_LEFT_MID, 127);
+		pot = encoderGet(encoder2);
 	}
 
-	armUpTrim();
+	//armUpTrim();
 	delay(300);
 }
 
 void armDown(int x) {
-	int pot = analogRead(8);
+	int pot = encoderGet(encoder2);
 
 	while (pot > x) {
-		motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127); // arm down
-		motorSet(MOTOR_ARM_RIGHT_TOP, -127);
-		motorSet(MOTOR_ARM_LEFT_TOP, 127);
+		motorSet(MOTOR_ARM_RIGHT_TOP, 127);
+		motorSet(MOTOR_ARM_LEFT_TOP, -127);
+		motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127);
 		motorSet(MOTOR_ARM_LEFT_BOTTOM, -127);
-		pot = analogRead(8);
+		motorSet(MOTOR_ARM_RIGHT_MID, 127);
+		motorSet(MOTOR_ARM_LEFT_MID, -127);
+		pot = encoderGet(encoder2);
 	}
 
-	armDownTrim();
+	//armDownTrim();
+	delay(300);
 }
 
 void armUpDead() {
