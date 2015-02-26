@@ -23,3 +23,190 @@
 *.exe
 *.out
 *.app
+
+# eclipse files
+/*.metadata/* 
+.metadata/.lock
+.metadata/.log
+.metadata/version.ini
+.metadata/.plugins/org.eclipse.cdt.codan.ui/dialog_settings.xml
+.metadata/.plugins/org.eclipse.cdt.core/.log
+.metadata/.plugins/org.eclipse.cdt.core/Centennial 1.0.1415403714738.pdom
+.metadata/.plugins/org.eclipse.cdt.core/Centennial 1.0.1422052450230.pdom
+.metadata/.plugins/org.eclipse.cdt.core/Gladstone 2015 Code.1422052617152.pdom
+.metadata/.plugins/org.eclipse.cdt.core/Gordon 15 bot code.1421451124256.pdom
+.metadata/.plugins/org.eclipse.cdt.core/Gordon 15 bot code.1422052624797.pdom
+.metadata/.plugins/org.eclipse.cdt.core/McMath 1.0.1422052624809.pdom
+.metadata/.plugins/org.eclipse.cdt.core/Template.1421449006904.pdom
+.metadata/.plugins/org.eclipse.cdt.core/Template.1422052624811.pdom
+.metadata/.plugins/org.eclipse.cdt.core/test code 1.1422052624806.pdom
+.metadata/.plugins/org.eclipse.cdt.core/Worlds 1.0.1422052645957.pdom
+.metadata/.plugins/org.eclipse.cdt.core/Worlds 2.0 Code.1422052645959.pdom
+.metadata/.plugins/org.eclipse.cdt.core/worlds 2.0.1413618692049.pdom
+.metadata/.plugins/org.eclipse.cdt.core/Worlds_2.0.1421449006884.pdom
+.metadata/.plugins/org.eclipse.cdt.core/Worlds_2.0.1422052645955.pdom
+.metadata/.plugins/org.eclipse.cdt.make.core/.log
+.metadata/.plugins/org.eclipse.cdt.make.core/Centennial 1.0.sc
+.metadata/.plugins/org.eclipse.cdt.make.core/Gladstone 2015 Code.sc
+.metadata/.plugins/org.eclipse.cdt.make.core/Gordon 15 bot code.sc
+.metadata/.plugins/org.eclipse.cdt.make.core/McMath 1.0.sc
+.metadata/.plugins/org.eclipse.cdt.make.core/specs.c
+.metadata/.plugins/org.eclipse.cdt.make.core/specs.cpp
+.metadata/.plugins/org.eclipse.cdt.make.core/Template.sc
+.metadata/.plugins/org.eclipse.cdt.make.core/test code 1.sc
+.metadata/.plugins/org.eclipse.cdt.make.core/Worlds 1.0.sc
+.metadata/.plugins/org.eclipse.cdt.make.core/Worlds 2.0 Code.sc
+.metadata/.plugins/org.eclipse.cdt.make.core/worlds 2.0.sc
+.metadata/.plugins/org.eclipse.cdt.make.core/Worlds_2.0.sc
+.metadata/.plugins/org.eclipse.cdt.make.ui/dialog_settings.xml
+.metadata/.plugins/org.eclipse.cdt.ui/Centennial 1.0.build.log
+.metadata/.plugins/org.eclipse.cdt.ui/cHelpSettings.xml
+.metadata/.plugins/org.eclipse.cdt.ui/dialog_settings.xml
+.metadata/.plugins/org.eclipse.cdt.ui/global-build.log
+.metadata/.plugins/org.eclipse.cdt.ui/Gordon 15 bot code.build.log
+.metadata/.plugins/org.eclipse.cdt.ui/Template.build.log
+.metadata/.plugins/org.eclipse.cdt.ui/worlds 2.0.build.log
+.metadata/.plugins/org.eclipse.cdt.ui/Worlds_2.0.build.log
+.metadata/.plugins/org.eclipse.core.resources/.snap
+.metadata/.plugins/org.eclipse.core.resources/.history/13/60a31fca3da800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/13/803861973da800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/13/d0a44e4257a3001418a7c8d544879bb4
+.metadata/.plugins/org.eclipse.core.resources/.history/17/c0ad87bd3ba800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/1d/10289bb344a800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/1d/5020b5a055a300141afef4966438669c
+.metadata/.plugins/org.eclipse.core.resources/.history/29/20101d1f3ca800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/2b/d0cd2439979a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/2f/d0a39eaabc9a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/3/d0045da83ca800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/33/500aa02f56a300141afef4966438669c
+.metadata/.plugins/org.eclipse.core.resources/.history/35/304871143ca800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/3d/a00fb56e929a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/3f/6074cf3646a800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/40/40c6d15944a800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/41/c05415ab41a800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/49/e017558440a800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/4d/f0285548969a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/4e/e0c8e4fb55a300141afef4966438669c
+.metadata/.plugins/org.eclipse.core.resources/.history/51/204ae4f441a800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/54/c04bc0bebc9a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/5b/70861a09979a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/5b/80d7a7a940a800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/5f/b0707f0dd89d00141f44c6aa20fbac03
+.metadata/.plugins/org.eclipse.core.resources/.history/60/50fff13356a300141afef4966438669c
+.metadata/.plugins/org.eclipse.core.resources/.history/64/e03036d351a300141afef4966438669c
+.metadata/.plugins/org.eclipse.core.resources/.history/67/803ef9b4bc9a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/86/c0f1e4753ca800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/8d/204666ac3ea800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/8d/30a4ba1c3ea800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/95/00a754e841a800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/99/f0944f5e3ea800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/9c/40a4079955a300141afef4966438669c
+.metadata/.plugins/org.eclipse.core.resources/.history/a9/00a55557969a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/ac/603c606942a800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/ad/60a417ef51a300141afef4966438669c
+.metadata/.plugins/org.eclipse.core.resources/.history/ae/20f8e319969a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/ba/30d157183ca800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/c/40accce856a300141afef4966438669c
+.metadata/.plugins/org.eclipse.core.resources/.history/c9/f07c8a3ebc9a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/cc/80ac9a9541a800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/cd/90d1bea6bc9a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/ce/5097707639a800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/da/a08ace3e979a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/ee/c0760fca3da800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/f/7020c166ad9a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/f/80f4a009979a0014190dad935d1a2cae
+.metadata/.plugins/org.eclipse.core.resources/.history/f1/80be615139a800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.history/f3/4099a59c3ca800141359cc1ebe57d84f
+.metadata/.plugins/org.eclipse.core.resources/.projects/Centennial 1.0/.markers
+.metadata/.plugins/org.eclipse.core.resources/.projects/Centennial 1.0/1.tree
+.metadata/.plugins/org.eclipse.core.resources/.projects/Centennial 1.0/.indexes/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/Gladstone 2015 Code/.location
+.metadata/.plugins/org.eclipse.core.resources/.projects/Gladstone 2015 Code/1.tree
+.metadata/.plugins/org.eclipse.core.resources/.projects/Gladstone 2015 Code/.indexes/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/Gordon 15 bot code/.markers
+.metadata/.plugins/org.eclipse.core.resources/.projects/Gordon 15 bot code/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/Gordon 15 bot code/.syncinfo.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/Gordon 15 bot code/1.tree
+.metadata/.plugins/org.eclipse.core.resources/.projects/Gordon 15 bot code/.indexes/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/Gordon 15 bot code/.indexes/e4/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/McMath 1.0/.location
+.metadata/.plugins/org.eclipse.core.resources/.projects/McMath 1.0/.markers
+.metadata/.plugins/org.eclipse.core.resources/.projects/McMath 1.0/1.tree
+.metadata/.plugins/org.eclipse.core.resources/.projects/McMath 1.0/.indexes/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/Template/.markers
+.metadata/.plugins/org.eclipse.core.resources/.projects/Template/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/Template/.syncinfo.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/Template/.indexes/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/Template/.indexes/e4/history.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/Template/.indexes/e4/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/test code 1/.location
+.metadata/.plugins/org.eclipse.core.resources/.projects/test code 1/1.tree
+.metadata/.plugins/org.eclipse.core.resources/.projects/test code 1/.indexes/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/Worlds 1.0/.location
+.metadata/.plugins/org.eclipse.core.resources/.projects/Worlds 1.0/1.tree
+.metadata/.plugins/org.eclipse.core.resources/.projects/Worlds 1.0/.indexes/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/worlds 2.0/.markers
+.metadata/.plugins/org.eclipse.core.resources/.projects/worlds 2.0/1.tree
+.metadata/.plugins/org.eclipse.core.resources/.projects/Worlds 2.0 Code/.location
+.metadata/.plugins/org.eclipse.core.resources/.projects/Worlds 2.0 Code/1.tree
+.metadata/.plugins/org.eclipse.core.resources/.projects/Worlds 2.0 Code/.indexes/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/worlds 2.0/.indexes/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/worlds 2.0/.indexes/e4/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/Worlds_2.0/.location
+.metadata/.plugins/org.eclipse.core.resources/.projects/Worlds_2.0/1.tree
+.metadata/.plugins/org.eclipse.core.resources/.projects/Worlds_2.0/.indexes/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/.root/3.tree
+.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version
+.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version
+.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prj-Centennial 1.0.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prj-Gladstone 2015 Code.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prj-Gordon 15 bot code.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prj-McMath 1.0.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prj-Template.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prj-test code 1.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prj-Worlds 1.0.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prj-Worlds 2.0 Code.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prj-worlds 2.0.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prj-Worlds_2.0.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.debug.core.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.make.core.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.managedbuilder.core.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.ui.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.ui.prj-worlds 2.0.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.core.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.search.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.team.ui.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.tm.terminal.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.prefs
+.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+.metadata/.plugins/org.eclipse.equinox.p2.ui/dialog_settings.xml
+.metadata/.plugins/org.eclipse.linuxtools.cdt.libhover/C/glibc_library.libhover
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/.workspace/2014/10/42/refactorings.history
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/.workspace/2014/10/42/refactorings.index
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/.workspace/2015/1/5/refactorings.history
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/.workspace/2015/1/5/refactorings.index
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/Centennial 1.0/2014/11/45/refactorings.history
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/Centennial 1.0/2014/11/45/refactorings.index
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/Template/2015/1/4/refactorings.history
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/Template/2015/1/4/refactorings.index
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/Template/2015/1/5/refactorings.history
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/Template/2015/1/5/refactorings.index
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/worlds 2.0/2014/10/42/refactorings.history
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/worlds 2.0/2014/10/42/refactorings.index
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/worlds 2.0/2014/10/43/refactorings.history
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/worlds 2.0/2014/10/43/refactorings.index
+.metadata/.plugins/org.eclipse.ltk.ui.refactoring/dialog_settings.xml
+.metadata/.plugins/org.eclipse.search/dialog_settings.xml
+.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml
+.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml
+.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
+.metadata/.plugins/org.eclipse.ui.workbench.texteditor/dialog_settings.xml
+.metadata

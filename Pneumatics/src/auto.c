@@ -35,6 +35,13 @@
  */
 
 #include "auto.h"
+
+
+void armSwingRight();
+void armSwingLeft();
+void armOpen();
+void armClose();
+
 /*
  * Runs the user autonomous code. This function will be started in its own task with the default
  * priority and stack size whenever the robot is enabled via the Field Management System or the
@@ -53,37 +60,72 @@
 void autonomous()
 {
 	int MAX_HEIGHT = 1111;
-	int stack1 = 0;
+	int stack1 = 500;
 	int stack2 = 0;
 	int stack3 = 0;
 	int stack4 = 0;
 	int stack5 = 0;
 	int stack6 = 0;
 	int stack7 = 0;
-	int vexIntakeHeight = 0;
-	int vexSectionBuffer = 0;
-	int counts = 0;
-	encoderReset(encoder1); //Digital 1, 2
+	int vexIntakeHeight = 250;
+	int vexSectionBuffer = 100;
 
+
+
+	int counts = encoderGet(encoder2);
+	encoderReset(encoder2); //Digital 3, 4
+	/*while(true)
+	{
+		counts = encoderGet(encoder2);
+		printf("enc = %d\r\n", counts);
+	}*/
 	for(int i = 0; i < 7; i++)
 	{
 		if(counts < stack1)
 		{
-			armUp(vexIntakeHeight);//Arm down to the next VEX Piece
-			digitalWrite(11, HIGH);	//Arm left
+			//digitalWrite(11, HIGH); // Arm Right
+
+			armUp(vexIntakeHeight);//Arm up to the next VEX Piece
+			digitalWrite(11, HIGH); // arm right to spike
+			delay(500);
+			armDown(vexSectionBuffer);
+			digitalWrite(12, LOW);	//Intake close
+			delay (500);
+//////Begin gordon code
+			//intake up buffer
+			armUp(vexIntakeHeight + vexSectionBuffer);
+			//arm left to stack
+			digitalWrite(11, HIGH);
+
+			//arm down to stack1 height
+			armDown(stack1);
+			//dealy 500
+			delay(500);
+			//outtake
+			digitalWrite(12, HIGH);
+
+			//arm up to intake height again
+			armDown(vexIntakeHeight);
+			//arm left to the new spike
+			digitalWrite(11, HIGH);
+/////</gordon>
+
+
+			digitalWrite(11, LOW);	//Arm left
 			digitalWrite(12, HIGH);	//Intake open
-			delay(30);				//Wait for arm to reach desired height
+			delay(1000);				//Wait for arm to reach desired height
 			digitalWrite(12, LOW);	//Intake closed
 			armUp(stack1);			//Arm up to stack height
-			delay(30);
-			digitalWrite(11, LOW);	//Arm right
-			delay(30);
+			delay(2000);
+			digitalWrite(11, HIGH);	//Arm right
+			delay(2000);
 			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
-			counts = encoderGet(encoder1);
+			counts = encoderGet(encoder2);
+			//printf("enc = %d\r\n", counts);
 		}
-
+/*
 		else if(counts < stack2 && counts > stack1)
 		{
 			armUp(vexSectionBuffer);
@@ -100,7 +142,7 @@ void autonomous()
 			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
-			counts = encoderGet(encoder1);
+			counts = encoderGet(encoder2);
 		}
 
 		else if(counts < stack3 && counts > stack2)
@@ -119,7 +161,7 @@ void autonomous()
 			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
-			counts = encoderGet(encoder1);
+			counts = encoderGet(encoder2);
 		}
 
 		else if(counts < stack4 && counts > stack3)
@@ -138,7 +180,7 @@ void autonomous()
 			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
-			counts = encoderGet(encoder1);
+			counts = encoderGet(encoder2);
 		}
 
 		else if(counts < stack5 && counts > stack4)
@@ -157,7 +199,7 @@ void autonomous()
 			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
-			counts = encoderGet(encoder1);
+			counts = encoderGet(encoder2);
 		}
 
 		else if(counts < stack6 && counts > stack5)
@@ -176,7 +218,7 @@ void autonomous()
 			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
-			counts = encoderGet(encoder1);
+			counts = encoderGet(encoder2);
 		}
 
 		else if(counts < stack7 && counts > stack6)
@@ -195,13 +237,31 @@ void autonomous()
 			armDown(vexSectionBuffer);
 			digitalWrite(12, HIGH);	//Intake open
 
-			counts = encoderGet(encoder1);
+			counts = encoderGet(encoder2);
 		}
 
 		else
 		{
 			digitalWrite(11, HIGH);
 			armDown(vexIntakeHeight);
-		}
+		}*/
 	}
+}
+
+
+void armSwingRight()
+{
+	digitalWrite(11, LOW);
+}
+void armSwingLeft()
+{
+	digitalWrite(11, HIGH);
+}
+void armOpen()
+{
+	digitalWrite(12, HIGH);
+}
+void armClose()
+{
+	digitalWrite(12, LOW);
 }

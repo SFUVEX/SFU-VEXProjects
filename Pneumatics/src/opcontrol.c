@@ -81,9 +81,11 @@ int armCenter = 0;
 // cubic drive
 //void cubicDrive();
 
+//LED Flasher
+void flashLED();
+
 void operatorControl()
 {
-
 	// go to autonomous mode testing
 	/*if (digitalRead(1) == LOW) // jumper 1 in = autonomous
 	{
@@ -101,19 +103,30 @@ void operatorControl()
 		//cubicDrive ();
 	}*/
 
+	///////This is for feeding chain, not control, comment out when done.
+	/*while(true)
+	{
+		digitalWrite(11, HIGH);
+		digitalWrite(12, HIGH);
+		delay(100);
+		digitalWrite(11, LOW);
+		digitalWrite(12, LOW);
+		delay(100);
+	}*/
+
 	while (true)
 	{
 
-		int pot = analogRead(8);
-		printf("%d\r\n", pot);
+		//int pot = analogRead(8);
+		//printf("%d\r\n", pot);
 		if (digitalRead(1) == LOW) // jumper 1 in = autonomous
 		{
 			autonomous();
 		}
-
+		//flashLED();
 // declare joystick inputs/////////////////////////////////////////////////////////////////////////////////
-		int channel2 = joystickGetAnalog(1, 2); // (joystick 1, channel 2)
-		int channel3 = joystickGetAnalog(1, 3); // (joystick 1, channel 3)
+		int channel2 = joystickGetAnalog(1, 2); // (joystick 1, channel 2) //ry
+		int channel3 = joystickGetAnalog(1, 3); // (joystick 1, channel 3) //ly
 
 // drive functions////////////////////////////////////////////////////////////////////////////////////////
 		motorSet(MOTOR_DRIVE_RIGHT_BACK, channel2); // right drive back
@@ -121,13 +134,15 @@ void operatorControl()
 		motorSet(MOTOR_ARM_LEFT_BACK, channel3); // left drive abck
 		motorSet(MOTOR_ARM_LEFT_FRONT, channel3); // left drive front
 
-<<<<<<< HEAD
+
 // Linear Lift Functions/////////////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP)) // Lift Up
-=======
+		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP))
+		{
+			// Lift Up
+		}
+
 // arm function/////////////////////////////////////////////////////////////////////////////////////////////
 		if (joystickGetDigital(joystick1, joystickchannel5, JOY_UP)) // arm up
->>>>>>> master
 		{
 			motorSet(MOTOR_ARM_RIGHT_TOP, -127);
 			motorSet(MOTOR_ARM_LEFT_TOP, 127);
@@ -137,11 +152,10 @@ void operatorControl()
 			motorSet(MOTOR_ARM_LEFT_MID, 127);
 		}
 
-<<<<<<< HEAD
-		else if(joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // Lift Down
-=======
+
+//		else if(joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // Lift Down
+
 		else if (joystickGetDigital(joystick1, joystickchannel5, JOY_DOWN)) // arm down
->>>>>>> master
 		{
 			motorSet(MOTOR_ARM_RIGHT_TOP, 127);
 			motorSet(MOTOR_ARM_LEFT_TOP, -127);
@@ -150,8 +164,6 @@ void operatorControl()
 			motorSet(MOTOR_ARM_RIGHT_MID, 127);
 			motorSet(MOTOR_ARM_LEFT_MID, -127);
 		}
-<<<<<<< HEAD
-
 		else //Lift Idle
 		{
 			motorSet(MOTOR_ARM_RIGHT_TOP, 10);
@@ -164,17 +176,14 @@ void operatorControl()
 
 		if(joystickGetDigital(joystick1, joystickchannel7, JOY_LEFT)) // arm left
 		{
-			digitalWrite(11, HIGH);
-		}
-
-		else if(joystickGetDigital(joystick1, joystickchannel7, JOY_RIGHT)) // arm right
-		{
+			//trigger pneumatic cylinder
 			digitalWrite(11, LOW);
 		}
 
-		else
+		if(joystickGetDigital(joystick1, joystickchannel7, JOY_RIGHT)) // arm right
 		{
-			//Do nothing
+			//trigger retraction of pneumatic cylinder
+			digitalWrite(11, HIGH);
 		}
 
 		if(joystickGetDigital(joystick1, joystickchannel7, JOY_UP)) // intake forward
@@ -182,51 +191,12 @@ void operatorControl()
 			digitalWrite(12, HIGH);
 		}
 
-		else if(joystickGetDigital(joystick1, joystickchannel7, JOY_DOWN)) // intake backward
+		if(joystickGetDigital(joystick1, joystickchannel7, JOY_DOWN)) // intake backward
 		{
 			digitalWrite(12, LOW);
 		}
 
-=======
-		else // trim arm up
-		{
-			motorSet(MOTOR_ARM_RIGHT_TOP, 7);
-			motorSet(MOTOR_ARM_LEFT_TOP, -7);
-			motorSet(MOTOR_ARM_RIGHT_BOTTOM, -7);
-			motorSet(MOTOR_ARM_LEFT_BOTTOM, 7);
-		}
-
-// intake functions/////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel8, JOY_UP)) //outtake
-		{
-			digitalWrite(11, HIGH);
-		}
-
-		else if (joystickGetDigital(joystick1, joystickchannel8, JOY_DOWN)) //intake
-		{
-			digitalWrite(11, LOW);
-		}
-		
-		else
-		{
-			//Do Nothing
-		}
-//Intake Arm Movement Functions
-		if(joystickGetDigital(joystick1, joystickchannel8, JOY_RIGHT))//Arm right
-		{
-			digitalWrite(12, HIGH);
-		}
-		
-		else if(joystickGetDigital(joystick1, joystickchannel8, JOY_LEFT))
-		{
-			digitalWrite(12, LOW);
-		}
-		
->>>>>>> master
-		else
-		{
-			//Do nothing
-		}
+		delay(20);
 	} // while(true) close bracket
 
 } // operator close bracket
@@ -708,3 +678,12 @@ void cubicDrive()
 
 } //cubic drive close
 */
+void flashLED()
+{
+	digitalWrite(11, HIGH);
+	digitalWrite(12, HIGH);
+	delay(100);
+	digitalWrite(11, LOW);
+	digitalWrite(12, LOW);
+	delay(100);
+}
