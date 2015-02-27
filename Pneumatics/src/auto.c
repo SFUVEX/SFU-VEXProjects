@@ -79,6 +79,20 @@ void autonomous()
 		counts = encoderGet(encoder2);
 		printf("enc = %d\r\n", counts);
 	}*/
+
+	armUp(vexIntakeHeight);
+	armOpen();
+	armSwingRight();
+	delay(1000);
+	armDown(vexIntakeHeight - vexSectionBuffer);
+	delay(1000);
+	armClose();
+	armUp(vexSectionBuffer);
+	armSwingRight();
+	armDown(stack1 + vexSectionBuffer);
+	armOpen();
+
+	/*
 	for(int i = 0; i < 7; i++)
 	{
 		if(counts < stack1)
@@ -86,46 +100,46 @@ void autonomous()
 			//digitalWrite(11, HIGH); // Arm Right
 
 			armUp(vexIntakeHeight);//Arm up to the next VEX Piece
-			digitalWrite(11, HIGH); // arm right to spike
+			armSwingRight(); // arm right to spike
 			delay(500);
 			armDown(vexSectionBuffer);
-			digitalWrite(12, LOW);	//Intake close
+			armClose();	//Intake close
 			delay (500);
 //////Begin gordon code
 			//intake up buffer
 			armUp(vexIntakeHeight + vexSectionBuffer);
 			//arm left to stack
-			digitalWrite(11, HIGH);
+			armSwingLeft();
 
 			//arm down to stack1 height
 			armDown(stack1);
 			//dealy 500
 			delay(500);
 			//outtake
-			digitalWrite(12, HIGH);
+			armOpen();
 
 			//arm up to intake height again
 			armDown(vexIntakeHeight);
 			//arm left to the new spike
-			digitalWrite(11, HIGH);
+			armSwingLeft();
 /////</gordon>
 
 
-			digitalWrite(11, LOW);	//Arm left
-			digitalWrite(12, HIGH);	//Intake open
+			armSwingLeft();	//Arm left
+			armOpen();	//Intake open
 			delay(1000);				//Wait for arm to reach desired height
-			digitalWrite(12, LOW);	//Intake closed
+			armClose();	//Intake closed
 			armUp(stack1);			//Arm up to stack height
 			delay(2000);
-			digitalWrite(11, HIGH);	//Arm right
+			armSwingRight();	//Arm right
 			delay(2000);
 			armDown(vexSectionBuffer);
-			digitalWrite(12, HIGH);	//Intake open
+			armOpen();	//Intake open
 
 			counts = encoderGet(encoder2);
 			//printf("enc = %d\r\n", counts);
 		}
-/*
+
 		else if(counts < stack2 && counts > stack1)
 		{
 			armUp(vexSectionBuffer);
@@ -245,7 +259,6 @@ void autonomous()
 			digitalWrite(11, HIGH);
 			armDown(vexIntakeHeight);
 		}*/
-	}
 }
 
 

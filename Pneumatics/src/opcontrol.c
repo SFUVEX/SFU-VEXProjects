@@ -135,14 +135,10 @@ void operatorControl()
 		motorSet(MOTOR_ARM_LEFT_FRONT, channel3); // left drive front
 
 
-// Linear Lift Functions/////////////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP))
-		{
-			// Lift Up
-		}
+
 
 // arm function/////////////////////////////////////////////////////////////////////////////////////////////
-		if (joystickGetDigital(joystick1, joystickchannel5, JOY_UP)) // arm up
+		if (joystickGetDigital(joystick1, joystickchannel6, JOY_UP)) // arm up
 		{
 			motorSet(MOTOR_ARM_RIGHT_TOP, -127);
 			motorSet(MOTOR_ARM_LEFT_TOP, 127);
@@ -152,10 +148,7 @@ void operatorControl()
 			motorSet(MOTOR_ARM_LEFT_MID, 127);
 		}
 
-
-//		else if(joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // Lift Down
-
-		else if (joystickGetDigital(joystick1, joystickchannel5, JOY_DOWN)) // arm down
+		else if (joystickGetDigital(joystick1, joystickchannel6, JOY_DOWN)) // arm down
 		{
 			motorSet(MOTOR_ARM_RIGHT_TOP, 127);
 			motorSet(MOTOR_ARM_LEFT_TOP, -127);
