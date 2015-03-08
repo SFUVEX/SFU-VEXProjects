@@ -49,7 +49,7 @@ void initializeIO()
 	pinMode(10, INPUT); //Switch 1
 
 	//set pin modes for pneumatic cylinders
-	digitalWrite(11, LOW);
+	digitalWrite(11, HIGH);
 	digitalWrite(12, LOW);
 	pinMode(11, OUTPUT);
 	pinMode(12, OUTPUT);
@@ -57,11 +57,8 @@ void initializeIO()
 
 
 //Initialize ALL OF THE SENSORS
-Encoder encoder1; //Digital 1, 2
 Encoder encoder2; //Digital 3, 4
-Encoder encoder3; //Digital 5, 6
 
-Ultrasonic sonar; //Digital 7, 8
 
 
 
@@ -82,15 +79,5 @@ Ultrasonic sonar; //Digital 7, 8
 void initialize()
 {
 	//Encoder Initializations
-	encoder1 = encoderInit(1, 2, false);
 	encoder2 = encoderInit(3, 4, false);
-	encoder3 = encoderInit(5, 6, false);
-
-	//Ultrasonic Initializations
-	sonar = ultrasonicInit(7, 8);
-
-	//IME Initialization
-	int counts = imeInitializeAll(); //initialise ime
-
-	//int encoder = encoderInit (1, 2, 0) ;
 }

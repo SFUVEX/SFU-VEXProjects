@@ -9,7 +9,7 @@
 #include "motorSubroutines.h"
 #include <stdbool.h>
 
-void driveForward(int x) {
+/*void driveForward(int x) {
 	int imeAccumulator = 0;
 	imeReset(0); // rest rightLine I.M.E
 
@@ -369,17 +369,7 @@ void scrapeLeftBack(int x) {
 	motorSet(MOTOR_ARM_LEFT_FRONT, 0);
 	delay(200);
 
-	/*motorSet (motor1, 90)	;
-	 motorSet (motor2, 90)	;
-	 motorSet (motor10, 0);
-	 motorSet (motor9, 0)	;
-	 delay(x);
 
-	 motorSet (motor1, 0)	;
-	 motorSet (motor2, 0)	;
-	 motorSet (motor10, 0);
-	 motorSet (motor9, 0)	;
-	 */
 }
 
 void scrapeRightBack(int x) {
@@ -468,7 +458,7 @@ void backDetect() {
 	delay(200);
 
 }
-
+*/
 void armUp(int x) {
 	int pot = encoderGet(encoder2);
 
@@ -586,7 +576,7 @@ void outtakeDead() {
 	motorSet(MOTOR_ARM_LEFT_MID, +127); // arm left
 
 }
-
+/*
 void findLineRight() {
 	int leftLine = analogRead(1);
 	int midLine = analogRead(2);
@@ -739,7 +729,7 @@ void followLine(int dylanSexxydistance) {
 					aliSexxySpeed * ((((leftLine) / (rightLine)) + 5) / 10));
 		}
 
-		/*else
+		else
 		 {
 		 printf("%f\t", aliSexxySpeed*((((rightLine)/(leftLine*1.5))+2)/5));//right
 		 printf("%f\t", aliSexxySpeed*((((leftLine)/(rightLine*1.5))+2)/5));//left
@@ -777,13 +767,13 @@ void followLine(int dylanSexxydistance) {
 		 motorSet (motor9, 40);
 		 motorSet (motor10, 40);
 		 }
-		 */
+
 
 	}
 
 	stopDrive();
 	delay(200);
 
-}
+}*/
 
 

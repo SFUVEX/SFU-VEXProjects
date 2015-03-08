@@ -56,221 +56,68 @@ void armClose();
  * The autonomous task may exit, unlike operatorControl() which should never exit. If it does
  * so, the robot will await a switch to another mode or disable/enable cycle.
  */
-
+#define NStack 7
 void autonomous()
 {
-	int MAX_HEIGHT = 2111;
-	int stack1 = 500;
-	int stack2 = 0;
-	int stack3 = 0;
-	int stack4 = 0;
-	int stack5 = 0;
-	int stack6 = 0;
-	int stack7 = 0;
-	int vexIntakeHeight = 1450;
-	int vexSectionBuffer = 400;
+	//int MAX_HEIGHT = 2111;
+	const int stack[NStack]={
+			325,1650,2600,3900,5200,6800,2050
+	};
+//	int stack1 = 500;
+//	int stack2 = 0;
+//	int stack3 = 0;
+//	int stack4 = 0;
+//	int stack5 = 0;
+//	int stack6 = 0;
+//	int stack7 = 0;
+	int vexIntakeHeight = 1500;
+	int vexSectionBuffer = 75;
 
 
 
-	int counts = encoderGet(encoder2);
 	encoderReset(encoder2); //Digital 3, 4
-	/*while(true)
+
+	int i;
+	for(i=0;i<NStack;i++)
 	{
-		counts = encoderGet(encoder2);
-		printf("enc = %d\r\n", counts);
-	}*/
+		armUp(vexIntakeHeight);
+		armSwingLeft();
+		//delay(3600000); //uncomment when aligning.
+		delay(100);
+		//counts = encoderGet(encoder2);
+		//printf("enc = %d\r\n", counts);
+		stopArm();
 
-	armUp(vexIntakeHeight);
-	stopArm();
-	armSwingRight();
-	armOpen();
-	delay(2000);
-	armDownDead(); // into the hole
-	delay(200);
-	stopArm();
-	delay(1000);
-
-	armClose();
-	delay(1000);
-	armUp(2100); // spike clears the ring
-	stopArm();
-	armSwingLeft();
-	delay(1000);
-	armDown(stack1 + vexSectionBuffer);
-	stopArm();
-	delay(1000);
-	armOpen();
-	delay(1000);
-
-
-
-	/*
-	for(int i = 0; i < 7; i++)
-	{
-		if(counts < stack1)
+		armOpen();
+		delay(2000);
+		armDown(vexIntakeHeight-vexSectionBuffer); // into the hole
+		delay(700);
+		stopArm();
+		delay(100);
+		armClose();
+		armUp(vexIntakeHeight);
+		////////////////////////unload
+		if(stack[i] < vexIntakeHeight)
 		{
-			//digitalWrite(11, HIGH); // Arm Right
-
-			armUp(vexIntakeHeight);//Arm up to the next VEX Piece
-			armSwingRight(); // arm right to spike
-			delay(500);
-			armDown(vexSectionBuffer);
-			armClose();	//Intake close
-			delay (500);
-//////Begin gordon code
-			//intake up buffer
-			armUp(vexIntakeHeight + vexSectionBuffer);
-			//arm left to stack
-			armSwingLeft();
-
-			//arm down to stack1 height
-			armDown(stack1);
-			//dealy 500
-			delay(500);
-			//outtake
-			armOpen();
-
-			//arm up to intake height again
-			armDown(vexIntakeHeight);
-			//arm left to the new spike
-			armSwingLeft();
-/////</gordon>
-
-
-			armSwingLeft();	//Arm left
-			armOpen();	//Intake open
-			delay(1000);				//Wait for arm to reach desired height
-			armClose();	//Intake closed
-			armUp(stack1);			//Arm up to stack height
-			delay(2000);
-			armSwingRight();	//Arm right
-			delay(2000);
-			armDown(vexSectionBuffer);
-			armOpen();	//Intake open
-
-			counts = encoderGet(encoder2);
-			//printf("enc = %d\r\n", counts);
+			//destination below load height
+			armSwingRight();
+			armDown(stack[i]);
+		}else
+		{
+			//destination aboe load height.
+			armUp(stack[i]);
+			delay(i*1000);
+			armSwingRight();
 		}
 
-		else if(counts < stack2 && counts > stack1)
-		{
-			armUp(vexSectionBuffer);
-			digitalWrite(11, HIGH);	//Arm left
-			delay(5);
-			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
-			digitalWrite(12, HIGH);	//Intake open
-			delay(30);				//Wait for arm to reach desired height
-			digitalWrite(12, LOW);	//Intake closed
-			armUp(stack2);			//Arm up to stack height
-			delay(30);
-			digitalWrite(11, LOW);	//Arm right
-			delay(30);
-			armDown(vexSectionBuffer);
-			digitalWrite(12, HIGH);	//Intake open
 
-			counts = encoderGet(encoder2);
-		}
-
-		else if(counts < stack3 && counts > stack2)
-		{
-			armUp(vexSectionBuffer);
-			digitalWrite(11, HIGH);	//Arm left
-			delay(5);
-			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
-			digitalWrite(12, HIGH);	//Intake open
-			delay(30);				//Wait for arm to reach desired height
-			digitalWrite(12, LOW);	//Intake closed
-			armUp(stack3);			//Arm up to stack height
-			delay(30);
-			digitalWrite(11, LOW);	//Arm right
-			delay(30);
-			armDown(vexSectionBuffer);
-			digitalWrite(12, HIGH);	//Intake open
-
-			counts = encoderGet(encoder2);
-		}
-
-		else if(counts < stack4 && counts > stack3)
-		{
-			armUp(vexSectionBuffer);
-			digitalWrite(11, HIGH);	//Arm left
-			delay(5);
-			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
-			digitalWrite(12, HIGH);	//Intake open
-			delay(30);				//Wait for arm to reach desired height
-			digitalWrite(12, LOW);	//Intake closed
-			armUp(stack4);			//Arm up to stack height
-			delay(30);
-			digitalWrite(11, LOW);	//Arm right
-			delay(30);
-			armDown(vexSectionBuffer);
-			digitalWrite(12, HIGH);	//Intake open
-
-			counts = encoderGet(encoder2);
-		}
-
-		else if(counts < stack5 && counts > stack4)
-		{
-			armUp(vexSectionBuffer);
-			digitalWrite(11, HIGH);	//Arm left
-			delay(5);
-			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
-			digitalWrite(12, HIGH);	//Intake open
-			delay(30);				//Wait for arm to reach desired height
-			digitalWrite(12, LOW);	//Intake closed
-			armUp(stack5);			//Arm up to stack height
-			delay(30);
-			digitalWrite(11, LOW);	//Arm right
-			delay(30);
-			armDown(vexSectionBuffer);
-			digitalWrite(12, HIGH);	//Intake open
-
-			counts = encoderGet(encoder2);
-		}
-
-		else if(counts < stack6 && counts > stack5)
-		{
-			armUp(vexSectionBuffer);
-			digitalWrite(11, HIGH);	//Arm left
-			delay(5);
-			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
-			digitalWrite(12, HIGH);	//Intake open
-			delay(30);				//Wait for arm to reach desired height
-			digitalWrite(12, LOW);	//Intake closed
-			armUp(stack6);			//Arm up to stack height
-			delay(30);
-			digitalWrite(11, LOW);	//Arm right
-			delay(30);
-			armDown(vexSectionBuffer);
-			digitalWrite(12, HIGH);	//Intake open
-
-			counts = encoderGet(encoder2);
-		}
-
-		else if(counts < stack7 && counts > stack6)
-		{
-			armUp(vexSectionBuffer);
-			digitalWrite(11, HIGH);	//Arm left
-			delay(5);
-			armDown(vexIntakeHeight);//Arm down to the next VEX Piece
-			digitalWrite(12, HIGH);	//Intake open
-			delay(30);				//Wait for arm to reach desired height
-			digitalWrite(12, LOW);	//Intake closed
-			armUp(stack3);			//Arm up to stack height
-			delay(30);
-			digitalWrite(11, LOW);	//Arm right
-			delay(30);
-			armDown(vexSectionBuffer);
-			digitalWrite(12, HIGH);	//Intake open
-
-			counts = encoderGet(encoder2);
-		}
-
-		else
-		{
-			digitalWrite(11, HIGH);
-			armDown(vexIntakeHeight);
-		}*/
+		delay(1000);
+		armOpen();
+		delay(4000);
+		armDown(vexIntakeHeight);
+	}
+	printf("END PROG\r\n");
+	delay(20);
 }
 
 
