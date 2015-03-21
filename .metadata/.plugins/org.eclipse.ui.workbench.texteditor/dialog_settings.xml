@@ -2,37 +2,37 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="305" key="DIALOG_WIDTH"/>
-		<item value="209" key="DIALOG_Y_ORIGIN"/>
+		<item value="288" key="DIALOG_Y_ORIGIN"/>
+		<item value="794" key="DIALOG_X_ORIGIN"/>
 		<item value="442" key="DIALOG_HEIGHT"/>
-		<item value="715" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wholeword"/>
-		<item value="armUp" key="selection"/>
+		<item value="deltaX" key="selection"/>
 		<list key="findhistory">
+			<item value="C1RX"/>
+			<item value="C1LX"/>
+			<item value="C1LY"/>
 			<item value="armup"/>
 			<item value="armupdead"/>
 			<item value="armdowndead"/>
 			<item value="armdown"/>
 			<item value="arm u"/>
-			<item value="enc"/>
-			<item value="pot"/>
-			<item value="arm"/>
 		</list>
 		<list key="replacehistory">
+			<item value="deltaX"/>
+			<item value="deltaY"/>
+			<item value="rot"/>
 			<item value="MOTOR_TURN_SPEED"/>
 			<item value="MOTOR_DRIVE_LEFT_LINE_BACK"/>
 			<item value="MOTOR_DRIVE_LEFT_LINE_FRONT"/>
 			<item value="ARM_MOTOR4"/>
 			<item value="ARM_MOTOR3"/>
-			<item value="MOTOR_LEFT_LINE_INTAKE"/>
-			<item value="MOTOR_RIGHT_LINE_INTAKE"/>
-			<item value="ARM_MOTOR2"/>
 		</list>
 	</section>
 </section>
