@@ -123,6 +123,9 @@ void operatorControl()
 		{
 			autonomous();
 		}
+
+		int pot = encoderGet(encoder2);
+	printf("%d\r\n", pot);
 		//flashLED();
 // declare joystick inputs/////////////////////////////////////////////////////////////////////////////////
 		int channel2 = joystickGetAnalog(1, 2); // (joystick 1, channel 2) //ry

@@ -481,7 +481,7 @@ void armUp(int x) {
 		motorSet(MOTOR_ARM_LEFT_MID, 127);
 		pot = encoderGet(encoder2);
 	}
-
+	stopArm();
 	//armUpTrim();
 	delay(300);
 }
@@ -499,24 +499,30 @@ void armDown(int x) {
 		pot = encoderGet(encoder2);
 	}
 
+	stopArm();
+
 	//armDownTrim();
 	delay(300);
 }
 
 void armUpDead() {
 
-	motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm up
-	motorSet(MOTOR_ARM_RIGHT_TOP, 127);
-	motorSet(MOTOR_ARM_LEFT_TOP, -127);
-	motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
+	motorSet(MOTOR_ARM_RIGHT_TOP, -127);
+			motorSet(MOTOR_ARM_LEFT_TOP, 127);
+			motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127);
+			motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
+			motorSet(MOTOR_ARM_RIGHT_MID, -127);
+			motorSet(MOTOR_ARM_LEFT_MID, 127);
 }
 
 void armDownDead() {
 
-	motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127); // arm Down
-	motorSet(MOTOR_ARM_RIGHT_TOP, -127);
-	motorSet(MOTOR_ARM_LEFT_TOP, 127);
-	motorSet(MOTOR_ARM_LEFT_BOTTOM, -127);
+	motorSet(MOTOR_ARM_RIGHT_TOP, 127);
+			motorSet(MOTOR_ARM_LEFT_TOP, -127);
+			motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127);
+			motorSet(MOTOR_ARM_LEFT_BOTTOM, -127);
+			motorSet(MOTOR_ARM_RIGHT_MID, 127);
+			motorSet(MOTOR_ARM_LEFT_MID, -127);
 }
 
 void armUpTrim() {

@@ -59,7 +59,7 @@ void armClose();
 
 void autonomous()
 {
-	int MAX_HEIGHT = 1111;
+	int MAX_HEIGHT = 2111;
 	int stack1 = 500;
 	int stack2 = 0;
 	int stack3 = 0;
@@ -67,8 +67,8 @@ void autonomous()
 	int stack5 = 0;
 	int stack6 = 0;
 	int stack7 = 0;
-	int vexIntakeHeight = 250;
-	int vexSectionBuffer = 100;
+	int vexIntakeHeight = 1450;
+	int vexSectionBuffer = 400;
 
 
 
@@ -81,16 +81,28 @@ void autonomous()
 	}*/
 
 	armUp(vexIntakeHeight);
-	armOpen();
+	stopArm();
 	armSwingRight();
+	armOpen();
+	delay(2000);
+	armDownDead(); // into the hole
+	delay(200);
+	stopArm();
 	delay(1000);
-	armDown(vexIntakeHeight - vexSectionBuffer);
-	delay(1000);
+
 	armClose();
-	armUp(vexSectionBuffer);
-	armSwingRight();
+	delay(1000);
+	armUp(2100); // spike clears the ring
+	stopArm();
+	armSwingLeft();
+	delay(1000);
 	armDown(stack1 + vexSectionBuffer);
+	stopArm();
+	delay(1000);
 	armOpen();
+	delay(1000);
+
+
 
 	/*
 	for(int i = 0; i < 7; i++)
@@ -264,11 +276,12 @@ void autonomous()
 
 void armSwingRight()
 {
-	digitalWrite(11, LOW);
+	digitalWrite(11, HIGH);
+
 }
 void armSwingLeft()
 {
-	digitalWrite(11, HIGH);
+	digitalWrite(11, LOW);
 }
 void armOpen()
 {
