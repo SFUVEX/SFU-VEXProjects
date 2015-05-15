@@ -2,6 +2,10 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="cdt.managedbuild.toolchain.gnu.cross.base.1066004663;cdt.managedbuild.toolchain.gnu.cross.base.1066004663.216315519;cdt.managedbuild.tool.gnu.cross.c.compiler.1492636040;cdt.managedbuild.tool.gnu.c.compiler.input.1080172599">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="c:\program files (x86)\pros\toolchain\bin\../lib/gcc/arm-none-eabi/4.7.1/include"/>
+<includePath path="c:\program files (x86)\pros\toolchain\bin\../lib/gcc/arm-none-eabi/4.7.1/include-fixed"/>
+<includePath path="c:/program files (x86)/pros/toolchain/lib/gcc/../../arm-none-eabi/sys-include"/>
+<includePath path="c:/program files (x86)/pros/toolchain/lib/gcc/../../arm-none-eabi/include"/>
 <includePath path="c:\program files\pros\toolchain\bin\../lib/gcc/arm-none-eabi/4.7.1/include"/>
 <includePath path="c:\program files\pros\toolchain\bin\../lib/gcc/arm-none-eabi/4.7.1/include-fixed"/>
 <includePath path="c:/program files/pros/toolchain/lib/gcc/../../arm-none-eabi/sys-include"/>

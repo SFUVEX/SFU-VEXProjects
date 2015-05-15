@@ -100,7 +100,7 @@ void operatorControl()
 	//		cubicDrive ();
 	//	}
 
-	while (true)
+	while (1)
 	{
 
 		int pot = analogRead(8);
