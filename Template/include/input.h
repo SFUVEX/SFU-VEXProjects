@@ -8,6 +8,10 @@
 #ifndef INPUT_H_
 #define INPUT_H_
 
+//joysticks
+#define OP_1 1
+#define OP_2 2
+
 typedef enum InputChannels
 {
 	INPUT_RIGHT_X=1,
