@@ -210,3 +210,5 @@
 .metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
 .metadata/.plugins/org.eclipse.ui.workbench.texteditor/dialog_settings.xml
 .metadata
+*.bin
+*.elf
