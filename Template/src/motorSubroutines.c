@@ -9,7 +9,7 @@
 #include "motorSubroutines.h"
 #include <stdbool.h>
 
-static const int MAX_SPEED = 127;
+
 
 void driveForward(int x) {
 	int imeAccumulator = 0;
@@ -84,10 +84,10 @@ void turnRight(int x) {
 		imeGet(0, &counts); // keep getting the value
 	}
 
-	motorSet(MOTOR_DRIVE_RIGHT_BACK, 10); // no inertia
-	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 10);
-	motorSet(MOTOR_ARM_LEFT_BACK, -10);
-	motorSet(MOTOR_ARM_LEFT_FRONT, -10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, INERTIA_CANCELLATION_FACTOR); // no inertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_BACK, -INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_FRONT, -INERTIA_CANCELLATION_FACTOR);
 	delay(45);
 
 	motorStop(MOTOR_DRIVE_RIGHT_BACK);
@@ -111,10 +111,10 @@ void turnLeft(int x) {
 		imeGet(0, &counts); // keep getting the value
 	}
 
-	motorSet(MOTOR_DRIVE_RIGHT_BACK, -10); // no inertia
-	motorSet(MOTOR_DRIVE_RIGHT_FRONT, -10);
-	motorSet(MOTOR_ARM_LEFT_BACK, 10);
-	motorSet(MOTOR_ARM_LEFT_FRONT, 10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, -INERTIA_CANCELLATION_FACTOR); // no inertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, -INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_BACK, INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_FRONT, INERTIA_CANCELLATION_FACTOR);
 	delay(45);
 
 	motorStop(MOTOR_DRIVE_RIGHT_BACK);
@@ -232,10 +232,10 @@ void driveForwardSlow(int x) {
 		imeGet(0, &counts); // keep getting the value
 	}
 
-	motorSet(MOTOR_DRIVE_RIGHT_BACK, -10); // no inertia
-	motorSet(MOTOR_DRIVE_RIGHT_FRONT, -10);
-	motorSet(MOTOR_ARM_LEFT_BACK, -10);
-	motorSet(MOTOR_ARM_LEFT_FRONT, -10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, -INERTIA_CANCELLATION_FACTOR); // no inertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, -INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_BACK, -INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_FRONT, -INERTIA_CANCELLATION_FACTOR);
 	delay(45);
 
 	motorSet(MOTOR_DRIVE_RIGHT_BACK, 0);
@@ -259,10 +259,10 @@ void driveBackSlow(int x) {
 		imeGet(0, &counts); // keep getting the value
 	}
 
-	motorSet(MOTOR_DRIVE_RIGHT_BACK, 10); // no inertia
-	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 10);
-	motorSet(MOTOR_ARM_LEFT_BACK, 10);
-	motorSet(MOTOR_ARM_LEFT_FRONT, 10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, INERTIA_CANCELLATION_FACTOR); // no inertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_BACK, INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_FRONT, INERTIA_CANCELLATION_FACTOR);
 	delay(45);
 
 	motorSet(MOTOR_DRIVE_RIGHT_BACK, 0);
@@ -307,8 +307,8 @@ void scrapeRight(int x) {
 
 	motorSet(MOTOR_DRIVE_RIGHT_BACK, 0);
 	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 0);
-	motorSet(MOTOR_ARM_LEFT_BACK, -10);
-	motorSet(MOTOR_ARM_LEFT_FRONT, -10);
+	motorSet(MOTOR_ARM_LEFT_BACK, -INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_FRONT, -INERTIA_CANCELLATION_FACTOR);
 	delay(55);
 
 	motorSet(MOTOR_DRIVE_RIGHT_BACK, 0);
@@ -332,8 +332,8 @@ void scrapeLeft(int x) {
 		imeGet(0, &counts); // keep getting the value
 	}
 
-	motorSet(MOTOR_DRIVE_RIGHT_BACK, -10); // no intertia
-	motorSet(MOTOR_DRIVE_RIGHT_FRONT, -10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, -INERTIA_CANCELLATION_FACTOR); // no intertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, -INERTIA_CANCELLATION_FACTOR);
 	motorSet(MOTOR_ARM_LEFT_BACK, 0);
 	motorSet(MOTOR_ARM_LEFT_FRONT, 0);
 	delay(55);
@@ -359,8 +359,8 @@ void scrapeLeftBack(int x) {
 		imeGet(0, &counts); // keep getting the value
 	}
 
-	motorSet(MOTOR_DRIVE_RIGHT_BACK, 10); // no intertia
-	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, INERTIA_CANCELLATION_FACTOR); // no intertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, INERTIA_CANCELLATION_FACTOR);
 	motorSet(MOTOR_ARM_LEFT_BACK, 0);
 	motorSet(MOTOR_ARM_LEFT_FRONT, 0);
 	delay(55);
@@ -400,8 +400,8 @@ void scrapeRightBack(int x) {
 
 	motorSet(MOTOR_DRIVE_RIGHT_BACK, 0); // no intertia
 	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 0);
-	motorSet(MOTOR_ARM_LEFT_BACK, 10);
-	motorSet(MOTOR_ARM_LEFT_FRONT, 10);
+	motorSet(MOTOR_ARM_LEFT_BACK, INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_FRONT, INERTIA_CANCELLATION_FACTOR);
 	delay(55);
 
 	motorSet(MOTOR_DRIVE_RIGHT_BACK, 0);
@@ -428,10 +428,10 @@ void forwardDetect() {
 		midLine = analogRead(2);
 	}
 
-	motorSet(MOTOR_DRIVE_RIGHT_BACK, -10); // no intertia
-	motorSet(MOTOR_DRIVE_RIGHT_FRONT, -10);
-	motorSet(MOTOR_ARM_LEFT_BACK, -10);
-	motorSet(MOTOR_ARM_LEFT_FRONT, -10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, -INERTIA_CANCELLATION_FACTOR); // no intertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, -INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_BACK, -INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_FRONT, -INERTIA_CANCELLATION_FACTOR);
 	delay(55);
 
 	motorSet(MOTOR_DRIVE_RIGHT_BACK, 0);
@@ -457,10 +457,10 @@ void backDetect() {
 		midLine = analogRead(2);
 	}
 
-	motorSet(MOTOR_DRIVE_RIGHT_BACK, 10); // no intertia
-	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 10);
-	motorSet(MOTOR_ARM_LEFT_BACK, 10);
-	motorSet(MOTOR_ARM_LEFT_FRONT, 10);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, INERTIA_CANCELLATION_FACTOR); // no intertia
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_BACK, INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_FRONT, INERTIA_CANCELLATION_FACTOR);
 	delay(55);
 
 	motorSet(MOTOR_DRIVE_RIGHT_BACK, 0);
@@ -534,10 +534,10 @@ void armDownTrim()
 
 void stopArm() // trim
 {
-	motorSet(MOTOR_ARM_RIGHT_BOTTOM, -10); // arm up
-	motorSet(MOTOR_ARM_RIGHT_TOP, 10);
-	motorSet(MOTOR_ARM_LEFT_TOP, -10);
-	motorSet(MOTOR_ARM_LEFT_BOTTOM, 10);
+	motorSet(MOTOR_ARM_RIGHT_BOTTOM, -INERTIA_CANCELLATION_FACTOR); // arm up
+	motorSet(MOTOR_ARM_RIGHT_TOP, INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_TOP, -INERTIA_CANCELLATION_FACTOR);
+	motorSet(MOTOR_ARM_LEFT_BOTTOM, INERTIA_CANCELLATION_FACTOR);
 }
 
 void intake(int x) {
