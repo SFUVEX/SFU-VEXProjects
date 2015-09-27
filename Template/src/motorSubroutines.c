@@ -9,6 +9,8 @@
 #include "motorSubroutines.h"
 #include <stdbool.h>
 
+static const int MAX_SPEED = 127;
+
 void driveForward(int x) {
 	int imeAccumulator = 0;
 	imeReset(0); // rest rightLine I.M.E
@@ -142,8 +144,8 @@ void turnLeftArc(int x) {
 	imeGet(0, &counts);
 
 	while (abs(counts) < x) {
-		motorSet(MOTOR_DRIVE_RIGHT_BACK, 127);
-		motorSet(MOTOR_DRIVE_RIGHT_FRONT, 127);
+		motorSet(MOTOR_DRIVE_RIGHT_BACK, MAX_SPEED);
+		motorSet(MOTOR_DRIVE_RIGHT_FRONT, MAX_SPEED);
 		motorSet(MOTOR_ARM_LEFT_BACK, 0);
 		motorSet(MOTOR_ARM_LEFT_FRONT, 0);
 
@@ -164,8 +166,8 @@ void turnRightArc(int x) {
 	while (abs(counts) < x) {
 		motorSet(MOTOR_DRIVE_RIGHT_BACK, 0);
 		motorSet(MOTOR_DRIVE_RIGHT_FRONT, 0);
-		motorSet(MOTOR_ARM_LEFT_BACK, 127);
-		motorSet(MOTOR_ARM_LEFT_FRONT, 127);
+		motorSet(MOTOR_ARM_LEFT_BACK, MAX_SPEED);
+		motorSet(MOTOR_ARM_LEFT_FRONT, MAX_SPEED);
 
 		imeGet(0, &counts); // keep getting the value
 	}
@@ -203,17 +205,17 @@ void stopIntake() {
 }
 
 void driveForwardDead() {
-	motorSet(MOTOR_DRIVE_RIGHT_BACK, 127);
-	motorSet(MOTOR_DRIVE_RIGHT_FRONT, 127);
-	motorSet(MOTOR_ARM_LEFT_BACK, 127);
-	motorSet(MOTOR_ARM_LEFT_FRONT, 127);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, MAX_SPEED);
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, MAX_SPEED);
+	motorSet(MOTOR_ARM_LEFT_BACK, MAX_SPEED);
+	motorSet(MOTOR_ARM_LEFT_FRONT, MAX_SPEED);
 }
 
 void driveBackDead() {
-	motorSet(MOTOR_DRIVE_RIGHT_BACK, -127);
-	motorSet(MOTOR_DRIVE_RIGHT_FRONT, -127);
-	motorSet(MOTOR_ARM_LEFT_BACK, -127);
-	motorSet(MOTOR_ARM_LEFT_FRONT, -127);
+	motorSet(MOTOR_DRIVE_RIGHT_BACK, -MAX_SPEED);
+	motorSet(MOTOR_DRIVE_RIGHT_FRONT, -MAX_SPEED);
+	motorSet(MOTOR_ARM_LEFT_BACK, -MAX_SPEED);
+	motorSet(MOTOR_ARM_LEFT_FRONT, -MAX_SPEED);
 }
 
 void driveForwardSlow(int x) {
@@ -473,10 +475,10 @@ void armUp(int x) {
 	int pot = analogRead(8);
 
 	while (pot < x) {
-		motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm up
-		motorSet(MOTOR_ARM_RIGHT_TOP, 127);
-		motorSet(MOTOR_ARM_LEFT_TOP, -127);
-		motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
+		motorSet(MOTOR_ARM_RIGHT_BOTTOM, -MAX_SPEED); // arm up
+		motorSet(MOTOR_ARM_RIGHT_TOP, MAX_SPEED);
+		motorSet(MOTOR_ARM_LEFT_TOP, -MAX_SPEED);
+		motorSet(MOTOR_ARM_LEFT_BOTTOM, MAX_SPEED);
 		pot = analogRead(8);
 	}
 
@@ -488,10 +490,10 @@ void armDown(int x) {
 	int pot = analogRead(8);
 
 	while (pot > x) {
-		motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127); // arm down
-		motorSet(MOTOR_ARM_RIGHT_TOP, -127);
-		motorSet(MOTOR_ARM_LEFT_TOP, 127);
-		motorSet(MOTOR_ARM_LEFT_BOTTOM, -127);
+		motorSet(MOTOR_ARM_RIGHT_BOTTOM, MAX_SPEED); // arm down
+		motorSet(MOTOR_ARM_RIGHT_TOP, -MAX_SPEED);
+		motorSet(MOTOR_ARM_LEFT_TOP, MAX_SPEED);
+		motorSet(MOTOR_ARM_LEFT_BOTTOM, -MAX_SPEED);
 		pot = analogRead(8);
 	}
 
@@ -500,18 +502,18 @@ void armDown(int x) {
 
 void armUpDead() {
 
-	motorSet(MOTOR_ARM_RIGHT_BOTTOM, -127); // arm up
-	motorSet(MOTOR_ARM_RIGHT_TOP, 127);
-	motorSet(MOTOR_ARM_LEFT_TOP, -127);
-	motorSet(MOTOR_ARM_LEFT_BOTTOM, 127);
+	motorSet(MOTOR_ARM_RIGHT_BOTTOM, -MAX_SPEED); // arm up
+	motorSet(MOTOR_ARM_RIGHT_TOP, MAX_SPEED);
+	motorSet(MOTOR_ARM_LEFT_TOP, -MAX_SPEED);
+	motorSet(MOTOR_ARM_LEFT_BOTTOM, MAX_SPEED);
 }
 
 void armDownDead() {
 
-	motorSet(MOTOR_ARM_RIGHT_BOTTOM, 127); // arm Down
-	motorSet(MOTOR_ARM_RIGHT_TOP, -127);
-	motorSet(MOTOR_ARM_LEFT_TOP, 127);
-	motorSet(MOTOR_ARM_LEFT_BOTTOM, -127);
+	motorSet(MOTOR_ARM_RIGHT_BOTTOM, MAX_SPEED); // arm Down
+	motorSet(MOTOR_ARM_RIGHT_TOP, -MAX_SPEED);
+	motorSet(MOTOR_ARM_LEFT_TOP, MAX_SPEED);
+	motorSet(MOTOR_ARM_LEFT_BOTTOM, -MAX_SPEED);
 }
 
 void armUpTrim() {
@@ -540,8 +542,8 @@ void stopArm() // trim
 
 void intake(int x) {
 
-	motorSet(MOTOR_INTAKE_RIGHT, 127); // arm rightLine
-	motorSet(MOTOR_INTAKE_LEFT, -127); // arm leftLine
+	motorSet(MOTOR_INTAKE_RIGHT, MAX_SPEED); // arm rightLine
+	motorSet(MOTOR_INTAKE_LEFT, -MAX_SPEED); // arm leftLine
 
 	delay(x);
 
@@ -552,8 +554,8 @@ void intake(int x) {
 
 void outtake(int x) {
 
-	motorSet(MOTOR_INTAKE_RIGHT, -127); // arm rightLine
-	motorSet(MOTOR_INTAKE_LEFT, 127); // arm leftLine
+	motorSet(MOTOR_INTAKE_RIGHT, -MAX_SPEED); // arm rightLine
+	motorSet(MOTOR_INTAKE_LEFT, MAX_SPEED); // arm leftLine
 
 	delay(x);
 
@@ -564,15 +566,15 @@ void outtake(int x) {
 
 void intakeDead() {
 
-	motorSet(MOTOR_INTAKE_RIGHT, 127); // arm right
-	motorSet(MOTOR_INTAKE_LEFT, -127); // arm left
+	motorSet(MOTOR_INTAKE_RIGHT, MAX_SPEED); // arm right
+	motorSet(MOTOR_INTAKE_LEFT, -MAX_SPEED); // arm left
 
 }
 
 void outtakeDead() {
 
-	motorSet(MOTOR_INTAKE_RIGHT, -127); // arm right
-	motorSet(MOTOR_INTAKE_LEFT, +127); // arm left
+	motorSet(MOTOR_INTAKE_RIGHT, -MAX_SPEED); // arm right
+	motorSet(MOTOR_INTAKE_LEFT, +MAX_SPEED); // arm left
 
 }
 

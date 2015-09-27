@@ -2,23 +2,23 @@
 <section name="Workbench">
 	<item value="Default C source template" key="LastUsedSourceTemplate"/>
 	<item value="Default C header template" key="LastUsedHeaderTemplate"/>
-	<section name="RefactoringWizard.preview">
-		<item value="600" key="width"/>
-		<item value="400" key="height"/>
+	<section name="completion_proposal_size">
 	</section>
-	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	<section name="RefactoringWizard.preview">
+		<item value="400" key="height"/>
+		<item value="600" key="width"/>
 	</section>
 	<section name="RenameInformationPopup">
 	</section>
 	<section name="CRenameRefactoringInputPage">
 		<item value="false" key="preprocessor"/>
-		<item value="3" key="scope"/>
-		<item value="false" key="comment"/>
-		<item value="" key="workingset"/>
-		<item value="false" key="references_inv"/>
 		<item value="false" key="exhausiveFileSearch"/>
 		<item value="false" key="macroDefinition"/>
+		<item value="3" key="scope"/>
+		<item value="false" key="comment"/>
+		<item value="false" key="references_inv"/>
+		<item value="" key="workingset"/>
 	</section>
-	<section name="completion_proposal_size">
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>
 </section>
