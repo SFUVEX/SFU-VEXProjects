@@ -33,7 +33,7 @@
  */
 
 #include "main.h"
-
+#include <stdbool.h>
 /*
  * Runs pre-initialization code. This function will be started in kernel mode one time while the
  * VEX Cortex is starting up. As the scheduler is still paused, most API functions will fail.
@@ -50,7 +50,7 @@ void initializeIO()
 }
 
 
-//Initialize ALL OF THE SENSORS
+//Reserve Memory for ALL OF THE SENSORS
 Encoder encoder1; //Digital 1, 2
 Encoder encoder2; //Digital 3, 4
 Encoder encoder3; //Digital 5, 6
@@ -84,7 +84,8 @@ void initialize()
 	sonar = ultrasonicInit(7, 8);
 
 	//IME Initialization
-	int counts = imeInitializeAll(); //initialise ime
+	imeInitializeAll(); //initialise ime
+
 
 	//int encoder = encoderInit (1, 2, 0) ;
 }

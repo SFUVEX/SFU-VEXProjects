@@ -147,10 +147,10 @@ void rushRed()
 
 // variables
 	//TODO can these become constants, or do they  vary be strategy?
-	int armMin = 300;
-	int wallHeight = 1000;
+//	int armMin = 300;
+//	int wallHeight = 1000;
 	int goalHeight = 1700;
-	int pot = analogRead(8);
+//	int pot = analogRead(8);
 	int midLine = analogRead(2);
 
 	int encoder1 = 1875; //drive under wall
@@ -206,10 +206,10 @@ void rushBlue()
 {
 
 	// variables
-	int armMin = 300;
-	int wallHeight = 1000;
+	//int armMin = 300;
+	//int wallHeight = 1000;
 	int goalHeight = 1700;
-	int pot = analogRead(8);
+	//int pot = analogRead(8);
 	int midLine = analogRead(2);
 
 	int encoder1 = 1800; //drive under wall
@@ -268,15 +268,15 @@ void classic15Red()
 	int armMin = 300;
 	int wallHeight = 1000;
 	int goalHeight = 1700;
-	int dead1 = 1200;
-	int dead2 = 2000;
-	int dead3 = 3000;
-	int pot = analogRead(8);
+//	int dead1 = 1200;
+//	int dead2 = 2000;
+//	int dead3 = 3000;
+//	int pot = analogRead(8);
 
 	//encoder values
 	int encoder1 = 900; //drive to goal
 	int encoder2 = 325; //keep going towards goal
-	int encoder3 = 0; //drive slow, adjust to 90 degrees
+	//int encoder3 = 0; //drive slow, adjust to 90 degrees
 	int encoder4 = 325; //back up
 	int encoder5 = 1300; //back up across the barrier again
 	int encoder6 = 80; // turn towards center large ball
@@ -287,8 +287,8 @@ void classic15Red()
 	int encoder11 = 300; // drive back to square
 	int encoder12 = 270; // turn to barf
 	int encoder13 = 700; // drive to barf + pickup
-	int encoder14 = 400;
-	int encoder15 = 700;
+//	int encoder14 = 400;
+	//int encoder15 = 700;
 
 	// begin routine
 
@@ -360,15 +360,15 @@ void classic15Blue()
 	int armMin = 290;
 	int wallHeight = 1000;
 	int goalHeight = 1700;
-	int dead1 = 1200;
-	int dead2 = 2000;
-	int dead3 = 3000;
-	int pot = analogRead(8);
+	//int dead1 = 1200;
+	//int dead2 = 2000;
+	//int dead3 = 3000;
+	//int pot = analogRead(8);
 
 	//encoder values
 	int encoder1 = 900; //drive to goal
 	int encoder2 = 325; //keep going towards goal
-	int encoder3 = 0; //drive slow, adjust to 90 degrees
+	//int encoder3 = 0; //drive slow, adjust to 90 degrees
 	int encoder4 = 325; //back up
 	int encoder5 = 1350; //back up across the barrier again
 	int encoder6 = 80; // turn towards center large ball
@@ -379,8 +379,8 @@ void classic15Blue()
 	int encoder11 = 300; // drive back to square
 	int encoder12 = 290; // turn to barf
 	int encoder13 = 800; // drive to barf + pickup
-	int encoder14 = 400;
-	int encoder15 = 700;
+	//int encoder14 = 400;
+	//int encoder15 = 700;
 
 	// begin routine
 
@@ -450,10 +450,10 @@ void classic15Blue()
 void rejectionRed()
 {
 	// variables
-	int armMin = 300;
+	//int armMin = 300;
 	int wallHeight = 1000;
 	int goalHeight = 1700;
-	int pot = analogRead(8);
+	//int pot = analogRead(8);
 	int midLine = analogRead(2);
 
 	int encoder1 = 1875; //drive under wall
@@ -523,10 +523,10 @@ void rejectionBlue()
 {
 
 	// variables
-	int armMin = 300;
+	//int armMin = 300;
 	int wallHeight = 1000;
 	int goalHeight = 1700;
-	int pot = analogRead(8);
+	//int pot = analogRead(8);
 	int midLine = analogRead(2);
 
 	int encoder1 = 1800; //drive under wall
@@ -611,22 +611,22 @@ void kakitRed()
 
 // variables
 	int armMin = 300;
-	int wallHeight = 1000;
+	//int wallHeight = 1000;
 	int goalHeight = 1650;
 
-	int pot = analogRead(8);
+	//int pot = analogRead(8);
 
 	int encoder00 = 250; // back up abit to row
 	int encoder0 = 950; // turn 360 degrees, knock off buckys, face line
 	int encoder1 = 162; // rotate towards 2 buckys
-	int encoder2 = 150; // drive towards buckys
+	//int encoder2 = 150; // drive towards buckys
 	int encoder3 = 400; // back up to bump
 	int encoder4 = 200; // back up towards bridge
 	int encoder5 = 360; // rotate 180 degrees to the large ball
 	int encoder6 = 900; // go under bridge and knock out large ball
 	int encoder7 = 90; // turn to goal
-	int encoder8 = 200; // drive to goal
-	int encoder9 = 75;
+	//int encoder8 = 200; // drive to goal
+	//int encoder9 = 75;
 
 	// begin routine
 	intake(300);
@@ -712,10 +712,10 @@ void rejectionBlueSkills()
 {
 
 	// variables
-	int armMin = 300;
+	//int armMin = 300;
 	int wallHeight = 1000;
 	int goalHeight = 1700;
-	int pot = analogRead(8);
+	//int pot = analogRead(8);
 	int midLine = analogRead(2);
 
 	int encoder1 = 1800; //drive under wall

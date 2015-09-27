@@ -6,7 +6,9 @@
  */
 
 #include <math.h>
-
+#ifndef M_PI
+#define M_PI 3.14159624
+#endif
 /**
  *
  */
@@ -48,11 +50,11 @@ CubicSpline cubicInterpolate(
    )
 {
 	CubicSpline s;
-   double a0,a1,a2,a3;
+
 
 
    s.a0 = y3 - y2 - y0 + y1;
-   s.a1 = y0 - y1 - a0;
+   s.a1 = y0 - y1 - s.a0;
    s.a2 = y2 - y0;
    s.a3 = y1;
 
